@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform</title>
+    <meta name="description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis. Get ranked with SEOAISuperHero - the all-in-one SEO platform.">
+    <meta name="keywords" content="SEO audit, SEO tools, AI SEO, keyword research, competitor analysis, technical SEO, rank tracking">
+    <meta property="og:title" content="SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform">
+    <meta property="og:description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis. Get ranked with SEOAISuperHero.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seoaisuperhero.com">
+    <meta property="og:image" content="https://seoaisuperhero.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform">
+    <meta name="twitter:description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis.">
+    <meta name="twitter:image" content="https://seoaisuperhero.com/twitter-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SEOAISuperHero",
+      "description": "AI-powered SEO audit and optimization platform",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://seoaisuperhero.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2026-12-31"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1000"
+      }
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVV7C7Y5YY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RVV7C7Y5YY');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-blue: #2563eb;
+            --brand-violet: #7c3aed;
+            --brand-amber: #fbbf24;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-border: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #e2e8f0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+
+        .gradient-brand {
+            background: linear-gradient(135deg, var(--brand-violet) 0%, var(--brand-blue) 100%);
+        }
+
+        .gradient-accent {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-amber) 100%);
+        }
+
+        .card-dark {
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-violet) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(123, 58, 237, 0.3);
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--brand-blue);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-blue);
+        }
+
+        .stat-number {
+            background: linear-gradient(135deg, var(--brand-violet) 0%, var(--brand-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonial-card {
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2C3KN7T"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-opacity-95 backdrop-blur-md border-b border-opacity-10" style="background-color: rgba(15, 23, 42, 0.95); border-color: #334155;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="#" class="text-2xl font-bold gradient-brand bg-clip-text text-transparent">
+                        SEOAISuperHero
+                    </a>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#how-it-works" class="nav-link">How It Works</a>
+                        <a href="#pricing" class="nav-link">Pricing</a>
+                        <a href="#faq" class="nav-link">FAQ</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="https://buy.stripe.com/seoaisuperhero" class="btn-primary">Start Free Trial</a>
+                </div>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu pb-4 hidden md:hidden">
+                <a href="#features" class="block nav-link py-2">Features</a>
+                <a href="#how-it-works" class="block nav-link py-2">How It Works</a>
+                <a href="#pricing" class="block nav-link py-2">Pricing</a>
+                <a href="#faq" class="block nav-link py-2">FAQ</a>
+                <a href="https://buy.stripe.com/seoaisuperhero" class="block btn-primary mt-4 text-center">Start Free Trial</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    AI-Powered SEO That <span class="gradient-brand bg-clip-text text-transparent">Actually Ranks</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+                    Get instant site audits, AI-powered keyword intelligence, competitor analysis, and content optimization all in one platform. Ranked #1 by marketers.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://buy.stripe.com/seoaisuperhero" class="btn-primary text-lg px-8 py-4">
+                        Start 14-Day Free Trial
+                    </a>
+                    <a href="#features" class="px-8 py-4 border border-gray-600 rounded-lg text-white hover:border-blue-500 transition text-lg">
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-500/10 to-violet-500/10 border-y border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="text-4xl font-bold stat-number mb-2">500+</p>
+                    <p class="text-gray-400">Sites Optimized</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold stat-number mb-2">10,000+</p>
+                    <p class="text-gray-400">Keywords Tracked</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold stat-number mb-2">95%</p>
+                    <p class="text-gray-400">Avg Audit Score Improvement</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold stat-number mb-2">3x</p>
+                    <p class="text-gray-400">Avg Traffic Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">Powerful Features Built for Results</h2>
+            <p class="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
+                Everything you need to dominate search rankings and drive qualified traffic to your site.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">🔍</div>
+                    <h3 class="text-2xl font-bold mb-4">Instant Site Audit</h3>
+                    <p class="text-gray-400 mb-4">
+                        Crawl your entire website in minutes. Identify technical issues, broken links, duplicate content, and get prioritized fixes.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Full site crawl analysis</li>
+                        <li>✓ Prioritized issue list</li>
+                        <li>✓ Actionable recommendations</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">💡</div>
+                    <h3 class="text-2xl font-bold mb-4">Keyword Intelligence</h3>
+                    <p class="text-gray-400 mb-4">
+                        AI-powered keyword research with search intent mapping, volume data, and opportunity scoring. Find keywords you can actually rank for.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Search intent mapping</li>
+                        <li>✓ Difficulty scoring</li>
+                        <li>✓ Opportunity identification</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">Competitor Analysis</h3>
+                    <p class="text-gray-400 mb-4">
+                        Track competitor rankings, backlink profiles, and content gaps. Stay ahead with competitive intelligence that actually drives action.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Ranking tracking</li>
+                        <li>✓ Backlink analysis</li>
+                        <li>✓ Content gap finder</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">✍️</div>
+                    <h3 class="text-2xl font-bold mb-4">Content Optimizer</h3>
+                    <p class="text-gray-400 mb-4">
+                        AI-powered writing assistant with on-page SEO scoring and readability analysis. Optimize existing content or create new high-performing pieces.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ On-page scoring</li>
+                        <li>✓ Writing assistance</li>
+                        <li>✓ Readability analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">⚙️</div>
+                    <h3 class="text-2xl font-bold mb-4">Technical SEO</h3>
+                    <p class="text-gray-400 mb-4">
+                        Monitor Core Web Vitals, auto-generate schema markup, optimize your sitemap, and fix technical issues that impact rankings.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Core Web Vitals monitoring</li>
+                        <li>✓ Schema generator</li>
+                        <li>✓ Sitemap optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="card-dark p-8 rounded-lg feature-card">
+                    <div class="mb-4 text-4xl">📊</div>
+                    <h3 class="text-2xl font-bold mb-4">Rank Tracking</h3>
+                    <p class="text-gray-400 mb-4">
+                        Daily position monitoring, SERP feature tracking, and local SEO insights. Track what matters and celebrate your wins.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>✓ Daily tracking updates</li>
+                        <li>✓ SERP features</li>
+                        <li>✓ Local SEO tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-500/5 to-violet-500/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">How It Works</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full gradient-brand flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">1</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Connect</h3>
+                    <p class="text-gray-400 mb-4">
+                        Add your website and verify ownership. Takes just 2 minutes with no coding required.
+                    </p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center">
+                    <div class="text-3xl text-gray-600">→</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full gradient-brand flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">2</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Analyze</h3>
+                    <p class="text-gray-400 mb-4">
+                        Our AI crawls your site and analyzes everything. Get a comprehensive report in minutes.
+                    </p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="hidden md:flex items-center justify-center">
+                    <div class="text-3xl text-gray-600">→</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full gradient-brand flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-bold text-white">3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Optimize</h3>
+                    <p class="text-gray-400 mb-4">
+                        Follow our prioritized recommendations to improve rankings and drive qualified traffic.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://buy.stripe.com/seoaisuperhero" class="btn-primary text-lg px-8 py-4">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">Simple, Transparent Pricing</h2>
+            <p class="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
+                One plan with all the tools you need. No hidden fees. Cancel anytime.
+            </p>
+
+            <div class="max-w-2xl mx-auto card-dark rounded-lg p-8">
+                <div class="mb-8">
+                    <h3 class="text-3xl font-bold mb-2">Professional Plan</h3>
+                    <p class="text-gray-400">Everything you need to dominate search rankings</p>
+                </div>
+
+                <div class="mb-8">
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-5xl font-bold">$19.99</span>
+                        <span class="text-gray-400">/month</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">First 14 days free. Then $19.99/month billed monthly.</p>
+                    <a href="https://buy.stripe.com/seoaisuperhero" class="btn-primary w-full text-center text-lg py-4">
+                        Start Free Trial
+                    </a>
+                </div>
+
+                <div class="border-t border-gray-700 pt-8">
+                    <h4 class="font-bold mb-6">Includes everything:</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Unlimited site audits with full crawl analysis</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>AI-powered keyword research with search intent mapping</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Unlimited competitor tracking across 5 competitors</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>AI content optimizer with on-page scoring</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Technical SEO monitoring and schema generator</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Daily rank tracking for unlimited keywords</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Priority email support</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Monthly SEO strategy report</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-blue-400 mt-1">✓</span>
+                            <span>Access to SEO training library</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-500/5 to-violet-500/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Loved by Marketing Teams</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "SEOAISuperHero helped us identify 200+ optimization opportunities in our site. We implemented 60% of the recommendations and saw our organic traffic increase by 340% in 6 months."
+                    </p>
+                    <div>
+                        <p class="font-bold">Sarah Chen</p>
+                        <p class="text-gray-400 text-sm">Marketing Director, TechScale Inc</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "The competitor analysis feature is a game-changer. We discovered content gaps that turned into 5 of our top-performing pages. Best $20/month we spend on marketing tools."
+                    </p>
+                    <div>
+                        <p class="font-bold">Michael Rodriguez</p>
+                        <p class="text-gray-400 text-sm">SEO Manager, Creative Agency Co</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        "Implementing the technical SEO recommendations fixed our Core Web Vitals. Our pages now load 2.3s faster and we've moved up 15 positions for competitive keywords."
+                    </p>
+                    <div>
+                        <p class="font-bold">Jessica Wu</p>
+                        <p class="text-gray-400 text-sm">VP Growth, E-Commerce Platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        How long does a full site audit take?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Most audits complete in 5-15 minutes depending on your site size. We'll analyze every page and send you a detailed report with prioritized recommendations.
+                    </p>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        Can I track multiple websites?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Yes! Our Professional Plan supports unlimited websites. Whether you're managing multiple client sites or tracking your own portfolio, we've got you covered.
+                    </p>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        What's included in the free trial?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        You get full access to all features for 14 days at no cost. No credit card required to start. After 14 days, your subscription will begin at $19.99/month.
+                    </p>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        How often are rankings updated?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        We update your rank data daily. You'll see your positions, SERP features, and local search results refreshed automatically each morning.
+                    </p>
+                </details>
+
+                <!-- FAQ 5 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        Can I export reports?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Absolutely. Export audit reports, rank tracking data, and competitor analysis as PDF or CSV. Perfect for sharing with stakeholders or keeping records.
+                    </p>
+                </details>
+
+                <!-- FAQ 6 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        How is my data secured?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        We use enterprise-grade encryption for all data in transit and at rest. Your account data is backed up daily and we comply with GDPR and CCPA regulations.
+                    </p>
+                </details>
+
+                <!-- FAQ 7 -->
+                <details class="card-dark p-6 rounded-lg cursor-pointer group">
+                    <summary class="flex justify-between items-center font-bold text-lg hover:text-blue-400">
+                        What if I need help getting started?
+                        <span class="transform group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4">
+                        Our support team is here to help. You get priority email support, access to video tutorials, and a complete SEO training library to level up your skills.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-500/10 to-violet-500/10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Dominate Search Rankings?</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                Join 500+ companies already using SEOAISuperHero to grow their organic traffic. Start your free trial today.
+            </p>
+            <a href="https://buy.stripe.com/seoaisuperhero" class="btn-primary text-lg px-12 py-4">
+                Start Your 14-Day Free Trial
+            </a>
+            <p class="text-gray-500 text-sm mt-4">No credit card required. Cancel anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4 gradient-brand bg-clip-text text-transparent">
+                        SEOAISuperHero
+                    </h3>
+                    <p class="text-gray-400 text-sm">
+                        AI-powered SEO audit and optimization platform by TheAISuperHeroes.
+                    </p>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="font-bold mb-4">Products</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://resumesuperhero.com" class="hover:text-blue-400 transition">Resume SuperHero</a></li>
+                        <li><a href="https://theaisuperheroes.com" class="hover:text-blue-400 transition">TheAISuperHeroes</a></li>
+                        <li><a href="https://seoaisuperhero.com" class="hover:text-blue-400 transition">SEOAISuperHero</a></li>
+                        <li><a href="https://shopifysuperhero.com" class="hover:text-blue-400 transition">ShopifySuperHero</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-blue-400 transition">How It Works</a></li>
+                        <li><a href="#faq" class="hover:text-blue-400 transition">FAQ</a></li>
+                        <li><a href="mailto:partners@theaisuperheroes.com" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="privacy.html" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                        <li><a href="cookies.html" class="hover:text-blue-400 transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <p class="text-sm text-gray-400">
+                        <a href="mailto:partners@theaisuperheroes.com" class="hover:text-blue-400 transition">partners@theaisuperheroes.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2026 TheAISuperHeroes. SEOAISuperHero is a TheAISuperHeroes company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
