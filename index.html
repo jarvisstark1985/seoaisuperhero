@@ -4,957 +4,266 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform</title>
-    <meta name="description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis. Get ranked with SEOAISuperHero - the all-in-one SEO platform.">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform">
-    <meta property="og:description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis. Get ranked with SEOAISuperHero - the all-in-one SEO platform.">
-    <meta property="og:url" content="https://seoaisuperhero.com">
-    <meta property="og:site_name" content="SEOAISuperHero">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform">
-    <meta name="twitter:description" content="Instant AI-powered SEO audits, keyword intelligence, and competitor analysis. Get ranked with SEOAISuperHero - the all-in-one SEO platform.">
-
-    <!-- JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "SEOAISuperHero",
-        "description": "AI-powered SEO audit and optimization platform",
-        "url": "https://seoaisuperhero.com",
-        "applicationCategory": "BusinessApplication",
-        "offers": {
-            "@type": "Offer",
-            "price": "19.99",
-            "priceCurrency": "USD",
-            "eligibleQuantity": {
-                "@type": "PriceSpecification",
-                "priceCurrency": "USD",
-                "price": "19.99",
-                "billingIncrement": "P1M"
-            }
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "1200"
-        }
-    }
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVV7C7Y5YY"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-RVV7C7Y5YY');
-    </script>
-
+    <meta name="description" content="Dominate search rankings with AI-powered SEO audits, keyword intelligence, and competitor analysis. Starting at $19.99/month.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;600&display=swap" rel="stylesheet">
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P2C3KN7T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GTM-P2C3KN7T');
+        gtag('config', 'G-RVV7C7Y5YY');
+    </script>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #0a0e1a;
-            color: #e2e8f0;
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
         }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
         }
-
+        body {
+            background-color: #0f172a;
+            color: rgb(226, 232, 240);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+        }
+        .hero-glow {
+            background:
+                radial-gradient(ellipse at 60% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 60%);
+        }
         .gradient-text {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .gradient-to-blue {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .btn-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
-
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
         }
-
         .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #6ee7b7;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(16, 185, 129, 0.25);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
+        }
+        .nav-border {
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .pill-badge {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 50px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid #1e293b;
-            cursor: pointer;
+            padding: 8px 16px;
             font-size: 14px;
         }
-
-        .btn-secondary:hover {
-            border-color: #6366f1;
-            transform: translateY(-2px);
+        .green-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
         }
-
-        .card {
-            background-color: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
-        }
-
-        .feature-card {
-            background-color: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 32px 24px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: #6366f1;
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
-        }
-
-        .icon-circle {
+        .gradient-icon {
             width: 56px;
             height: 56px;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             border-radius: 12px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px;
         }
-
-        .icon-circle svg {
-            width: 28px;
-            height: 28px;
-            stroke: white;
-            stroke-width: 2;
-            fill: none;
+        .progress-bar {
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 8px;
+            height: 8px;
+            overflow: hidden;
         }
-
-        .checkmark {
-            width: 20px;
-            height: 20px;
-            display: inline-block;
-            margin-right: 8px;
+        .progress-fill {
+            background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+            height: 100%;
+            border-radius: 8px;
         }
-
-        .checkmark svg {
-            width: 20px;
-            height: 20px;
-            stroke: #10b981;
-            stroke-width: 2;
-            fill: none;
+        .accordion-item {
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
         }
-
-        nav {
-            background-color: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #1e293b;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px 24px;
+        .accordion-button {
+            cursor: pointer;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .logo-hero {
-            color: white;
-        }
-
-        .logo-hero-italic {
-            font-style: italic;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #6366f1;
-        }
-
-        .nav-cta {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
+            width: 100%;
+            background: transparent;
             border: none;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background-color: #cbd5e1;
-            border-radius: 2px;
+            color: rgb(226, 232, 240);
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
             transition: all 0.3s ease;
         }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(10px, 10px);
+        .accordion-button:hover {
+            color: #60a5fa;
         }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            color: white;
-        }
-
-        .hero-content .hero-subtext {
-            font-size: 18px;
-            color: #cbd5e1;
-            margin-bottom: 32px;
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: rgba(226, 232, 240, 0.7);
+            font-size: 14px;
             line-height: 1.6;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 48px;
+        .accordion-content.open {
+            max-height: 500px;
+            padding-bottom: 16px;
         }
-
-        .social-proof {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .avatar-group {
-            display: flex;
-            margin-left: -8px;
-        }
-
-        .avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 2px solid #111827;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 12px;
-            color: white;
-        }
-
-        .proof-text {
-            font-size: 13px;
-            color: #cbd5e1;
-        }
-
-        .proof-rating {
-            display: flex;
-            gap: 4px;
+        .star {
+            display: inline-block;
             color: #fbbf24;
-            font-size: 12px;
-        }
-
-        .dashboard-card {
-            background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
-            border: 1px solid #1e293b;
-            border-radius: 16px;
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dashboard-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
-            pointer-events: none;
-        }
-
-        .dashboard-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .dashboard-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            color: #cbd5e1;
-        }
-
-        .score-badge {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 12px;
-        }
-
-        .metric {
-            margin-bottom: 20px;
-        }
-
-        .metric-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .metric-label-text {
-            color: #cbd5e1;
-            font-weight: 500;
-        }
-
-        .metric-value {
-            color: #6366f1;
-            font-weight: 700;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background-color: #1e293b;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
-            border-radius: 3px;
-            transition: width 0.6s ease;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: rgba(99, 102, 241, 0.1);
-            border: 1px solid #6366f1;
-            color: #a5b4fc;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            text-align: center;
-            margin-bottom: 16px;
-            color: white;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            text-align: center;
-            color: #cbd5e1;
-            margin-bottom: 56px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-bottom: 32px;
-        }
-
-        .how-it-works-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-        }
-
-        .step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-        }
-
-        .step h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: white;
-        }
-
-        .step p {
-            font-size: 14px;
-            color: #cbd5e1;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .testimonial-card {
-            background-color: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .testimonial-rating {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
-            color: #fbbf24;
-        }
-
-        .testimonial-text {
-            color: #cbd5e1;
-            margin-bottom: 16px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .testimonial-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 14px;
-        }
-
-        .testimonial-info h4 {
-            color: white;
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-
-        .testimonial-info p {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        .pricing-card {
-            background-color: #111827;
-            border: 2px solid #6366f1;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .pricing-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .pricing-amount {
-            font-size: 48px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .pricing-amount span {
-            font-size: 20px;
-            color: #cbd5e1;
-        }
-
-        .pricing-period {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .pricing-features li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            color: #cbd5e1;
-            font-size: 14px;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .perk-highlight {
-            background-color: rgba(16, 185, 129, 0.1);
-            border: 1px solid #10b981;
-            color: #6ee7b7;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .faq-section {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background-color: #111827;
-            border: 1px solid #1e293b;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .faq-item details {
-            cursor: pointer;
-        }
-
-        .faq-item summary {
-            padding: 20px 24px;
-            font-weight: 600;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .faq-item summary:hover {
-            background-color: #1e293b;
-        }
-
-        .faq-item details[open] summary {
-            color: #6366f1;
-        }
-
-        .faq-content {
-            padding: 0 24px 20px;
-            color: #cbd5e1;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .chevron {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        .faq-item details[open] .chevron {
-            transform: rotate(180deg);
-        }
-
-        .final-cta {
-            text-align: center;
-            padding: 80px 24px;
-        }
-
-        .final-cta h2 {
-            font-size: 36px;
-            color: white;
-            margin-bottom: 24px;
-        }
-
-        footer {
-            background-color: #111827;
-            border-top: 1px solid #1e293b;
-            padding: 60px 24px 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-column ul li a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: #6366f1;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 20px;
-            text-align: center;
-            color: #64748b;
-            font-size: 13px;
-        }
-
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 60px 24px;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .how-it-works-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero {
-                padding: 40px 24px;
-            }
-
-            .hero-content h1 {
-                font-size: 32px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .section {
-                padding: 60px 24px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
+            margin-right: 2px;
         }
     </style>
 </head>
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2C3KN7T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
+<body class="bg-slate-950">
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="gradient-text" style="width: 24px; height: 24px;">
-                    <line x1="13" y1="2" x2="13" y2="22"></line>
-                    <path d="M18 17v-5a4 4 0 0 0-4-4h-2a4 4 0 0 0-4 4v5"></path>
-                    <line x1="6" y1="2" x2="18" y2="2"></line>
-                </svg>
-                <span class="logo-hero">SEOAISuper<span class="logo-hero-italic">Hero</span></span>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-
-            <div class="nav-cta">
-                <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-secondary">Log in</a>
-                <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary">Get Started</a>
+    <nav class="nav-border backdrop-blur-lg bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span class="font-semibold text-lg">SEOAI<span class="italic">SuperHero</span></span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" class="hover:text-blue-400 transition">Features</a>
+                    <a href="#how-it-works" class="hover:text-blue-400 transition">How It Works</a>
+                    <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
+                    <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
+                    <a href="#faq" class="hover:text-blue-400 transition">FAQ</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="hover:text-blue-400 transition">Log in</a>
+                    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-6 py-2 text-sm font-semibold text-white">Get Started</a>
+                </div>
             </div>
-
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="status-pill">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="stroke-width: 2;">
-                    <line x1="13" y1="2" x2="13" y2="22"></line>
-                    <path d="M18 17v-5a4 4 0 0 0-4-4h-2a4 4 0 0 0-4 4v5"></path>
-                </svg>
-                AI-Powered SEO Platform · $19.99/mo
+    <section class="hero-gradient hero-glow relative overflow-hidden py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="pill-badge mb-8">
+                        <span class="green-dot"></span>
+                        <span>AI-Powered SEO Platform · $19.99/mo</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Dominate Search Rankings with <span class="gradient-text">AI-Powered Audits</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                        Comprehensive SEO analysis, competitor insights, and AI-driven optimization recommendations. Get your site ranking #1 in weeks, not months.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-8 py-3 text-white font-semibold text-center">
+                            Get Started for $19.99/mo →
+                        </a>
+                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-secondary px-8 py-3 font-semibold text-center">
+                            + 1 Month Free Replit
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="card p-8">
+                        <div class="text-center mb-8">
+                            <div class="text-5xl font-bold gradient-text mb-2">89/100</div>
+                            <p class="text-sm text-slate-400">SEO Audit Score</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Technical SEO</span>
+                                    <span class="text-sm font-bold text-blue-400">92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">On-Page SEO</span>
+                                    <span class="text-sm font-bold text-purple-400">88%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Content Quality</span>
+                                    <span class="text-sm font-bold text-yellow-400">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Mobile Optimization</span>
+                                    <span class="text-sm font-bold text-green-400">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <h1>Dominate Search Rankings with <span class="gradient-text">AI-Powered Audits</span></h1>
-
-            <p class="hero-subtext">
-                Instant AI-driven SEO audits, comprehensive keyword intelligence, and real-time competitor analysis. Everything you need to rank higher and drive organic traffic.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary">
-                    Get Started for $19.99/mo →
-                </a>
-                <a href="#features" class="btn-secondary">Learn More</a>
-            </div>
-
-            <div class="social-proof">
-                <div class="avatar-group">
-                    <div class="avatar">JD</div>
-                    <div class="avatar">SK</div>
-                    <div class="avatar">MP</div>
+            <!-- Social Proof -->
+            <div class="mt-16 pt-16 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-center gap-6">
+                <div class="flex -space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">A</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">B</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">C</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-red-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">D</div>
                 </div>
                 <div>
-                    <div class="proof-text"><strong>1,200+</strong> satisfied users</div>
-                    <div class="proof-rating">
-                        ★★★★★ 4.9/5
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dashboard-card">
-            <div class="dashboard-content">
-                <div class="dashboard-header">
-                    <div class="dashboard-title">SEO Audit Score</div>
-                    <div class="score-badge">89/100</div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-label">
-                        <span class="metric-label-text">Technical SEO</span>
-                        <span class="metric-value">92%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 92%"></div>
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-label">
-                        <span class="metric-label-text">On-Page SEO</span>
-                        <span class="metric-value">88%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 88%"></div>
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-label">
-                        <span class="metric-label-text">Content Quality</span>
-                        <span class="metric-value">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-label">
-                        <span class="metric-label-text">Mobile Optimization</span>
-                        <span class="metric-value">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <p class="text-slate-300 font-medium">1,200+ satisfied users</p>
+                    <div class="flex gap-1 mt-1">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="text-sm text-slate-400 ml-2">4.9/5 stars</span>
                     </div>
                 </div>
             </div>
@@ -962,449 +271,374 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section">
-        <h2 class="section-title">Powerful Features for SEO Success</h2>
-        <p class="section-subtitle">Everything you need to audit, optimize, and rank higher on Google</p>
-
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-                    </svg>
-                </div>
-                <h3 style="color: white; margin-bottom: 12px;">Instant Site Audit</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">Get comprehensive SEO audits in minutes. Identify issues and fix them fast with AI-powered recommendations.</p>
+    <section id="features" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful SEO Tools</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Everything you need to dominate search rankings</p>
             </div>
-
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"></path>
-                    </svg>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Instant Site Audits</h3>
+                    <p class="text-slate-400">AI analyzes your entire website in seconds, identifying critical issues and optimization opportunities</p>
                 </div>
-                <h3 style="color: white; margin-bottom: 12px;">Keyword Intelligence</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">Discover high-intent keywords with search volume, competition analysis, and ranking potential metrics.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
-                    </svg>
+                <!-- Feature 2 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Keyword Intelligence</h3>
+                    <p class="text-slate-400">Discover high-impact keywords with search volume, competition, and ranking difficulty data</p>
                 </div>
-                <h3 style="color: white; margin-bottom: 12px;">Competitor Analysis</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">Monitor competitors, analyze their strategies, and stay ahead with actionable intelligence.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path>
-                    </svg>
+                <!-- Feature 3 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Competitor Analysis</h3>
+                    <p class="text-slate-400">See what your competitors are doing right and find gaps you can exploit</p>
                 </div>
-                <h3 style="color: white; margin-bottom: 12px;">Content Optimizer</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">AI-powered content suggestions to improve readability, keyword coverage, and engagement.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-                    </svg>
+                <!-- Feature 4 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Rank Tracking</h3>
+                    <p class="text-slate-400">Monitor your keyword rankings 24/7 and track progress over time</p>
                 </div>
-                <h3 style="color: white; margin-bottom: 12px;">Technical SEO</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">Check site speed, mobile responsiveness, structured data, and fix technical issues automatically.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon-circle">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2V17zm4 0h-2V7h2V17zm4 0h-2v-4h2V17z"></path>
-                    </svg>
+                <!-- Feature 5 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.961 1.961 0 01-2.773 1.753l-6.005-3.422a1.961 1.961 0 01-1.227-1.753V7.882a1.961 1.961 0 012.773-1.753l6.005 3.422a1.96 1.96 0 011.227 1.753zM5 5v12m6.9-2.783V7.08a1.961 1.961 0 012.773-1.753l2.673 1.526a1.961 1.961 0 011.227 1.753v11.318a1.961 1.961 0 01-2.773 1.753l-2.673-1.526a1.961 1.961 0 01-1.227-1.753z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Content Optimization</h3>
+                    <p class="text-slate-400">AI-powered suggestions to improve readability, structure, and SEO value</p>
                 </div>
-                <h3 style="color: white; margin-bottom: 12px;">Rank Tracking</h3>
-                <p style="font-size: 14px; color: #cbd5e1;">Monitor keyword rankings daily across all major search engines and track progress over time.</p>
+                <!-- Feature 6 -->
+                <div class="card p-8">
+                    <div class="gradient-icon mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Technical SEO Scanner</h3>
+                    <p class="text-slate-400">Find and fix crawl errors, broken links, speed issues, and mobile problems</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="section">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-subtitle">Get started with SEOAISuperHero in three simple steps</p>
-
-        <div class="how-it-works-grid">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Connect</h3>
-                <p>Link your website and connect your Google Search Console and Analytics in minutes.</p>
+    <section id="how-it-works" class="py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Get started in three simple steps</p>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Analyze</h3>
-                <p>Our AI engine performs a comprehensive audit and analyzes your SEO performance instantly.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Optimize</h3>
-                <p>Follow AI-powered recommendations to fix issues and implement winning SEO strategies.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
-        <h2 class="section-title">Trusted by SEO Professionals</h2>
-        <p class="section-subtitle">See what our users are saying about SEOAISuperHero</p>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mb-3">Connect Your Website</h3>
+                    <p class="text-slate-400">Enter your domain and let our AI crawler analyze your entire site structure</p>
                 </div>
-                <p class="testimonial-text">
-                    "SEOAISuperHero found critical issues I missed for months. My organic traffic increased 45% in just 3 months!"
-                </p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">JD</div>
-                    <div class="testimonial-info">
-                        <h4>Jessica Davis</h4>
-                        <p>Digital Marketer</p>
-                    </div>
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mb-3">Get AI-Powered Insights</h3>
+                    <p class="text-slate-400">Receive a comprehensive audit with actionable recommendations prioritized by impact</p>
                 </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="testimonial-text">
-                    "The competitor analysis feature is incredible. Now I know exactly what my competitors are doing right."
-                </p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">SK</div>
-                    <div class="testimonial-info">
-                        <h4>Samantha King</h4>
-                        <p>Content Strategy Lead</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="testimonial-text">
-                    "Best $19.99 I spend monthly. The ROI from implementing the recommendations has been massive."
-                </p>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">MP</div>
-                    <div class="testimonial-info">
-                        <h4>Marcus Patterson</h4>
-                        <p>Agency Owner</p>
-                    </div>
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-blue-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mb-3">Implement & Track</h3>
+                    <p class="text-slate-400">Follow our guidance, implement changes, and watch your rankings climb</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="section">
-        <h2 class="section-title">Simple, Transparent Pricing</h2>
-        <p class="section-subtitle">One plan. All features. No hidden fees.</p>
-
-        <div class="pricing-card">
-            <div class="pricing-header">
-                <div class="pricing-name">Professional Plan</div>
-                <div class="pricing-amount">$19.99<span>/mo</span></div>
-                <div class="pricing-period">Billed monthly. Cancel anytime.</div>
+    <section id="pricing" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">One plan, unlimited potential</p>
             </div>
-
-            <div class="perk-highlight">
-                🎁 Subscribers get 1 free month of Replit!
+            <div class="max-w-3xl mx-auto">
+                <div class="card p-12">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-2">Professional SEO Audit</h3>
+                        <div class="flex items-center justify-center gap-2 mb-4">
+                            <span class="text-5xl font-bold">$19.99</span>
+                            <span class="text-slate-400">/month</span>
+                        </div>
+                        <p class="text-slate-400">Everything you need to dominate search</p>
+                    </div>
+                    <div class="border-t border-b border-slate-700 py-8 mb-8">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Unlimited website audits</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Keyword research and analysis</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Competitor benchmarking</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Daily rank tracking</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Content optimization recommendations</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Technical SEO analysis</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Monthly performance reports</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Email support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-8 py-3 text-white font-semibold text-center flex-1">
+                            Start Your 7-Day Test
+                        </a>
+                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-secondary px-8 py-3 font-semibold text-center">
+                            + 1 Month Free Replit
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <ul class="pricing-features">
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Unlimited website audits
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Keyword research & tracking
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Competitor analysis
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Content optimization AI
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Rank tracking (daily)
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Technical SEO checks
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Data export & reports
-                </li>
-                <li>
-                    <span class="checkmark">
-                        <svg viewBox="0 0 24 24">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    Email & chat support
-                </li>
-            </ul>
-
-            <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary" style="width: 100%; text-align: center; justify-content: center;">Subscribe Now</a>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Loved by SEO Professionals</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Real results from real users</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-slate-300 mb-6">"SEOAISuperHero transformed our SEO strategy. We ranked for 50 new keywords in just 3 months. The AI insights are incredibly accurate."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-600"></div>
+                        <div>
+                            <p class="font-semibold">Sarah Martinez</p>
+                            <p class="text-sm text-slate-400">Digital Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="card p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-slate-300 mb-6">"The competitor analysis feature alone is worth the investment. Finally understand what our competition is doing and why they rank."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-600"></div>
+                        <div>
+                            <p class="font-semibold">James Chen</p>
+                            <p class="text-sm text-slate-400">Content Director</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="card p-8">
+                    <div class="flex gap-1 mb-4">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="text-slate-300 mb-6">"Best SEO tool I've used. The AI recommendations are actionable and specific. Organic traffic is up 120% in 4 months."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600"></div>
+                        <div>
+                            <p class="font-semibold">Emily Thompson</p>
+                            <p class="text-sm text-slate-400">SEO Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know about SEOAISuperHero</p>
-
-        <div class="faq-section">
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        How quickly do I get results from an audit?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Our AI-powered audits complete in minutes, not hours. You'll get a comprehensive report with prioritized recommendations immediately after connecting your site. Most users start implementing improvements within the first hour.
-                    </div>
-                </details>
+    <section id="faq" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-slate-400">Everything you need to know</p>
             </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        Can I track multiple websites?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+            <div class="space-y-0 divide-y divide-slate-700">
+                <!-- FAQ 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>How long does it take to audit a website?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                         </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Yes! With your SEOAISuperHero subscription, you can connect and track unlimited websites. Perfect for agencies and businesses managing multiple properties. Each site gets its own dedicated dashboard and tracking data.
+                    </button>
+                    <div class="accordion-content">
+                        Our AI-powered crawler analyzes your entire website in seconds, regardless of size. You'll get your comprehensive audit report within minutes of connecting your domain.
                     </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        What's included in the subscription?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>Can I track unlimited websites?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                         </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Everything. The $19.99/mo plan includes unlimited audits, keyword research, rank tracking, competitor analysis, content optimization, technical SEO checks, data export, and priority support. No feature gatekeeping or hidden costs.
+                    </button>
+                    <div class="accordion-content">
+                        Yes! Your Professional plan includes unlimited website audits and tracking. Add as many domains as you need and monitor them all from one dashboard.
                     </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        How often are ranking updates provided?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>What if I'm not satisfied?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                         </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Rank tracking updates daily across Google, Bing, and other major search engines. You'll see real-time movement in your keyword rankings and historical trend data to spot patterns and opportunities.
+                    </button>
+                    <div class="accordion-content">
+                        We offer a 7-day test period so you can try SEOAISuperHero risk-free. If you're not satisfied, simply cancel before the trial ends and you won't be charged.
                     </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        Can I export my data?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>How often are rankings updated?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                         </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Absolutely. Export audits, keyword data, competitor reports, and rank tracking history in CSV or PDF format. Your data is yours, and we make it easy to download whenever you need it.
+                    </button>
+                    <div class="accordion-content">
+                        We track your keyword rankings daily, providing you with the most up-to-date data on your performance. Historical data is stored so you can see trends over time.
                     </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        Is my data secure?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-button" onclick="toggleAccordion(this)">
+                        <span>Do you offer API access?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                         </svg>
-                    </summary>
-                    <div class="faq-content">
-                        Yes. We use enterprise-grade SSL encryption, regular security audits, and comply with GDPR standards. Your website data and analytics are stored securely and never shared with third parties without permission.
+                    </button>
+                    <div class="accordion-content">
+                        API access is available for enterprise customers. Contact our support team to discuss custom integration options for your business needs.
                     </div>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        How do I get help if I have questions?
-                        <svg class="chevron" viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </summary>
-                    <div class="faq-content">
-                        We offer email support, live chat, and a comprehensive knowledge base for all subscribers. Our support team responds within 24 hours. We also provide video tutorials and onboarding guides to help you get the most from SEOAISuperHero.
-                    </div>
-                </details>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <h2>Ready to Dominate Search Rankings?</h2>
-        <p style="font-size: 18px; color: #cbd5e1; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Join 1,200+ users already improving their SEO with AI-powered insights. Start your subscription today.
-        </p>
-        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary" style="font-size: 16px; padding: 14px 32px;">
-            Get Started for $19.99/mo →
-        </a>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Brand</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+    <footer class="border-t border-slate-700 py-12 bg-slate-900 bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        <span class="font-semibold">SEOAI<span class="italic">SuperHero</span></span>
+                    </div>
+                    <p class="text-sm text-slate-400">AI-Powered SEO Audit & Optimization</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-blue-400 transition">Pricing</a></li>
+                        <li><a href="#faq" class="hover:text-blue-400 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-blue-400 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-blue-400 transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">GitHub</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="footer-column">
-                <h3>Products</h3>
-                <ul>
-                    <li><a href="https://resumesuperhero.com">ResumeSuperHero</a></li>
-                    <li><a href="https://shopifysuperhero.com">ShopifySuperHero</a></li>
-                    <li><a href="https://seoaisuperhero.com">SEOAISuperHero</a></li>
-                    <li><a href="https://mcpsuperhero.com">MCPSuperHero</a></li>
-                    <li><a href="https://theaisuperheroes.com">TheAISuperHeroes Hub</a></li>
-                </ul>
+            <div class="border-t border-slate-700 pt-8">
+                <p class="text-center text-sm text-slate-400">&copy; 2026 SEOAISuperHero. All rights reserved.</p>
             </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Security</a></li>
-                    <li><a href="#">Status</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">GDPR</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <ul>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Discord</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 SEOAISuperHero. All rights reserved. Part of The AI Superheroes Portfolio.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    hamburger.classList.remove('active');
-                    navLinks.style.display = 'none';
+            // Close all other open items
+            document.querySelectorAll('.accordion-content.open').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('open');
                 }
             });
-        });
 
-        // Close mobile menu when window resizes above mobile breakpoint
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                navLinks.style.display = '';
-                hamburger.classList.remove('active');
+            // Toggle current item
+            if (isOpen) {
+                content.classList.remove('open');
+            } else {
+                content.classList.add('open');
             }
-        });
+        }
     </script>
 </body>
 </html>
