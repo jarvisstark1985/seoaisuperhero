@@ -3,500 +3,1125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEOAISuperHero - AI-Powered SEO Audit & Optimization Platform</title>
-    <meta name="description" content="Dominate search rankings with AI-powered SEO audits, keyword intelligence, and competitor analysis. Starting at $19.99/month.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-P2C3KN7T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GTM-P2C3KN7T');
-        gtag('config', 'G-RVV7C7Y5YY');
+    <meta name="description" content="SEOAi SuperHero: AI-powered SEO automation platform. Automate keyword research, content creation, backlink building, and rank tracking. $19.99/month. Trusted by 5,000+ marketers.">
+    <meta name="keywords" content="SEO automation, AI SEO tools, content optimization, backlink building, rank tracking, SEO software">
+    <meta property="og:title" content="SEOAi SuperHero — Dominate Search in 2026">
+    <meta property="og:description" content="AI-powered SEO automation that writes content, builds backlinks, audits your site, and tracks rankings — all on autopilot.">
+    <meta property="og:image" content="https://seoaisuperhero.com/og-image.png">
+    <meta property="og:url" content="https://seoaisuperhero.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FF6B35">
+
+    <title>SEOAi SuperHero — Dominate Search in 2026</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": "SEOAi SuperHero",
+      "description": "AI-powered SEO automation platform for content creation, backlink building, and rank tracking",
+      "url": "https://seoaisuperhero.com",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "USD",
+        "url": "https://buy.stripe.com/test_placeholder_seo"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "5000"
+      }
+    }
     </script>
+
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0A0A0A;
+            --card: #141414;
+            --card-border: rgba(255,255,255,0.06);
+            --orange: #FF6B35;
+            --yellow: #FFD93D;
+            --blue: #4ECDC4;
+            --red: #FF4444;
+            --purple: #6C63FF;
+            --teal: #4ECDC4;
+            --pink: #E97698;
+            --white: #FFFFFF;
+            --gray: #888;
+            --light-gray: #B0B0B0;
+            --max-w: 1400px;
         }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: #0f172a;
-            color: rgb(226, 232, 240);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ── Announcement Bar ── */
+        .announce {
+            background: var(--black);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            color: var(--light-gray);
         }
-        .hero-glow {
-            background:
-                radial-gradient(ellipse at 60% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 70%),
-                radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 60%);
+        .announce a {
+            color: var(--orange);
+            font-weight: 600;
+            margin-left: 6px;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #fbbf24 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .announce a:hover { text-decoration: underline; }
+
+        /* ── Navigation ── */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 40px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10,10,10,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
-        }
-        .btn-secondary {
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: #6ee7b7;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background: rgba(16, 185, 129, 0.25);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
-        }
-        .card {
-            background: rgba(30, 41, 59, 0.9);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.25);
-        }
-        .nav-border {
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-        }
-        .pill-badge {
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 50px;
-            display: inline-flex;
+
+        .logo {
+            display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            font-size: 14px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            white-space: nowrap;
         }
-        .green-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #10b981;
+        .logo svg { width: 28px; height: 28px; }
+        .logo .brand-italic {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .nav-pill {
+            display: flex;
+            gap: 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 999px;
+            padding: 4px;
+        }
+        .nav-pill a {
+            padding: 8px 20px;
+            font-size: 0.88rem;
+            color: var(--light-gray);
+            border-radius: 999px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .nav-pill a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-right .login {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .nav-right .login:hover { color: var(--white); }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--white);
+            color: var(--black);
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .btn-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255,255,255,0.15);
+        }
+
+        .btn-cta-accent {
+            background: linear-gradient(135deg, var(--orange), #FF8855);
+            color: var(--white);
+        }
+        .btn-cta-accent:hover {
+            box-shadow: 0 8px 24px rgba(255,107,53,0.35);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 80px 40px 60px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 85vh;
+        }
+
+        .hero-left {}
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .avatars {
+            display: flex;
+        }
+        .av {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: -8px;
+            border: 2px solid var(--black);
+        }
+        .av:first-child { margin-left: 0; }
+        .av-1 { background: var(--teal); color: var(--black); }
+        .av-2 { background: var(--purple); color: var(--black); }
+        .av-3 { background: var(--pink); color: var(--black); }
+
+        .proof-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .proof-stars { color: var(--yellow); font-size: 0.75rem; letter-spacing: 1px; }
+        .proof-text {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 28px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--orange);
+            text-decoration: underline;
+            text-decoration-color: rgba(255,107,53,0.3);
+            text-underline-offset: 6px;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* ── Hero Right: Floating UI Cards ── */
+        .hero-right {
+            position: relative;
+            height: 520px;
+        }
+
+        .mock-dashboard {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: -20px;
+            bottom: 0;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .mock-topbar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .mock-dot {
+            width: 10px; height: 10px;
             border-radius: 50%;
         }
-        .gradient-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        .mock-dot-r { background: #FF5F57; }
+        .mock-dot-y { background: #FFBD2E; }
+        .mock-dot-g { background: #28CA41; }
+        .mock-label {
+            margin-left: 12px;
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .mock-body {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            height: calc(100% - 42px);
+        }
+        .mock-sidebar {
+            border-right: 1px solid var(--card-border);
+            padding: 16px 12px;
+        }
+        .mock-sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            color: var(--gray);
+            margin-bottom: 2px;
+            cursor: default;
+        }
+        .mock-sidebar-item.active {
+            background: rgba(244,248,114,0.1);
+            color: var(--orange);
+        }
+        .mock-sidebar-item .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        .mock-main {
+            padding: 20px;
+        }
+        .mock-stat-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .mock-stat {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .mock-stat-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-bottom: 6px;
+        }
+        .mock-stat-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+        .mock-stat-value.yellow { color: var(--orange); }
+        .mock-stat-value.teal { color: var(--teal); }
+        .mock-stat-value.purple { color: var(--purple); }
+
+        /* Floating notification badges */
+        .float-badge {
+            position: absolute;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            animation: float-slow 6s ease-in-out infinite;
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .badge-score {
+            top: 10px;
+            right: 20px;
+            background: rgba(174,235,228,0.15);
+            border: 1px solid rgba(174,235,228,0.3);
+            color: var(--teal);
+            animation-delay: 0s;
+        }
+        .badge-score .big { font-size: 1.6rem; font-weight: 800; display: block; }
+
+        .badge-match {
+            top: 0;
+            left: -10px;
+            background: rgba(244,248,114,0.15);
+            border: 1px solid rgba(244,248,114,0.3);
+            color: var(--orange);
+            animation-delay: 1s;
+        }
+        .badge-match .tag {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--black);
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-ats {
+            bottom: 20px;
+            right: -10px;
+            background: rgba(179,168,238,0.15);
+            border: 1px solid rgba(179,168,238,0.3);
+            color: var(--purple);
+            animation-delay: 2s;
+        }
+
+        /* ── Section Shared ── */
+        .section {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 700px;
+        }
+        .section-title em {
+            font-style: italic;
+            color: var(--orange);
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        /* ── Features Grid ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .f-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .f-card:hover {
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .f-icon {
+            width: 44px; height: 44px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
-        .progress-bar {
-            background: rgba(124, 58, 237, 0.1);
-            border-radius: 8px;
-            height: 8px;
-            overflow: hidden;
+        .f-icon.yellow { background: rgba(244,248,114,0.12); color: var(--orange); }
+        .f-icon.teal { background: rgba(174,235,228,0.12); color: var(--teal); }
+        .f-icon.purple { background: rgba(179,168,238,0.12); color: var(--purple); }
+        .f-icon.pink { background: rgba(233,118,152,0.12); color: var(--pink); }
+        .f-icon.orange { background: rgba(255,107,53,0.12); color: var(--orange); }
+        .f-icon.red { background: rgba(255,68,68,0.12); color: var(--red); }
+
+        .f-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
-        .progress-fill {
-            background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
-            height: 100%;
-            border-radius: 8px;
+        .f-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
         }
-        .accordion-item {
-            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+
+        /* ── How It Works (Alternating) ── */
+        .workflow-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--card-border);
         }
-        .accordion-button {
-            cursor: pointer;
+        .workflow-step:last-child { border-bottom: none; }
+        .workflow-step.reverse .wf-visual { order: -1; }
+
+        .wf-text {}
+        .wf-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .wf-number.yellow { background: rgba(244,248,114,0.15); color: var(--orange); }
+        .wf-number.teal { background: rgba(174,235,228,0.15); color: var(--teal); }
+        .wf-number.purple { background: rgba(179,168,238,0.15); color: var(--purple); }
+        .wf-number.pink { background: rgba(233,118,152,0.15); color: var(--pink); }
+
+        .wf-text h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .wf-text p {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 440px;
+        }
+
+        .wf-visual {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wf-visual-inner {
+            text-align: center;
+            color: var(--gray);
+        }
+        .wf-visual-inner .big-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .wf-visual-inner p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* ── Testimonials ── */
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .t-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+        .t-stars {
+            color: var(--yellow);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+        }
+        .t-quote {
+            font-size: 0.95rem;
+            color: var(--light-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .t-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .t-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .t-info h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .t-info span {
+            font-size: 0.78rem;
+            color: var(--gray);
+        }
+
+        /* ── Pricing ── */
+        .pricing-center {
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 480px;
+            margin: 48px auto 0;
+            background: var(--card);
+            border: 1.5px solid rgba(244,248,114,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+        .price-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--orange);
+            color: var(--black);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 16px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin: 20px 0 4px;
+        }
+        .price-period {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+        .price-features {
+            text-align: left;
+            list-style: none;
+            margin: 24px 0;
+            padding: 24px 0;
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .price-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            margin-bottom: 12px;
+        }
+        .price-features li::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 700;
+        }
+        .price-cta {
+            width: 100%;
+            margin-top: 24px;
+        }
+        .price-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 16px;
+        }
+
+        /* ── Referral / Ai-Ai ── */
+        .referral {
+            background: linear-gradient(135deg, rgba(244,248,114,0.08), rgba(179,168,238,0.08));
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 64px 40px;
+            text-align: center;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        .ref-badge {
+            display: inline-block;
+            background: rgba(255,107,53,0.12);
+            color: var(--orange);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+        .ref-title {
+            font-size: clamp(1.6rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .ref-title em { font-style: italic; color: var(--orange); }
+        .ref-desc {
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .ref-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto 36px;
+        }
+        .ref-stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 24px 16px;
+        }
+        .ref-stat-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .ref-stat-label {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* ── FAQ ── */
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--card-border);
+        }
+        .faq-q {
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: rgb(226, 232, 240);
-            text-align: left;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
         }
-        .accordion-button:hover {
-            color: #60a5fa;
+        .faq-q:hover { color: var(--orange); }
+        .faq-q .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
         }
-        .accordion-content {
+        .faq-item.open .arrow { transform: rotate(180deg); }
+        .faq-a {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            color: rgba(226, 232, 240, 0.7);
-            font-size: 14px;
-            line-height: 1.6;
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
-        .accordion-content.open {
-            max-height: 500px;
-            padding-bottom: 16px;
+        .faq-item.open .faq-a { max-height: 300px; }
+        .faq-a-inner { padding-bottom: 20px; }
+
+        /* ── Final CTA ── */
+        .final-cta {
+            text-align: center;
+            padding: 100px 40px;
+            max-width: var(--max-w);
+            margin: 0 auto;
         }
-        .star {
-            display: inline-block;
-            color: #fbbf24;
-            margin-right: 2px;
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .final-cta h2 em { font-style: italic; color: var(--orange); }
+        .final-cta p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+        }
+        .final-cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--card-border);
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 48px 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand .logo { margin-bottom: 12px; }
+        .footer-brand p { font-size: 0.85rem; color: var(--gray); max-width: 260px; line-height: 1.6; }
+
+        .footer-col h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col a {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--gray);
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--white); }
+
+        .footer-bottom {
+            border-top: 1px solid var(--card-border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--gray);
+        }
+
+        /* ── Sticky Bottom CTA ── */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 12px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        .sticky-bar.visible { transform: translateY(0); }
+        .sticky-bar-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+        .sticky-bar-text .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--orange);
+        }
+        .sticky-bar-text strong { color: var(--white); }
+        .sticky-bar .btn-cta-accent { padding: 8px 20px; font-size: 0.85rem; }
+        .sticky-dismiss {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        /* ── Modal ── */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 200;
+            backdrop-filter: blur(4px);
+        }
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-box {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 36px;
+            width: 90%;
+            max-width: 400px;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .modal-header h2 { font-size: 1.4rem; }
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--black);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 12px rgba(244,248,114,0.2);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; min-height: auto; padding: 48px 24px; }
+            .hero-right { display: none; }
+            .nav-pill { display: none; }
+            .features-grid { grid-template-columns: 1fr; }
+            .workflow-step { grid-template-columns: 1fr; }
+            .workflow-step.reverse .wf-visual { order: 0; }
+            .test-grid { grid-template-columns: 1fr; }
+            .ref-stats { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            nav { padding: 16px 24px; }
+            .section { padding: 60px 24px; }
+        }
+
+        @media (max-width: 640px) {
+            .logo { font-size: 1rem; }
+            .hero h1 { font-size: 2rem; margin-bottom: 20px; }
+            .hero-btns { flex-direction: column; }
+            .hero-btns a { width: 100%; text-align: center; }
+            .nav-pill { display: none; }
+            .mobile-toggle { display: block; }
+            .section-title { font-size: 1.4rem; }
+            .section-desc { font-size: 0.95rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
         }
     </style>
 </head>
-<body class="bg-slate-950">
+<body>
+    <!-- Announcement Bar -->
+    <div class="announce">
+        ⚡ AI SEO Automation · $19.99/mo <a href="#pricing">See Pricing</a>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav-border backdrop-blur-lg bg-opacity-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
-                    <span class="font-semibold text-lg">SEOAI<span class="italic">SuperHero</span></span>
-                </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#features" class="hover:text-blue-400 transition">Features</a>
-                    <a href="#how-it-works" class="hover:text-blue-400 transition">How It Works</a>
-                    <a href="#testimonials" class="hover:text-blue-400 transition">Testimonials</a>
-                    <a href="#pricing" class="hover:text-blue-400 transition">Pricing</a>
-                    <a href="#faq" class="hover:text-blue-400 transition">FAQ</a>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="hover:text-blue-400 transition">Log in</a>
-                    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-6 py-2 text-sm font-semibold text-white">Get Started</a>
-                </div>
-            </div>
+    <nav>
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;">
+                <circle cx="12" cy="12" r="1" fill="var(--orange)"/>
+                <path d="M12 1v6m6.364 1.636l-4.243 4.243M23 12h-6m1.636 6.364l-4.243-4.243M12 23v-6m-6.364-1.636l4.243-4.243M1 12h6m-1.636-6.364l4.243 4.243" stroke="var(--orange)"/>
+            </svg>
+            <span>SEOAi <span class="brand-italic">SuperHero</span></span>
+        </div>
+
+        <div class="nav-pill">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+        </div>
+
+        <div class="nav-right">
+            <span class="login" onclick="document.getElementById('loginModal').classList.add('show')">Log In</span>
+            <button class="btn-cta btn-cta-accent">Get Started</button>
+            <button class="mobile-toggle">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient hero-glow relative overflow-hidden py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="pill-badge mb-8">
-                        <span class="green-dot"></span>
-                        <span>AI-Powered SEO Platform · $19.99/mo</span>
-                    </div>
-                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Dominate Search Rankings with <span class="gradient-text">AI-Powered Audits</span>
-                    </h1>
-                    <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-                        Comprehensive SEO analysis, competitor insights, and AI-driven optimization recommendations. Get your site ranking #1 in weeks, not months.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-8 py-3 text-white font-semibold text-center">
-                            Get Started for $19.99/mo →
-                        </a>
-                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-secondary px-8 py-3 font-semibold text-center">
-                            + 1 Month Free Replit
-                        </a>
-                    </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="social-proof">
+                <div class="avatars">
+                    <div class="av av-1">TM</div>
+                    <div class="av av-2">JD</div>
+                    <div class="av av-3">RC</div>
                 </div>
-                <div class="hidden md:block">
-                    <div class="card p-8">
-                        <div class="text-center mb-8">
-                            <div class="text-5xl font-bold gradient-text mb-2">89/100</div>
-                            <p class="text-sm text-slate-400">SEO Audit Score</p>
-                        </div>
-                        <div class="space-y-6">
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium">Technical SEO</span>
-                                    <span class="text-sm font-bold text-blue-400">92%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 92%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium">On-Page SEO</span>
-                                    <span class="text-sm font-bold text-purple-400">88%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium">Content Quality</span>
-                                    <span class="text-sm font-bold text-yellow-400">85%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-sm font-medium">Mobile Optimization</span>
-                                    <span class="text-sm font-bold text-green-400">90%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="proof-meta">
+                    <div class="proof-stars">★★★★★</div>
+                    <div class="proof-text">Trusted by 5,000+ Marketers</div>
                 </div>
             </div>
-            <!-- Social Proof -->
-            <div class="mt-16 pt-16 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-center gap-6">
-                <div class="flex -space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">A</div>
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">B</div>
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">C</div>
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-red-600 border-2 border-slate-900 flex items-center justify-center text-white text-xs font-bold">D</div>
-                </div>
-                <div>
-                    <p class="text-slate-300 font-medium">1,200+ satisfied users</p>
-                    <div class="flex gap-1 mt-1">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="text-sm text-slate-400 ml-2">4.9/5 stars</span>
-                    </div>
-                </div>
+
+            <h1>Your SEO is <em>stuck</em> in 2020. SEOAi SuperHero <em>dominates</em> in 2026.</h1>
+
+            <p class="hero-sub">AI-powered SEO that writes content, builds backlinks, audits your site, and tracks rankings — all on autopilot.</p>
+
+            <div class="hero-btns">
+                <a href="https://buy.stripe.com/test_placeholder_seo" class="btn-cta btn-cta-accent">Get Started for $19.99/mo →</a>
+                <a href="#features" class="btn-outline">See Features</a>
             </div>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Powerful SEO Tools</h2>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Everything you need to dominate search rankings</p>
+        <div class="hero-right">
+            <!-- Floating badges -->
+            <div class="float-badge badge-match">
+                <span class="tag">RANKINGS</span><br>
+                +340% in 90 Days
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Instant Site Audits</h3>
-                    <p class="text-slate-400">AI analyzes your entire website in seconds, identifying critical issues and optimization opportunities</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Keyword Intelligence</h3>
-                    <p class="text-slate-400">Discover high-impact keywords with search volume, competition, and ranking difficulty data</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Competitor Analysis</h3>
-                    <p class="text-slate-400">See what your competitors are doing right and find gaps you can exploit</p>
-                </div>
-                <!-- Feature 4 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Rank Tracking</h3>
-                    <p class="text-slate-400">Monitor your keyword rankings 24/7 and track progress over time</p>
-                </div>
-                <!-- Feature 5 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.961 1.961 0 01-2.773 1.753l-6.005-3.422a1.961 1.961 0 01-1.227-1.753V7.882a1.961 1.961 0 012.773-1.753l6.005 3.422a1.96 1.96 0 011.227 1.753zM5 5v12m6.9-2.783V7.08a1.961 1.961 0 012.773-1.753l2.673 1.526a1.961 1.961 0 011.227 1.753v11.318a1.961 1.961 0 01-2.773 1.753l-2.673-1.526a1.961 1.961 0 01-1.227-1.753z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Content Optimization</h3>
-                    <p class="text-slate-400">AI-powered suggestions to improve readability, structure, and SEO value</p>
-                </div>
-                <!-- Feature 6 -->
-                <div class="card p-8">
-                    <div class="gradient-icon mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Technical SEO Scanner</h3>
-                    <p class="text-slate-400">Find and fix crawl errors, broken links, speed issues, and mobile problems</p>
-                </div>
+            <div class="float-badge badge-score">
+                <span class="big">97</span>
+                Content Score
             </div>
-        </div>
-    </section>
+            <div class="float-badge badge-ats">
+                ✓ 500+ Backlinks Built
+            </div>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Get started in three simple steps</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">1</div>
-                    <h3 class="text-xl font-bold mb-3">Connect Your Website</h3>
-                    <p class="text-slate-400">Enter your domain and let our AI crawler analyze your entire site structure</p>
+            <!-- Dashboard mockup -->
+            <div class="mock-dashboard">
+                <div class="mock-topbar">
+                    <div class="mock-dot mock-dot-r"></div>
+                    <div class="mock-dot mock-dot-y"></div>
+                    <div class="mock-dot mock-dot-g"></div>
+                    <span class="mock-label">SEOAi Dashboard</span>
                 </div>
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">2</div>
-                    <h3 class="text-xl font-bold mb-3">Get AI-Powered Insights</h3>
-                    <p class="text-slate-400">Receive a comprehensive audit with actionable recommendations prioritized by impact</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-blue-600 mx-auto mb-6 flex items-center justify-center text-2xl font-bold">3</div>
-                    <h3 class="text-xl font-bold mb-3">Implement & Track</h3>
-                    <p class="text-slate-400">Follow our guidance, implement changes, and watch your rankings climb</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto">One plan, unlimited potential</p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <div class="card p-12">
-                    <div class="text-center mb-8">
-                        <h3 class="text-3xl font-bold mb-2">Professional SEO Audit</h3>
-                        <div class="flex items-center justify-center gap-2 mb-4">
-                            <span class="text-5xl font-bold">$19.99</span>
-                            <span class="text-slate-400">/month</span>
-                        </div>
-                        <p class="text-slate-400">Everything you need to dominate search</p>
+                <div class="mock-body">
+                    <div class="mock-sidebar">
+                        <div class="mock-sidebar-item active"><span class="dot"></span> Rankings</div>
+                        <div class="mock-sidebar-item"><span class="dot"></span> Content</div>
+                        <div class="mock-sidebar-item"><span class="dot"></span> Backlinks</div>
+                        <div class="mock-sidebar-item"><span class="dot"></span> Audit</div>
+                        <div class="mock-sidebar-item"><span class="dot"></span> Analytics</div>
                     </div>
-                    <div class="border-t border-b border-slate-700 py-8 mb-8">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Unlimited website audits</span>
+                    <div class="mock-main">
+                        <div class="mock-stat-row">
+                            <div class="mock-stat">
+                                <div class="mock-stat-label">Avg Position</div>
+                                <div class="mock-stat-value yellow">4.2</div>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Keyword research and analysis</span>
+                            <div class="mock-stat">
+                                <div class="mock-stat-label">Organic Traffic</div>
+                                <div class="mock-stat-value teal">18.4K</div>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Competitor benchmarking</span>
+                            <div class="mock-stat">
+                                <div class="mock-stat-label">Visibility</div>
+                                <div class="mock-stat-value purple">87%</div>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Daily rank tracking</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Content optimization recommendations</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Technical SEO analysis</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Monthly performance reports</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                <span>Email support</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-primary px-8 py-3 text-white font-semibold text-center flex-1">
-                            Start Your 7-Day Test
-                        </a>
-                        <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-secondary px-8 py-3 font-semibold text-center">
-                            + 1 Month Free Replit
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Loved by SEO Professionals</h2>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto">Real results from real users</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="card p-8">
-                    <div class="flex gap-1 mb-4">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="text-slate-300 mb-6">"SEOAISuperHero transformed our SEO strategy. We ranked for 50 new keywords in just 3 months. The AI insights are incredibly accurate."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-600"></div>
-                        <div>
-                            <p class="font-semibold">Sarah Martinez</p>
-                            <p class="text-sm text-slate-400">Digital Marketing Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="card p-8">
-                    <div class="flex gap-1 mb-4">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="text-slate-300 mb-6">"The competitor analysis feature alone is worth the investment. Finally understand what our competition is doing and why they rank."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-600"></div>
-                        <div>
-                            <p class="font-semibold">James Chen</p>
-                            <p class="text-sm text-slate-400">Content Director</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="card p-8">
-                    <div class="flex gap-1 mb-4">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="text-slate-300 mb-6">"Best SEO tool I've used. The AI recommendations are actionable and specific. Organic traffic is up 120% in 4 months."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600"></div>
-                        <div>
-                            <p class="font-semibold">Emily Thompson</p>
-                            <p class="text-sm text-slate-400">SEO Consultant</p>
                         </div>
                     </div>
                 </div>
@@ -504,141 +1129,391 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 md:py-32 bg-slate-900 bg-opacity-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-slate-400">Everything you need to know</p>
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="section-label">Features</div>
+        <div class="section-title">Six AI-powered tools to <em>dominate search</em></div>
+        <div class="section-desc">Everything you need to rank higher, drive organic traffic, and grow your site — all powered by AI automation.</div>
+
+        <div class="features-grid">
+            <div class="f-card">
+                <div class="f-icon orange" style="background:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(255,217,61,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+                <h3>AI Keyword Research</h3>
+                <p>Discover high-value keywords your competitors miss. Get search volume, difficulty scores, and intent analysis in seconds.</p>
             </div>
-            <div class="space-y-0 divide-y divide-slate-700">
-                <!-- FAQ 1 -->
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>How long does it take to audit a website?</span>
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                    </button>
-                    <div class="accordion-content">
-                        Our AI-powered crawler analyzes your entire website in seconds, regardless of size. You'll get your comprehensive audit report within minutes of connecting your domain.
-                    </div>
+            <div class="f-card">
+                <div class="f-icon teal" style="background:linear-gradient(135deg,rgba(78,205,196,0.15),rgba(108,99,255,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 </div>
-                <!-- FAQ 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>Can I track unlimited websites?</span>
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                    </button>
-                    <div class="accordion-content">
-                        Yes! Your Professional plan includes unlimited website audits and tracking. Add as many domains as you need and monitor them all from one dashboard.
-                    </div>
+                <h3>Content Optimizer</h3>
+                <p>AI writes and optimizes content that ranks on page 1. Analyze competitors, target keywords, and publish in minutes.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon purple" style="background:linear-gradient(135deg,rgba(108,99,255,0.15),rgba(78,205,196,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                 </div>
-                <!-- FAQ 3 -->
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>What if I'm not satisfied?</span>
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                    </button>
-                    <div class="accordion-content">
-                        We offer a 7-day test period so you can try SEOAISuperHero risk-free. If you're not satisfied, simply cancel before the trial ends and you won't be charged.
-                    </div>
+                <h3>Backlink Engine</h3>
+                <p>Automated outreach that builds high-authority backlinks. AI identifies targets, writes pitches, and tracks success.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon red" style="background:linear-gradient(135deg,rgba(255,68,68,0.15),rgba(255,107,53,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
                 </div>
-                <!-- FAQ 4 -->
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>How often are rankings updated?</span>
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                    </button>
-                    <div class="accordion-content">
-                        We track your keyword rankings daily, providing you with the most up-to-date data on your performance. Historical data is stored so you can see trends over time.
-                    </div>
+                <h3>Technical SEO Audit</h3>
+                <p>Find and fix every issue hurting your rankings. Automated crawls detect 200+ technical problems with solutions.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon yellow" style="background:linear-gradient(135deg,rgba(255,217,61,0.15),rgba(255,107,53,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                 </div>
-                <!-- FAQ 5 -->
-                <div class="accordion-item">
-                    <button class="accordion-button" onclick="toggleAccordion(this)">
-                        <span>Do you offer API access?</span>
-                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                    </button>
-                    <div class="accordion-content">
-                        API access is available for enterprise customers. Contact our support team to discuss custom integration options for your business needs.
+                <h3>Rank Tracker</h3>
+                <p>Real-time position tracking across all search engines. Monitor 1000s of keywords and catch ranking changes instantly.</p>
+            </div>
+            <div class="f-card">
+                <div class="f-icon orange" style="background:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(78,205,196,0.15));">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>AI Content Writer</h3>
+                <p>Generate full articles optimized for search intent. From outlines to 3000-word posts, published directly to your site.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
+        <div class="section-label">How It Works</div>
+        <div class="section-title">From setup to <em>top rankings</em> in 4 steps</div>
+        <div class="section-desc">The complete workflow that's helped 5,000+ marketers dominate their search results.</div>
+
+        <div class="workflow-step">
+            <div class="wf-text">
+                <div class="wf-number yellow">1</div>
+                <h3>Connect Your Site</h3>
+                <p>Add your domain and target keywords. Our AI instantly audits your site, analyzes competitors, and identifies opportunities worth 10K+ organic traffic.</p>
+            </div>
+            <div class="wf-visual">
+                <div class="wf-visual-inner">
+                    <div class="big-icon">🔗</div>
+                    <p>Connect domain<br>AI analysis starts now</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-step reverse">
+            <div class="wf-text">
+                <div class="wf-number teal">2</div>
+                <h3>AI Analyzes Everything</h3>
+                <p>Full technical audit, competitor benchmarking, keyword gap analysis. See exactly what's holding you back from ranking.</p>
+            </div>
+            <div class="wf-visual">
+                <div class="wf-visual-inner">
+                    <div class="big-icon">🤖</div>
+                    <p>Deep technical analysis<br>Competitor insights</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-step">
+            <div class="wf-text">
+                <div class="wf-number purple">3</div>
+                <h3>Content & Links on Autopilot</h3>
+                <p>AI writes SEO-optimized content for your top opportunities. Automated outreach builds high-authority backlinks while you sleep.</p>
+            </div>
+            <div class="wf-visual">
+                <div class="wf-visual-inner">
+                    <div class="big-icon">✍️</div>
+                    <p>AI content creation<br>Backlink automation</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow-step reverse">
+            <div class="wf-text">
+                <div class="wf-number pink">4</div>
+                <h3>Watch Rankings Climb</h3>
+                <p>Real-time rank tracking shows your progress. Watch as organic traffic grows and you dominate your niche on Google.</p>
+            </div>
+            <div class="wf-visual">
+                <div class="wf-visual-inner">
+                    <div class="big-icon">📈</div>
+                    <p>Rank tracking<br>Growth dashboard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="testimonials-header">
+            <div class="section-label">Testimonials</div>
+            <div class="section-title" style="margin: 0 auto 16px; text-align: center;">Don't take our word for it. <em>Hear from marketers.</em></div>
+        </div>
+
+        <div class="test-grid">
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-quote">"We went from 0 to 50 keywords ranking in the top 10. This tool paid for itself in the first month with increased traffic."</p>
+                <div class="t-author">
+                    <div class="t-avatar" style="background: var(--teal); color: var(--black);">TM</div>
+                    <div class="t-info">
+                        <h4>Taylor Martinez</h4>
+                        <span>Content Manager → SaaS Company</span>
                     </div>
                 </div>
             </div>
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-quote">"The backlink automation is insane. Got 200+ high-authority links in 3 months without doing manual outreach. Rankings shot up."</p>
+                <div class="t-author">
+                    <div class="t-avatar" style="background: var(--purple); color: var(--black);">JD</div>
+                    <div class="t-info">
+                        <h4>Jordan Davis</h4>
+                        <span>SEO Specialist → E-commerce</span>
+                    </div>
+                </div>
+            </div>
+            <div class="t-card">
+                <div class="t-stars">★★★★★</div>
+                <p class="t-quote">"Cut our content creation time by 80%. AI writes the drafts, we publish. Organic traffic doubled in 6 months."</p>
+                <div class="t-author">
+                    <div class="t-avatar" style="background: var(--pink); color: var(--black);">RC</div>
+                    <div class="t-info">
+                        <h4>Rachel Chen</h4>
+                        <span>Marketing Director → Tech Startup</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section pricing-center" id="pricing">
+        <div class="section-label">Pricing</div>
+        <div class="section-title" style="margin: 0 auto 16px; text-align: center;">One plan. <em>Everything included.</em></div>
+        <p class="section-desc" style="margin: 0 auto 0; text-align: center;">No tiers, no upsells. Get the complete SEO automation platform for less than hiring one freelancer.</p>
+
+        <div class="price-card">
+            <div class="price-badge">Most Popular</div>
+            <h3 style="font-size: 1.4rem; font-weight: 700;">SEO SuperHero Plan</h3>
+            <div class="price-amount">$19.99</div>
+            <div class="price-period">per month · cancel anytime</div>
+
+            <ul class="price-features">
+                <li>AI Keyword Research (unlimited)</li>
+                <li>Content Optimizer & AI Writer</li>
+                <li>Backlink Engine with Automation</li>
+                <li>Technical SEO Audit (weekly)</li>
+                <li>Rank Tracker (unlimited keywords)</li>
+                <li>Competitor Analysis</li>
+                <li>Priority support</li>
+            </ul>
+
+            <a href="https://buy.stripe.com/test_placeholder_seo" class="btn-cta btn-cta-accent price-cta" style="display: block; text-align: center;">Get Started for $19.99/mo →</a>
+            <p class="price-note">1 month free trial · No credit card required · Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Ai-Ai Referral -->
+    <section class="section" style="padding-bottom: 40px;">
+        <div class="referral">
+            <div class="ref-badge">Ai-Ai Referral Program</div>
+            <h2 class="ref-title">Earn <em>80% Ai-Ai Commission</em></h2>
+            <p style="font-size:0.7rem;color:var(--gray);margin-bottom:24px;">First Payment</p>
+            <p class="ref-desc">You send your referral code to the world, and watch the money flow. No caps. No approval process. Just post us in feeds with your referral code or set Ai-Ai to automatically join. 80% of every first payment — unlimited.</p>
+
+            <div class="ref-stats">
+                <div class="ref-stat">
+                    <div class="ref-stat-val">80%</div>
+                    <div class="ref-stat-label">Commission Rate <span style="font-size:0.65rem;display:block;color:var(--gray);">First Payment</span></div>
+                </div>
+                <div class="ref-stat">
+                    <div class="ref-stat-val">$15.99</div>
+                    <div class="ref-stat-label">Per Referral Earned</div>
+                </div>
+                <div class="ref-stat">
+                    <div class="ref-stat-val">∞</div>
+                    <div class="ref-stat-label">Unlimited · No Caps</div>
+                </div>
+            </div>
+
+            <a href="#pricing" class="btn-cta btn-cta-accent">Join Ai-Ai Program →</a>
+            <p style="font-size:0.78rem;color:var(--gray);margin-top:16px;">No approval process · Instant setup · Share anywhere</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div style="text-align: center; margin-bottom: 48px;">
+            <div class="section-label">FAQ</div>
+            <div class="section-title" style="margin: 0 auto 16px; text-align: center;">Got questions? <em>We've got answers.</em></div>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span>How is SEOAi SuperHero different from other SEO tools?</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="faq-a"><div class="faq-a-inner">Most SEO tools are dashboards for data. SEOAi SuperHero is an AI-powered system that takes action. It writes content, builds backlinks, audits your site, and tracks results — all automated. You get results, not just reports.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span>How does the AI content writing work?</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="faq-a"><div class="faq-a-inner">You set your target keywords and topics. Our AI analyzes top-ranking articles, creates an optimized outline, writes the full article, and publishes it to your site. The content is SEO-optimized and ready to rank from day one.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span>Are the backlinks safe? Will they hurt my rankings?</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="faq-a"><div class="faq-a-inner">Yes. Our backlink engine only targets high-authority, relevant sites. We verify every placement and use white-hat outreach tactics. No PBN, no spam, no shortcuts — just quality backlinks from real sites.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span>How long until I see results?</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="faq-a"><div class="faq-a-inner">Most users see measurable ranking improvements in 30-60 days. Traffic gains typically follow within 90 days. SEO takes time, but our platform accelerates it dramatically by eliminating manual work and optimizing every lever.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    <span>How does the Ai-Ai referral program work?</span>
+                    <span class="arrow">▾</span>
+                </div>
+                <div class="faq-a"><div class="faq-a-inner">Share your unique referral link. When someone signs up and makes their first payment, you earn 80% of that payment ($15.99). There's no cap — refer as many people as you want and earn unlimited commissions.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to <em>dominate search?</em></h2>
+        <p>Join 5,000+ marketers who've automated their SEO and doubled their organic traffic.</p>
+        <div class="final-cta-btns">
+            <a href="https://buy.stripe.com/test_placeholder_seo" class="btn-cta btn-cta-accent">Get Started for $19.99/mo →</a>
+            <a href="#features" class="btn-outline">Explore Features</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-700 py-12 bg-slate-900 bg-opacity-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                        </svg>
-                        <span class="font-semibold">SEOAI<span class="italic">SuperHero</span></span>
-                    </div>
-                    <p class="text-sm text-slate-400">AI-Powered SEO Audit & Optimization</p>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;">
+                        <circle cx="12" cy="12" r="1" fill="var(--orange)"/>
+                        <path d="M12 1v6m6.364 1.636l-4.243 4.243M23 12h-6m1.636 6.364l-4.243-4.243M12 23v-6m-6.364-1.636l4.243-4.243M1 12h6m-1.636-6.364l4.243 4.243" stroke="var(--orange)"/>
+                    </svg>
+                    <span>SEOAi <span class="brand-italic">SuperHero</span></span>
                 </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
-                        <li><a href="#pricing" class="hover:text-blue-400 transition">Pricing</a></li>
-                        <li><a href="#faq" class="hover:text-blue-400 transition">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-blue-400 transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Privacy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Connect</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-blue-400 transition">Twitter</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">LinkedIn</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">GitHub</a></li>
-                    </ul>
-                </div>
+                <p>AI-powered SEO automation for marketers who want results. Keyword research, content creation, backlink building, rank tracking — all powered by AI.</p>
             </div>
-            <div class="border-t border-slate-700 pt-8">
-                <p class="text-center text-sm text-slate-400">&copy; 2026 SEOAISuperHero. All rights reserved.</p>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="/dashboard.html">Dashboard</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="/blog-seo-2026.html">SEO Guide 2026</a></li>
+                    <li><a href="/blog-ai-content.html">AI Content Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/cookies.html">Cookie Policy</a></li>
+                    <li><a href="mailto:support@seoaisuperhero.com">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 SEOAi SuperHero. All rights reserved.</span>
+            <span>Part of <a href="https://theaisuperheroes.com" style="color: var(--orange);">TheAiSuperHeroes</a> portfolio</span>
         </div>
     </footer>
 
-    <script>
-        function toggleAccordion(button) {
-            const content = button.nextElementSibling;
-            const isOpen = content.classList.contains('open');
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-bar" id="stickyBar">
+        <div class="sticky-bar-text">
+            <span class="dot"></span>
+            <span><strong>$19.99/mo</strong> — complete SEO automation, start in 60 seconds</span>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <a href="https://buy.stripe.com/test_placeholder_seo" class="btn-cta btn-cta-accent">Start Free Trial</a>
+            <button class="sticky-dismiss" onclick="document.getElementById('stickyBar').style.display='none'">✕</button>
+        </div>
+    </div>
 
-            // Close all other open items
-            document.querySelectorAll('.accordion-content.open').forEach(item => {
-                if (item !== content) {
-                    item.classList.remove('open');
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2>Welcome back</h2>
+                <button class="modal-close" onclick="this.closest('.modal').classList.remove('show')">✕</button>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••">
+            </div>
+            <button class="btn-cta btn-cta-accent" style="width:100%; margin-top: 16px; justify-content: center;" onclick="window.location.href='/dashboard.html'">Sign In →</button>
+        </div>
+    </div>
+
+    <script>
+        // Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVV7C7Y5YY');
+
+        // Sticky bar visibility
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('stickyBar');
+            if (window.scrollY > 600) {
+                bar.classList.add('visible');
+            } else {
+                bar.classList.remove('visible');
+            }
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.btn-cta, .btn-cta-accent').forEach(btn => {
+            btn.addEventListener('click', () => {
+                gtag('event', 'cta_click', {
+                    'event_category': 'conversion',
+                    'event_label': btn.textContent.trim()
+                });
+            });
+        });
+
+        // Section scroll tracking
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gtag('event', 'view_section', { 'section': entry.target.id || 'unknown' });
                 }
             });
-
-            // Toggle current item
-            if (isOpen) {
-                content.classList.remove('open');
-            } else {
-                content.classList.add('open');
-            }
-        }
+        }, { threshold: 0.3 });
+        document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
     </script>
 </body>
 </html>
