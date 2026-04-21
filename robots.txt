@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seoaisuperhero.com/sitemap.xml
+Sitemap: https://www.seoaisuperhero.com/sitemap.xml
