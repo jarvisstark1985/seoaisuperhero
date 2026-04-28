@@ -3,164 +3,603 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO AI SuperHero - Domain Analysis</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<title>SEO Dashboard — SEOAi SuperHero</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
+
+<!-- AWS SDK for S3 -->
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1472.0.min.js"></script>
+
 <style>
-:root{--p:#3498db;--s:#1abc9c;--bg:#0a0e27;--card:#151b3d;--border:#1e2749;--txt:#fff;--txt2:#b0b7d4;--err:#ff006e}
+:root{--p:#3498db;--s:#1abc9c;--orange:#FF6B35;--bg:#0a0e27;--card:#151b3d;--border:#1e2749;--txt:#fff;--txt2:#b0b7d4;--err:#ff006e;--green:#28CA41;--yellow:#FFD93D;--red:#FF4444}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
 .header{background:rgba(5,8,18,.95);border-bottom:1px solid var(--border);padding:1rem 2rem;position:sticky;top:0;z-index:100}
 .header-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.brand{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--p),var(--s));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.brand{font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--p),var(--s));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.header-nav{display:flex;align-items:center;gap:16px}
+.header-nav a{color:var(--txt2);font-size:.85rem;text-decoration:none;transition:color .2s}
+.header-nav a:hover{color:var(--txt)}
 .container{max-width:1100px;margin:0 auto;padding:2rem}
 .hide{display:none!important}
+
+/* Auth */
 .auth-wrap{min-height:80vh;display:flex;align-items:center;justify-content:center}
-.auth-card{width:100%;max-width:400px;background:var(--card);border:1px solid var(--border);border-radius:.75rem;padding:2rem}
+.auth-card{width:100%;max-width:420px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem}
 .auth-card h2{text-align:center;margin-bottom:1.5rem;background:linear-gradient(135deg,var(--p),var(--s));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:.85rem;margin-bottom:.4rem;color:var(--txt2)}
-.form-group input,.form-group textarea{width:100%;padding:.7rem;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:.375rem;color:var(--txt);font-size:.9rem}
-.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--p)}
-.btn{width:100%;padding:.8rem;border:none;border-radius:.375rem;font-weight:600;font-size:.95rem;cursor:pointer;transition:.3s}
+.form-group label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.4rem;color:var(--txt2);text-transform:uppercase;letter-spacing:.5px}
+.form-group input{width:100%;padding:.75rem;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;color:var(--txt);font-size:.9rem;font-family:inherit}
+.form-group input:focus{outline:none;border-color:var(--p)}
+.btn{width:100%;padding:.85rem;border:none;border-radius:8px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.3s;font-family:inherit}
 .btn-primary{background:linear-gradient(135deg,var(--p),var(--s));color:var(--bg)}
 .btn-primary:hover{opacity:.9;box-shadow:0 0 20px rgba(52,152,219,.3)}
-.btn-outline{background:transparent;border:1px solid var(--border);color:var(--txt);margin-top:.5rem}
-.btn-logout{padding:.4rem 1rem;background:rgba(255,0,110,.1);border:1px solid var(--err);color:var(--err);border-radius:.375rem;cursor:pointer;font-size:.85rem}
+.btn-logout{padding:.4rem 1rem;background:rgba(255,0,110,.1);border:1px solid var(--err);color:var(--err);border-radius:8px;cursor:pointer;font-size:.85rem;font-family:inherit}
 .toggle{text-align:center;margin-top:1rem;color:var(--txt2);font-size:.85rem}
 .toggle a{color:var(--p);cursor:pointer;text-decoration:none}
-.msg{padding:.7rem;border-radius:.375rem;margin-bottom:1rem;font-size:.85rem}
+.msg{padding:.7rem;border-radius:8px;margin-bottom:1rem;font-size:.85rem}
 .msg-err{background:rgba(255,0,110,.1);border:1px solid var(--err);color:var(--err)}
 .msg-ok{background:rgba(26,188,156,.1);border:1px solid var(--s);color:var(--s)}
-.card{background:var(--card);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;margin-bottom:1.5rem}
-.card h3{margin-bottom:1rem;color:var(--p)}
-.score-circle{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;margin:1rem auto;border:4px solid var(--p);color:var(--p)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
-.stat{background:rgba(52,152,219,.05);border:1px solid var(--border);border-radius:.5rem;padding:1rem;text-align:center}
-.stat .val{font-size:1.5rem;font-weight:700;color:var(--p)}
-.stat .label{font-size:.8rem;color:var(--txt2);margin-top:.25rem}
-.suggestion{padding:.75rem;background:rgba(26,188,156,.05);border-left:3px solid var(--s);margin-bottom:.5rem;border-radius:0 .375rem .375rem 0;font-size:.9rem}
-.sub-wall{text-align:center;padding:3rem 1rem}
-.sub-wall h2{margin-bottom:1rem}
-.sub-wall .price{font-size:2rem;font-weight:700;color:var(--p);margin:1rem 0}
-.sub-wall a{display:inline-block;padding:.8rem 2rem;background:linear-gradient(135deg,var(--p),var(--s));color:var(--bg);font-weight:700;border-radius:.375rem;text-decoration:none;margin-top:1rem}
+
+/* Subscription wall */
+.sub-wall{text-align:center;padding:4rem 2rem}
+.sub-wall h2{font-size:1.8rem;margin-bottom:.5rem}
+.sub-wall .desc{color:var(--txt2);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+.sub-wall .price{font-size:2.5rem;font-weight:800;color:var(--orange);margin-bottom:.5rem}
+.sub-wall .price span{font-size:1rem;font-weight:400;color:var(--txt2)}
+.btn-subscribe{display:inline-block;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--orange),#FF8855);color:var(--txt);font-weight:700;font-size:1.1rem;border-radius:10px;text-decoration:none;transition:all .25s}
+.btn-subscribe:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.sub-features{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:1.5rem}
+.sub-feat{color:var(--txt2);font-size:.85rem;display:flex;align-items:center;gap:6px}
+.sub-feat .check{color:var(--green)}
+
+/* Dashboard */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+.card h3{margin-bottom:1rem;font-size:1.1rem}
+
+/* Optimize CTA */
+.optimize-hero{background:linear-gradient(135deg,rgba(255,107,53,.08),rgba(52,152,219,.08));border:1px solid rgba(255,107,53,.3);border-radius:16px;padding:2rem;text-align:center;margin-bottom:2rem}
+.optimize-hero h2{font-size:1.5rem;margin-bottom:.5rem}
+.optimize-hero p{color:var(--txt2);margin-bottom:1.5rem}
+.btn-optimize{display:inline-block;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--orange),#FF8855);color:var(--txt);font-weight:700;font-size:1.1rem;border-radius:10px;border:none;cursor:pointer;transition:all .25s;font-family:inherit;text-decoration:none}
+.btn-optimize:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+
+/* Score display */
+.score-ring-wrap{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.score-ring{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}
+.score-ring svg{position:absolute;width:100%;height:100%;transform:rotate(-90deg)}
+.score-ring circle{fill:none;stroke-width:8;stroke-linecap:round}
+.score-ring .bg{stroke:rgba(255,255,255,.06)}
+.score-ring .fg{transition:stroke-dashoffset 1s ease-out}
+.score-ring .num{font-size:2.5rem;font-weight:800;z-index:1}
+.score-ring .label{font-size:.7rem;color:var(--txt2);z-index:1;margin-top:-4px}
+.score-details{flex:1;min-width:200px}
+.score-details .grade{font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.score-details .summary{color:var(--txt2);font-size:.9rem;line-height:1.5}
+
+/* Stats grid */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:1.5rem}
+.stat-card{background:rgba(52,152,219,.05);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center}
+.stat-card .val{font-size:1.4rem;font-weight:800}
+.stat-card .lbl{font-size:.75rem;color:var(--txt2);margin-top:2px}
+
+/* Category items */
+.cat-section{margin-bottom:1rem}
+.cat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.05)}
+.cat-title{font-weight:700;font-size:.95rem}
+.cat-score-badge{padding:4px 10px;border-radius:20px;font-size:.8rem;font-weight:700}
+.issue-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.88rem;color:var(--txt2)}
+.issue-item:last-child{border:none}
+.issue-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;margin-top:1px}
+.issue-icon.pass{background:rgba(40,202,65,.15);color:var(--green)}
+.issue-icon.warn{background:rgba(255,217,61,.15);color:var(--yellow)}
+.issue-icon.fail{background:rgba(255,68,68,.15);color:var(--red)}
+.issue-text{flex:1}
+.issue-fix{font-size:.8rem;color:var(--p);margin-top:4px;display:block}
+
+/* Weekly history chart */
+.history-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.history-row:last-child{border:none}
+.history-date{font-size:.8rem;color:var(--txt2);min-width:90px}
+.history-bar{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.history-bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.history-score{font-weight:700;font-size:.85rem;min-width:50px;text-align:right}
+.history-change{font-size:.75rem;min-width:40px;text-align:right}
+
+/* Progress timeline */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.tl-item{position:relative;padding:12px 0 12px 20px;font-size:.88rem}
+.tl-item::before{content:'';position:absolute;left:-20px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--border);border:2px solid var(--bg)}
+.tl-item.active::before{background:var(--orange);box-shadow:0 0 10px rgba(255,107,53,.4)}
+.tl-item.done::before{background:var(--green)}
+.tl-week{font-weight:700;color:var(--orange);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.tl-desc{color:var(--txt2);margin-top:2px}
+.tl-target{font-size:.8rem;font-weight:700;margin-top:4px}
+
+/* Replit setup */
+.setup-card{background:linear-gradient(135deg,rgba(52,152,219,.08),rgba(26,188,156,.08));border:1px solid rgba(52,152,219,.3);border-radius:12px;padding:1.5rem;margin-top:1.5rem}
+.setup-card h3{color:var(--p);margin-bottom:.5rem;font-size:1rem}
+.setup-card p{color:var(--txt2);font-size:.88rem;margin-bottom:1rem;line-height:1.6}
+.setup-steps{counter-reset:steps}
+.setup-step{counter-increment:steps;padding:10px 0 10px 36px;position:relative;font-size:.88rem;color:var(--txt2);border-bottom:1px solid rgba(255,255,255,.04)}
+.setup-step:last-child{border:none}
+.setup-step::before{content:counter(steps);position:absolute;left:0;top:10px;width:24px;height:24px;border-radius:50%;background:rgba(52,152,219,.15);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.setup-step a{color:var(--p);text-decoration:underline}
+.setup-step code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:.82rem}
+
+/* Loader */
 .loader{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--p);border-radius:50%;animation:spin .6s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:600px){
+  .score-ring-wrap{flex-direction:column;align-items:center;text-align:center}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .sub-features{flex-direction:column;align-items:center}
+}
 </style>
 </head>
 <body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2C3KN7T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <div class="header"><div class="header-inner">
-<div class="brand">SEO AI SuperHero</div>
-<div id="userArea" class="hide"><span id="userEmail" style="color:var(--txt2);font-size:.85rem;margin-right:1rem"></span><button class="btn-logout" onclick="logout()">Logout</button></div>
+  <a href="/" class="brand">SEO AI SuperHero</a>
+  <div class="header-nav">
+    <a href="/">Home</a>
+    <a href="/seo-audit.html">Free Audit</a>
+    <a href="/blog.html">Blog</a>
+    <div id="userArea" class="hide">
+      <span id="userEmail" style="color:var(--txt2);font-size:.85rem;margin-right:12px"></span>
+      <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
 </div></div>
 
+<!-- AUTH PAGE -->
 <div id="authPage" class="auth-wrap"><div class="auth-card">
 <h2 id="authTitle">Sign In</h2>
 <div id="authMsg"></div>
 <div id="loginForm">
-<div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com"></div>
-<div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢"></div>
-<button class="btn btn-primary" onclick="doLogin()">Sign In</button>
-<div class="toggle">Don't have an account? <a onclick="showRegister()">Sign Up</a></div>
+  <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com"></div>
+  <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password"></div>
+  <button class="btn btn-primary" onclick="doLogin()">Sign In</button>
+  <div class="toggle">Don't have an account? <a onclick="showRegister()">Sign Up</a></div>
 </div>
 <div id="regForm" class="hide">
-<div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@example.com"></div>
-<div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Min 6 characters"></div>
-<button class="btn btn-primary" onclick="doRegister()">Create Account</button>
-<div class="toggle">Already have an account? <a onclick="showLogin()">Sign In</a></div>
+  <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@example.com"></div>
+  <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Min 6 characters"></div>
+  <button class="btn btn-primary" onclick="doRegister()">Create Account</button>
+  <div class="toggle">Already have an account? <a onclick="showLogin()">Sign In</a></div>
 </div>
 </div></div>
 
-<div id="subWall" class="hide"><div class="container"><div class="card sub-wall">
-<h2>Unlock SEO Domain Analysis</h2>
-<p style="color:var(--txt2)">Get comprehensive SEO insights, keyword analysis, and technical recommendations to dominate search rankings.</p>
-<div class="price">$19.99/mo</div>
-<a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" target="_blank">Subscribe Now</a>
-<p style="margin-top:1rem;font-size:.8rem;color:var(--txt2)">After subscribing, refresh this page to access your dashboard.</p>
-</div></div></div>
+<!-- SUBSCRIPTION WALL -->
+<div id="subWall" class="hide"><div class="container">
+<div class="card sub-wall">
+  <h2>Unlock Your SEO Dashboard</h2>
+  <p class="desc">Get weekly AI-powered SEO audits, optimization recommendations, progress tracking, and a clear roadmap to #1 rankings.</p>
+  <div class="price">$19.99<span>/month</span></div>
+  <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-subscribe" target="_blank">Click Here To Optimize SEO →</a>
+  <p style="margin-top:1rem;font-size:.8rem;color:var(--txt2)">After subscribing, refresh this page to access your dashboard.</p>
+  <div class="sub-features">
+    <div class="sub-feat"><span class="check">✓</span> Weekly SEO Audits</div>
+    <div class="sub-feat"><span class="check">✓</span> AI Recommendations</div>
+    <div class="sub-feat"><span class="check">✓</span> Progress Timeline</div>
+    <div class="sub-feat"><span class="check">✓</span> Cancel Anytime</div>
+  </div>
+</div>
+</div></div>
 
+<!-- DASHBOARD -->
 <div id="dashboard" class="hide"><div class="container">
-<div class="card">
-<h3>Analyze Your Domain</h3>
-<div class="form-group"><label>Domain or URL</label><input type="text" id="domainUrl" placeholder="https://example.com"></div>
-<button class="btn btn-primary" onclick="analyzeDomain()">Analyze Domain</button>
-</div>
-<div id="results" class="hide">
-<div class="card"><h3>SEO Score</h3><div class="score-circle" id="scoreVal">--</div></div>
-<div class="grid" id="stats"></div>
-<div class="card"><h3>Keywords Analysis</h3><div id="keywords"></div></div>
-<div class="card"><h3>Technical SEO Issues</h3><div id="technicalIssues"></div></div>
-<div class="card"><h3>Content Suggestions</h3><div id="contentSuggestions"></div></div>
-<div class="card"><h3>Backlink Opportunities</h3><div id="backlinks"></div></div>
-</div>
+
+  <!-- Optimize CTA (always visible at top) -->
+  <div class="optimize-hero" id="optimizeHero">
+    <h2>Optimize Your Website SEO</h2>
+    <p>Enter your domain below and click the button to run a comprehensive AI-powered SEO analysis with actionable optimization steps.</p>
+    <div class="form-group" style="max-width:500px;margin:0 auto 1rem">
+      <input type="text" id="domainUrl" placeholder="https://yourwebsite.com" style="text-align:center;font-size:1rem">
+    </div>
+    <button class="btn-optimize" onclick="runFullAudit()">Click Here To Optimize SEO →</button>
+  </div>
+
+  <!-- Results (hidden until audit runs) -->
+  <div id="resultsSection" class="hide">
+
+    <!-- Score Card -->
+    <div class="card" id="scoreCard">
+      <div class="score-ring-wrap">
+        <div class="score-ring">
+          <svg viewBox="0 0 140 140"><circle class="bg" cx="70" cy="70" r="60"/><circle class="fg" id="scoreArc" cx="70" cy="70" r="60" stroke-dasharray="377" stroke-dashoffset="377"/></svg>
+          <div style="text-align:center"><div class="num" id="scoreNum">0</div><div class="label">/ 100</div></div>
+        </div>
+        <div class="score-details">
+          <div class="grade" id="scoreGrade">Analyzing...</div>
+          <div class="summary" id="scoreSummary"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid" id="statsGrid"></div>
+
+    <!-- Detailed Issues & Recommendations -->
+    <div class="card">
+      <h3>SEO Issues & Optimization Steps</h3>
+      <p style="color:var(--txt2);font-size:.85rem;margin-bottom:1rem">Follow these steps in order to improve your score each week.</p>
+      <div id="issuesList"></div>
+    </div>
+
+    <!-- Weekly History -->
+    <div class="card">
+      <h3>Weekly Score History</h3>
+      <p style="color:var(--txt2);font-size:.85rem;margin-bottom:1rem">Your SEO score is tracked weekly. Re-run your audit anytime to see progress.</p>
+      <div id="historyList"></div>
+    </div>
+
+    <!-- Progress Timeline -->
+    <div class="card">
+      <h3>Your SEO Optimization Roadmap</h3>
+      <p style="color:var(--txt2);font-size:.85rem;margin-bottom:1rem">Follow this timeline to systematically improve your search rankings.</p>
+      <div class="timeline" id="timelineList"></div>
+    </div>
+
+    <!-- Replit Setup Instructions -->
+    <div class="setup-card">
+      <h3>Advanced: Automate SEO with Replit</h3>
+      <p>For fully automated SEO monitoring and content generation, you can connect a Replit project that runs weekly SEO checks automatically.</p>
+      <div class="setup-steps">
+        <div class="setup-step">Create a free Replit account using our referral link: <a href="https://replit.com/refer/ReplitSuperHero" target="_blank">Sign up for Replit</a></div>
+        <div class="setup-step">Fork our SEO monitoring template (link will be provided after signup)</div>
+        <div class="setup-step">Add your domain to the <code>DOMAIN</code> environment variable</div>
+        <div class="setup-step">Enable the Replit cron to run weekly audits automatically</div>
+        <div class="setup-step">Results sync back to this dashboard automatically</div>
+      </div>
+    </div>
+
+    <!-- Re-run button -->
+    <div style="text-align:center;margin-top:2rem;padding-bottom:2rem">
+      <button class="btn-optimize" onclick="runFullAudit()" style="font-size:.95rem;padding:.8rem 2rem">Re-Run SEO Audit →</button>
+    </div>
+  </div>
+
 </div></div>
 
 <script>
-const API='https://super-hero-api.replit.app';
-const SK='seo_token',SU='seo_user';
-let token=sessionStorage.getItem(SK),user=null;
-try{user=JSON.parse(sessionStorage.getItem(SU))}catch(e){}
+// ─── CONFIG ───
+const API = 'https://super-hero-api.replit.app';
+const SK = 'seo_token', SU = 'seo_user', SD = 'seo_domain', SH = 'seo_history';
+const S3_REGION = 'us-east-2';
+const S3_POOL = 'us-east-2:662dfd2a-8d86-4ee3-875b-cd55d0acff8d';
+const S3_BUCKET = 'superhero-clients-theaisuperheroes';
+const CORS_PROXIES = ['https://api.allorigins.win/raw?url=','https://corsproxy.io/?','https://api.codetabs.com/v1/proxy?quest='];
 
-function showMsg(id,msg,type){document.getElementById(id).innerHTML=`<div class="msg msg-${type}">${msg}</div>`}
-function showLogin(){document.getElementById('loginForm').classList.remove('hide');document.getElementById('regForm').classList.add('hide');document.getElementById('authTitle').textContent='Sign In';document.getElementById('authMsg').innerHTML=''}
-function showRegister(){document.getElementById('loginForm').classList.add('hide');document.getElementById('regForm').classList.remove('hide');document.getElementById('authTitle').textContent='Create Account';document.getElementById('authMsg').innerHTML=''}
+let token = sessionStorage.getItem(SK), user = null;
+try { user = JSON.parse(sessionStorage.getItem(SU)); } catch(e) {}
 
-async function doLogin(){
-  const email=document.getElementById('loginEmail').value,pass=document.getElementById('loginPass').value;
-  if(!email||!pass)return showMsg('authMsg','Please fill all fields','err');
-  try{
-    const r=await fetch(API+'/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
-    const d=await r.json();
-    if(!r.ok)return showMsg('authMsg',d.error||'Login failed','err');
-    token=d.token;user=d.user||{email:d.email,subscription_status:'active'};sessionStorage.setItem(SK,token);sessionStorage.setItem(SU,JSON.stringify(user));checkAuth();
-  }catch(e){showMsg('authMsg','Connection error. Please try again.','err')}
+// ─── AUTH ───
+function showMsg(id, msg, type) { document.getElementById(id).innerHTML = '<div class="msg msg-' + type + '">' + msg + '</div>'; }
+function showLogin() { document.getElementById('loginForm').classList.remove('hide'); document.getElementById('regForm').classList.add('hide'); document.getElementById('authTitle').textContent = 'Sign In'; document.getElementById('authMsg').innerHTML = ''; }
+function showRegister() { document.getElementById('loginForm').classList.add('hide'); document.getElementById('regForm').classList.remove('hide'); document.getElementById('authTitle').textContent = 'Create Account'; document.getElementById('authMsg').innerHTML = ''; }
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value, pass = document.getElementById('loginPass').value;
+  if (!email || !pass) return showMsg('authMsg', 'Please fill all fields', 'err');
+  try {
+    const r = await fetch(API + '/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password: pass }) });
+    const d = await r.json();
+    if (!r.ok) return showMsg('authMsg', d.error || 'Login failed', 'err');
+    token = d.token; user = d.user || { email: d.email, subscription_status: 'active' };
+    sessionStorage.setItem(SK, token); sessionStorage.setItem(SU, JSON.stringify(user)); checkAuth();
+  } catch(e) { showMsg('authMsg', 'Connection error. Please try again.', 'err'); }
 }
 
-async function doRegister(){
-  const email=document.getElementById('regEmail').value,pass=document.getElementById('regPass').value;
-  if(!email||!pass)return showMsg('authMsg','Please fill all fields','err');
-  if(pass.length<6)return showMsg('authMsg','Password must be at least 6 characters','err');
-  try{
-    const r=await fetch(API+'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
-    const d=await r.json();
-    if(!r.ok)return showMsg('authMsg',d.error||'Registration failed','err');
-    token=d.token;user=d.user||{email:d.email,subscription_status:'active'};sessionStorage.setItem(SK,token);sessionStorage.setItem(SU,JSON.stringify(user));checkAuth();
-  }catch(e){showMsg('authMsg','Connection error. Please try again.','err')}
+async function doRegister() {
+  const email = document.getElementById('regEmail').value, pass = document.getElementById('regPass').value;
+  if (!email || !pass) return showMsg('authMsg', 'Please fill all fields', 'err');
+  if (pass.length < 6) return showMsg('authMsg', 'Password must be at least 6 characters', 'err');
+  try {
+    const r = await fetch(API + '/api/auth/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password: pass }) });
+    const d = await r.json();
+    if (!r.ok) return showMsg('authMsg', d.error || 'Registration failed', 'err');
+    token = d.token; user = d.user || { email: d.email, subscription_status: 'active' };
+    sessionStorage.setItem(SK, token); sessionStorage.setItem(SU, JSON.stringify(user)); checkAuth();
+  } catch(e) { showMsg('authMsg', 'Connection error. Please try again.', 'err'); }
 }
 
-function logout(){token=null;user=null;sessionStorage.removeItem(SK);sessionStorage.removeItem(SU);checkAuth()}
+function logout() { token = null; user = null; sessionStorage.removeItem(SK); sessionStorage.removeItem(SU); checkAuth(); }
 
-function checkAuth(){
-  const auth=document.getElementById('authPage'),sub=document.getElementById('subWall'),dash=document.getElementById('dashboard'),ua=document.getElementById('userArea');
-  if(!token||!user){auth.classList.remove('hide');sub.classList.add('hide');dash.classList.add('hide');ua.classList.add('hide');return}
-  auth.classList.add('hide');ua.classList.remove('hide');document.getElementById('userEmail').textContent=user.email;
-  if(user.subscription_status==='active'){sub.classList.add('hide');dash.classList.remove('hide')}
-  else{sub.classList.remove('hide');dash.classList.add('hide')}
+function checkAuth() {
+  const auth = document.getElementById('authPage'), sub = document.getElementById('subWall'), dash = document.getElementById('dashboard'), ua = document.getElementById('userArea');
+  if (!token || !user) { auth.classList.remove('hide'); sub.classList.add('hide'); dash.classList.add('hide'); ua.classList.add('hide'); return; }
+  auth.classList.add('hide'); ua.classList.remove('hide'); document.getElementById('userEmail').textContent = user.email;
+  if (user.subscription_status === 'active') { sub.classList.add('hide'); dash.classList.remove('hide'); loadSavedDomain(); }
+  else { sub.classList.remove('hide'); dash.classList.add('hide'); }
 }
 
-async function analyzeDomain(){
-  const url=document.getElementById('domainUrl').value;
-  if(!url)return alert('Please enter a domain or URL');
-  document.getElementById('results').classList.remove('hide');
-  document.getElementById('scoreVal').innerHTML='<div class="loader"></div>';
-  document.getElementById('stats').innerHTML='';document.getElementById('keywords').innerHTML='';document.getElementById('technicalIssues').innerHTML='';document.getElementById('contentSuggestions').innerHTML='';document.getElementById('backlinks').innerHTML='';
-  try{
-    const r=await fetch(API+'/api/ai/seo-analyze',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify({domain:url})});
-    const d=await r.json();if(!r.ok)return alert(d.error||'Analysis failed');
-    const a=d.analysis;
-    document.getElementById('scoreVal').textContent=a.seoScore+'/100';
-    let st=`<div class="stat"><div class="val">${a.domainAuthority}</div><div class="label">Domain Authority</div></div>`;
-    st+=`<div class="stat"><div class="val">${a.pageSpeed}ms</div><div class="label">Page Speed</div></div>`;
-    document.getElementById('stats').innerHTML=st;
-    let kw='';a.keywordAnalysis.forEach(k=>{kw+=`<div class="suggestion"><strong>${k.keyword}</strong> - Position: ${k.position}, Volume: ${k.volume}, Difficulty: ${k.difficulty}</div>`});
-    document.getElementById('keywords').innerHTML=kw;
-    let tech='';a.technicalSeo.issues.forEach(i=>{tech+=`<div class="suggestion">${i}</div>`});
-    document.getElementById('technicalIssues').innerHTML=tech||'<div class="suggestion">No critical issues found</div>';
-    let cs='';a.contentSuggestions.forEach(s=>{cs+=`<div class="suggestion">${s}</div>`});
-    document.getElementById('contentSuggestions').innerHTML=cs;
-    let bk='';a.backlinkOpportunities.forEach(b=>{bk+=`<div class="suggestion">${b}</div>`});
-    document.getElementById('backlinks').innerHTML=bk;
-  }catch(e){alert('Error connecting to server')}
+function loadSavedDomain() {
+  const saved = sessionStorage.getItem(SD);
+  if (saved) document.getElementById('domainUrl').value = saved;
 }
+
+// ─── CORS FETCH ───
+async function fetchViaProxy(url) {
+  for (const proxy of CORS_PROXIES) {
+    try {
+      const resp = await fetch(proxy + encodeURIComponent(url), { signal: AbortSignal.timeout(12000) });
+      if (resp.ok) { const text = await resp.text(); if (text.length > 100) return text; }
+    } catch(e) { continue; }
+  }
+  return null;
+}
+
+// ─── FULL SEO AUDIT ───
+async function runFullAudit() {
+  let targetUrl = document.getElementById('domainUrl').value.trim();
+  if (!targetUrl) return alert('Please enter a website URL');
+  if (!targetUrl.startsWith('http')) targetUrl = 'https://' + targetUrl;
+
+  sessionStorage.setItem(SD, targetUrl);
+
+  // Show results section with loading state
+  document.getElementById('resultsSection').classList.remove('hide');
+  document.getElementById('scoreNum').textContent = '...';
+  document.getElementById('scoreGrade').textContent = 'Analyzing...';
+  document.getElementById('scoreSummary').textContent = 'Running comprehensive SEO audit on ' + targetUrl;
+  document.getElementById('statsGrid').innerHTML = '<div class="stat-card"><div class="val"><div class="loader"></div></div><div class="lbl">Scanning...</div></div>';
+  document.getElementById('issuesList').innerHTML = '<div style="text-align:center;padding:2rem"><div class="loader"></div> Running 20+ SEO checks...</div>';
+
+  const urlObj = new URL(targetUrl);
+  const domain = urlObj.hostname;
+
+  // Fetch page + robots + sitemap
+  let html = null, robotsTxt = null, sitemapXml = null;
+  try { html = await fetchViaProxy(targetUrl); } catch(e) {}
+  try { robotsTxt = await fetchViaProxy(urlObj.origin + '/robots.txt'); } catch(e) {}
+  try { sitemapXml = await fetchViaProxy(urlObj.origin + '/sitemap.xml'); } catch(e) {}
+
+  let doc = null;
+  if (html) {
+    const parser = new DOMParser();
+    doc = parser.parseFromString(html, 'text/html');
+  }
+
+  // Run all checks
+  const checks = [];
+
+  if (doc) {
+    // META TAGS
+    const title = doc.querySelector('title');
+    const titleText = title ? title.textContent.trim() : '';
+    checks.push({ cat: 'Meta Tags', status: titleText ? (titleText.length >= 30 && titleText.length <= 65 ? 'pass' : 'warn') : 'fail', text: titleText ? 'Title tag: "' + titleText.substring(0, 50) + (titleText.length > 50 ? '...' : '') + '" (' + titleText.length + ' chars)' : 'Missing title tag', fix: !titleText ? 'Add a <title> tag between 30-65 characters that includes your main keyword' : titleText.length < 30 ? 'Lengthen your title to at least 30 characters' : titleText.length > 65 ? 'Shorten your title to under 65 characters to avoid truncation in search results' : '', points: titleText ? (titleText.length >= 30 && titleText.length <= 65 ? 8 : 4) : 0, max: 8 });
+
+    const metaDesc = doc.querySelector('meta[name="description"]');
+    const descText = metaDesc ? metaDesc.getAttribute('content') || '' : '';
+    checks.push({ cat: 'Meta Tags', status: descText ? (descText.length >= 120 && descText.length <= 160 ? 'pass' : 'warn') : 'fail', text: descText ? 'Meta description (' + descText.length + ' chars)' : 'Missing meta description', fix: !descText ? 'Add a meta description tag (120-160 chars) that summarizes the page and includes keywords' : descText.length < 120 ? 'Expand your meta description to at least 120 characters' : 'Shorten to 160 characters to prevent truncation', points: descText ? (descText.length >= 120 && descText.length <= 160 ? 7 : 3) : 0, max: 7 });
+
+    const viewport = doc.querySelector('meta[name="viewport"]');
+    checks.push({ cat: 'Meta Tags', status: viewport ? 'pass' : 'fail', text: viewport ? 'Mobile viewport configured' : 'Missing viewport meta tag', fix: viewport ? '' : 'Add <meta name="viewport" content="width=device-width, initial-scale=1.0">', points: viewport ? 5 : 0, max: 5 });
+
+    const canonical = doc.querySelector('link[rel="canonical"]');
+    checks.push({ cat: 'Meta Tags', status: canonical ? 'pass' : 'warn', text: canonical ? 'Canonical URL set' : 'No canonical URL', fix: canonical ? '' : 'Add <link rel="canonical" href="your-url"> to prevent duplicate content', points: canonical ? 5 : 1, max: 5 });
+
+    // CONTENT
+    const h1s = doc.querySelectorAll('h1');
+    checks.push({ cat: 'Content', status: h1s.length === 1 ? 'pass' : h1s.length > 1 ? 'warn' : 'fail', text: h1s.length === 1 ? 'Single H1 heading' : h1s.length > 1 ? h1s.length + ' H1 tags (should be 1)' : 'No H1 heading', fix: h1s.length !== 1 ? 'Use exactly one H1 tag per page containing your primary keyword' : '', points: h1s.length === 1 ? 7 : h1s.length > 1 ? 3 : 0, max: 7 });
+
+    const h2s = doc.querySelectorAll('h2');
+    checks.push({ cat: 'Content', status: h2s.length >= 2 ? 'pass' : h2s.length === 1 ? 'warn' : 'fail', text: h2s.length + ' H2 subheadings', fix: h2s.length < 2 ? 'Add H2 subheadings to break up content and target secondary keywords' : '', points: h2s.length >= 2 ? 4 : h2s.length === 1 ? 2 : 0, max: 4 });
+
+    const bodyText = doc.body ? doc.body.textContent.replace(/\s+/g, ' ').trim() : '';
+    const wordCount = bodyText.split(' ').filter(w => w.length > 2).length;
+    checks.push({ cat: 'Content', status: wordCount >= 800 ? 'pass' : wordCount >= 300 ? 'warn' : 'fail', text: '~' + wordCount + ' words of content', fix: wordCount < 800 ? 'Add more valuable content. Aim for 800+ words with keywords naturally woven in' : '', points: wordCount >= 800 ? 7 : wordCount >= 300 ? 4 : 1, max: 7 });
+
+    const imgs = doc.querySelectorAll('img');
+    const imgsAlt = Array.from(imgs).filter(i => i.getAttribute('alt') && i.getAttribute('alt').trim());
+    const altPct = imgs.length > 0 ? Math.round((imgsAlt.length / imgs.length) * 100) : 100;
+    checks.push({ cat: 'Content', status: imgs.length === 0 ? 'warn' : altPct >= 90 ? 'pass' : altPct >= 50 ? 'warn' : 'fail', text: imgs.length === 0 ? 'No images on page' : altPct + '% images have alt text (' + imgsAlt.length + '/' + imgs.length + ')', fix: imgs.length === 0 ? 'Add relevant images to improve engagement and provide alt text for accessibility' : altPct < 90 ? 'Add descriptive alt text to all images for accessibility and image search rankings' : '', points: imgs.length === 0 ? 4 : altPct >= 90 ? 7 : altPct >= 50 ? 3 : 1, max: 7 });
+
+    // TECHNICAL
+    const og = doc.querySelector('meta[property="og:title"]');
+    checks.push({ cat: 'Technical', status: og ? 'pass' : 'warn', text: og ? 'Open Graph tags present' : 'No Open Graph tags', fix: og ? '' : 'Add og:title, og:description, og:image meta tags for better social sharing', points: og ? 4 : 1, max: 4 });
+
+    const jsonLd = doc.querySelectorAll('script[type="application/ld+json"]');
+    checks.push({ cat: 'Technical', status: jsonLd.length > 0 ? 'pass' : 'warn', text: jsonLd.length > 0 ? 'Structured data found' : 'No structured data', fix: jsonLd.length === 0 ? 'Add Schema.org JSON-LD markup for rich search results (Organization, WebPage, etc.)' : '', points: jsonLd.length > 0 ? 4 : 0, max: 4 });
+
+    const langAttr = doc.querySelector('html').getAttribute('lang');
+    checks.push({ cat: 'Technical', status: langAttr ? 'pass' : 'warn', text: langAttr ? 'Language attribute set (' + langAttr + ')' : 'No lang attribute', fix: langAttr ? '' : 'Add lang="en" (or appropriate language) to the <html> tag', points: langAttr ? 3 : 0, max: 3 });
+
+    // LINKS
+    const allLinks = doc.querySelectorAll('a[href]');
+    const internal = Array.from(allLinks).filter(a => { const h = a.getAttribute('href'); return h && (h.startsWith('/') || h.includes(domain)); });
+    const external = Array.from(allLinks).filter(a => { const h = a.getAttribute('href'); return h && h.startsWith('http') && !h.includes(domain); });
+    checks.push({ cat: 'Links & Performance', status: internal.length >= 5 ? 'pass' : internal.length >= 1 ? 'warn' : 'fail', text: internal.length + ' internal links', fix: internal.length < 5 ? 'Add more internal links to improve site structure and help search engines crawl your pages' : '', points: internal.length >= 5 ? 5 : internal.length >= 1 ? 2 : 0, max: 5 });
+
+    checks.push({ cat: 'Links & Performance', status: external.length >= 1 ? 'pass' : 'warn', text: external.length + ' external links', fix: external.length < 1 ? 'Add links to relevant authoritative external sources to build topical trust' : '', points: external.length >= 1 ? 3 : 1, max: 3 });
+
+    const scripts = doc.querySelectorAll('script[src]');
+    const stylesheets = doc.querySelectorAll('link[rel="stylesheet"]');
+    const resources = scripts.length + stylesheets.length;
+    checks.push({ cat: 'Links & Performance', status: resources <= 10 ? 'pass' : resources <= 20 ? 'warn' : 'fail', text: resources + ' external resources loaded', fix: resources > 10 ? 'Reduce external scripts and stylesheets to improve page load speed' : '', points: resources <= 10 ? 4 : resources <= 20 ? 2 : 0, max: 4 });
+  }
+
+  // HTTPS (always checkable)
+  checks.push({ cat: 'Technical', status: urlObj.protocol === 'https:' ? 'pass' : 'fail', text: urlObj.protocol === 'https:' ? 'HTTPS enabled' : 'Not using HTTPS', fix: urlObj.protocol !== 'https:' ? 'Switch to HTTPS immediately. Google strongly favors secure sites.' : '', points: urlObj.protocol === 'https:' ? 8 : 0, max: 8 });
+
+  // Robots.txt
+  const hasRobots = robotsTxt && robotsTxt.length > 10 && robotsTxt.toLowerCase().includes('user-agent');
+  checks.push({ cat: 'Technical', status: hasRobots ? 'pass' : 'warn', text: hasRobots ? 'robots.txt configured' : 'No robots.txt', fix: hasRobots ? '' : 'Create a robots.txt file to guide search engine crawlers', points: hasRobots ? 4 : 1, max: 4 });
+
+  // Sitemap
+  const hasSitemap = sitemapXml && sitemapXml.length > 50 && (sitemapXml.includes('<urlset') || sitemapXml.includes('<sitemapindex'));
+  checks.push({ cat: 'Technical', status: hasSitemap ? 'pass' : 'fail', text: hasSitemap ? 'XML sitemap found' : 'No XML sitemap', fix: hasSitemap ? '' : 'Create and submit an XML sitemap to Google Search Console', points: hasSitemap ? 4 : 0, max: 4 });
+
+  // Clean URL
+  checks.push({ cat: 'Links & Performance', status: !targetUrl.includes('?') ? 'pass' : 'warn', text: !targetUrl.includes('?') ? 'Clean URL structure' : 'URL has query parameters', fix: targetUrl.includes('?') ? 'Use clean, descriptive URLs without query parameters when possible' : '', points: !targetUrl.includes('?') ? 3 : 1, max: 3 });
+
+  // Calculate total score
+  let totalPoints = 0, maxPoints = 0;
+  checks.forEach(c => { totalPoints += c.points; maxPoints += c.max; });
+  const score = Math.round((totalPoints / maxPoints) * 100);
+
+  // Save to history
+  saveToHistory(domain, score);
+
+  // Save audit to S3
+  try {
+    AWS.config.region = S3_REGION;
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({ IdentityPoolId: S3_POOL });
+    await new Promise((res, rej) => AWS.config.credentials.get(err => err ? rej(err) : res()));
+    const s3 = new AWS.S3({ region: S3_REGION });
+    await s3.putObject({
+      Bucket: S3_BUCKET,
+      Key: 'audits/dashboard_' + domain.replace(/\./g, '_') + '_' + Date.now() + '.json',
+      Body: JSON.stringify({ url: targetUrl, domain, score, checks, user: user ? user.email : 'unknown', timestamp: new Date().toISOString() }),
+      ContentType: 'application/json'
+    }).promise();
+  } catch(e) { console.error('S3 save error:', e); }
+
+  // GA4
+  if (window.gtag) gtag('event', 'dashboard_audit_complete', { score, domain });
+
+  // Render results
+  renderResults(score, checks, domain);
+}
+
+// ─── RENDER RESULTS ───
+function renderResults(score, checks, domain) {
+  // Score ring
+  const circumference = 2 * Math.PI * 60;
+  const offset = circumference - (score / 100) * circumference;
+  const arc = document.getElementById('scoreArc');
+  arc.style.strokeDasharray = circumference;
+  const color = score >= 80 ? 'var(--green)' : score >= 60 ? 'var(--yellow)' : score >= 40 ? 'var(--orange)' : 'var(--red)';
+  arc.style.stroke = color;
+  setTimeout(() => { arc.style.strokeDashoffset = offset; }, 100);
+
+  // Animate number
+  let cur = 0;
+  const si = setInterval(() => { cur++; if (cur > score) { clearInterval(si); return; } document.getElementById('scoreNum').textContent = cur; }, 15);
+  document.getElementById('scoreNum').style.color = color;
+
+  // Grade
+  let grade, summary;
+  if (score >= 80) { grade = 'Excellent'; summary = 'Great SEO fundamentals. Focus on content strategy and backlinks for even higher rankings.'; }
+  else if (score >= 60) { grade = 'Good — Room to Grow'; summary = 'Solid base but several optimizations will significantly boost your rankings.'; }
+  else if (score >= 40) { grade = 'Needs Work'; summary = 'Significant gaps in your SEO. Follow the optimization steps below to improve quickly.'; }
+  else { grade = 'Critical'; summary = 'Major issues detected. Your site is likely not ranking well. Take immediate action on the items below.'; }
+  document.getElementById('scoreGrade').textContent = grade;
+  document.getElementById('scoreGrade').style.color = color;
+  document.getElementById('scoreSummary').textContent = summary;
+
+  // Stats
+  const passCount = checks.filter(c => c.status === 'pass').length;
+  const warnCount = checks.filter(c => c.status === 'warn').length;
+  const failCount = checks.filter(c => c.status === 'fail').length;
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="stat-card"><div class="val" style="color:var(--green)">${passCount}</div><div class="lbl">Checks Passed</div></div>
+    <div class="stat-card"><div class="val" style="color:var(--yellow)">${warnCount}</div><div class="lbl">Warnings</div></div>
+    <div class="stat-card"><div class="val" style="color:var(--red)">${failCount}</div><div class="lbl">Issues Found</div></div>
+    <div class="stat-card"><div class="val" style="color:${color}">${score}/100</div><div class="lbl">SEO Score</div></div>
+  `;
+
+  // Issues list grouped by category
+  const cats = {};
+  checks.forEach(c => {
+    if (!cats[c.cat]) cats[c.cat] = [];
+    cats[c.cat].push(c);
+  });
+
+  let issuesHTML = '';
+  for (const [catName, items] of Object.entries(cats)) {
+    const catPoints = items.reduce((s, i) => s + i.points, 0);
+    const catMax = items.reduce((s, i) => s + i.max, 0);
+    const catPct = Math.round((catPoints / catMax) * 100);
+    const catColor = catPct >= 80 ? 'var(--green)' : catPct >= 60 ? 'var(--yellow)' : 'var(--orange)';
+
+    issuesHTML += '<div class="cat-section"><div class="cat-header"><div class="cat-title">' + catName + '</div><div class="cat-score-badge" style="background:' + catColor + '22;color:' + catColor + '">' + catPoints + '/' + catMax + '</div></div>';
+
+    // Show fails first, then warns, then passes
+    const sorted = [...items].sort((a, b) => { const o = { fail: 0, warn: 1, pass: 2 }; return o[a.status] - o[b.status]; });
+    for (const item of sorted) {
+      const icon = item.status === 'pass' ? '✓' : item.status === 'warn' ? '!' : '✗';
+      issuesHTML += '<div class="issue-item"><div class="issue-icon ' + item.status + '">' + icon + '</div><div class="issue-text">' + item.text + (item.fix ? '<span class="issue-fix">Fix: ' + item.fix + '</span>' : '') + '</div></div>';
+    }
+    issuesHTML += '</div>';
+  }
+  document.getElementById('issuesList').innerHTML = issuesHTML;
+
+  // Weekly history
+  renderHistory(domain);
+
+  // Progress timeline
+  renderTimeline(score);
+
+  // Scroll to results
+  document.getElementById('scoreCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─── HISTORY ───
+function saveToHistory(domain, score) {
+  let history = [];
+  try { history = JSON.parse(sessionStorage.getItem(SH) || '[]'); } catch(e) {}
+  history.push({ domain, score, date: new Date().toISOString() });
+  // Keep last 12 entries
+  if (history.length > 12) history = history.slice(-12);
+  sessionStorage.setItem(SH, JSON.stringify(history));
+}
+
+function renderHistory(domain) {
+  let history = [];
+  try { history = JSON.parse(sessionStorage.getItem(SH) || '[]'); } catch(e) {}
+  const filtered = history.filter(h => h.domain === domain);
+
+  if (filtered.length === 0) {
+    document.getElementById('historyList').innerHTML = '<p style="color:var(--txt2);font-size:.85rem">No history yet. Your weekly scores will appear here.</p>';
+    return;
+  }
+
+  let html = '';
+  for (let i = 0; i < filtered.length; i++) {
+    const h = filtered[i];
+    const date = new Date(h.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const color = h.score >= 80 ? 'var(--green)' : h.score >= 60 ? 'var(--yellow)' : h.score >= 40 ? 'var(--orange)' : 'var(--red)';
+    const change = i > 0 ? h.score - filtered[i - 1].score : 0;
+    const changeText = change > 0 ? '<span style="color:var(--green)">+' + change + '</span>' : change < 0 ? '<span style="color:var(--red)">' + change + '</span>' : '<span style="color:var(--txt2)">—</span>';
+
+    html += '<div class="history-row"><div class="history-date">' + date + '</div><div class="history-bar"><div class="history-bar-fill" style="width:' + h.score + '%;background:' + color + '"></div></div><div class="history-score" style="color:' + color + '">' + h.score + '</div><div class="history-change">' + changeText + '</div></div>';
+  }
+  document.getElementById('historyList').innerHTML = html;
+}
+
+// ─── TIMELINE ───
+function renderTimeline(currentScore) {
+  const steps = [
+    { week: 'Week 1-2', desc: 'Fix critical meta tags: title, description, viewport, canonical URL', target: Math.min(currentScore + 15, 100), active: true },
+    { week: 'Week 3-4', desc: 'Optimize heading structure (H1, H2, H3) and expand content to 800+ words', target: Math.min(currentScore + 25, 100) },
+    { week: 'Week 5-6', desc: 'Add structured data (Schema.org), create XML sitemap, configure robots.txt', target: Math.min(currentScore + 33, 100) },
+    { week: 'Week 7-8', desc: 'Optimize images (alt text, compression), improve page speed, reduce external resources', target: Math.min(currentScore + 40, 100) },
+    { week: 'Week 9-12', desc: 'Build internal linking strategy, add external authority links, create cornerstone content', target: Math.min(currentScore + 50, 100) },
+    { week: 'Week 13-16', desc: 'Submit to Google Search Console, start backlink outreach, optimize for featured snippets', target: Math.min(currentScore + 60, 100) },
+    { week: 'Ongoing', desc: 'Weekly monitoring, content freshness updates, rank tracking, competitor analysis', target: 0 },
+  ];
+
+  let html = '';
+  for (const s of steps) {
+    const cls = s.active ? ' active' : '';
+    const targetText = s.target > 0 ? '<div class="tl-target" style="color:' + (s.target >= 80 ? 'var(--green)' : 'var(--yellow)') + '">Target: ' + s.target + '/100</div>' : '<div class="tl-target" style="color:var(--p)">Continuous improvement</div>';
+    html += '<div class="tl-item' + cls + '"><div class="tl-week">' + s.week + '</div><div class="tl-desc">' + s.desc + '</div>' + targetText + '</div>';
+  }
+  document.getElementById('timelineList').innerHTML = html;
+}
+
 checkAuth();
 </script>
 
@@ -170,78 +609,24 @@ checkAuth();
 <!-- Referral Code Auto-Capture -->
 <script>
 (function() {
-  // Read referral code from cookie or localStorage
   function getRefCode() {
-    // Cookie
     var match = document.cookie.match(/(^| )sh_ref=([^;]+)/);
     if (match) return decodeURIComponent(match[2]);
-    // localStorage fallback
-    try {
-      var code = localStorage.getItem('sh_ref');
-      var time = parseInt(localStorage.getItem('sh_ref_time') || '0');
-      if (code && (Date.now() - time) < 30*24*60*60*1000) return code;
-    } catch(e) {}
-    // URL param fallback
-    try {
-      var p = new URLSearchParams(window.location.search);
-      if (p.get('ref')) return p.get('ref');
-    } catch(e) {}
+    try { var code = localStorage.getItem('sh_ref'); var time = parseInt(localStorage.getItem('sh_ref_time') || '0'); if (code && (Date.now() - time) < 30*24*60*60*1000) return code; } catch(e) {}
+    try { var p = new URLSearchParams(window.location.search); if (p.get('ref')) return p.get('ref'); } catch(e) {}
     return null;
   }
-
   var refCode = getRefCode();
-
-  // Auto-populate any referral code field and show referral banner
   document.addEventListener('DOMContentLoaded', function() {
-    // If there's a ref code, inject a visible banner and hidden field
     if (refCode) {
-      // Add referral banner at top of page
       var banner = document.createElement('div');
       banner.style.cssText = 'background:linear-gradient(135deg,#1a0f0a,#1a1a2e);border:1px solid #FF6B35;color:#FF6B35;text-align:center;padding:10px 16px;font-size:0.85rem;font-family:system-ui,sans-serif;position:sticky;top:0;z-index:9999;';
-      banner.innerHTML = 'Referred by affiliate: <strong>' + refCode + '</strong> — Welcome!';
+      banner.innerHTML = 'Referred by affiliate: <strong>' + refCode + '</strong>';
       document.body.insertBefore(banner, document.body.firstChild);
-
-      // Find all forms and add hidden referral_code field
-      var forms = document.querySelectorAll('form');
-      forms.forEach(function(form) {
-        // Add hidden input if not already present
-        if (!form.querySelector('input[name="referral_code"]')) {
-          var hidden = document.createElement('input');
-          hidden.type = 'hidden';
-          hidden.name = 'referral_code';
-          hidden.value = refCode;
-          form.appendChild(hidden);
-        }
-      });
-
-      // Find any visible referral code input and populate it
-      var refInputs = document.querySelectorAll('input[name="referral_code"], input[id*="referral"], input[placeholder*="referral"], input[placeholder*="Referral"]');
-      refInputs.forEach(function(inp) {
-        inp.value = refCode;
-        inp.readOnly = true;
-        inp.style.borderColor = '#FF6B35';
-        inp.style.color = '#FF6B35';
-      });
-    }
-
-    // Patch saveClientData to include referral code
-    if (window.saveClientData) {
-      var originalSave = window.saveClientData;
-      window.saveClientData = function(data, filename) {
-        if (refCode && data && typeof data === 'object') {
-          data.referral_code = refCode;
-          data.referred_by = refCode;
-          data.referral_site = localStorage.getItem('sh_ref_site') || '';
-        }
-        return originalSave(data, filename);
-      };
     }
   });
-
-  // Expose for manual use
   window._refCode = refCode;
 })();
 </script>
-
 </body>
 </html>
