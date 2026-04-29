@@ -348,7 +348,7 @@ function convertBackendResults(data) {
   results.categories.tech = { name: 'Technical SEO', score: Math.round(techScore / 100 * 25), max: 25, items: [] };
   results.categories.perf = { name: 'Performance & Speed', score: Math.round(perfScore / 100 * 25), max: 25, items: [] };
   for (const rec of (audit.recommendations || [])) {
-    const recText = rec.title || rec.description || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
+    const recText = rec.title || rec.description || (rec.issue ? rec.issue + (rec.action ? ' \u2014 ' + rec.action : '') : null) || rec.action || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
     const item = { status: rec.priority === 'high' ? 'fail' : rec.priority === 'medium' ? 'warn' : 'pass', text: recText };
     if (rec.category === 'seo' || rec.category === 'meta') results.categories.meta.items.push(item);
     else if (rec.category === 'content' || rec.category === 'accessibility') results.categories.content.items.push(item);
