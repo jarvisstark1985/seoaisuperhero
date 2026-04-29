@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Dashboard — SEOAi SuperHero</title>
+<title>SEO Dashboard â SEOAi SuperHero</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Google Tag Manager -->
@@ -186,13 +186,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
   <h2>Unlock Your SEO Dashboard</h2>
   <p class="desc">Get weekly AI-powered SEO audits, optimization recommendations, progress tracking, and a clear roadmap to #1 rankings.</p>
   <div class="price">$19.99<span>/month</span></div>
-  <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-subscribe" target="_blank">Click Here To Optimize SEO →</a>
+  <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-subscribe" target="_blank">Click Here To Optimize SEO â</a>
   <p style="margin-top:1rem;font-size:.8rem;color:var(--txt2)">After subscribing, refresh this page to access your dashboard.</p>
   <div class="sub-features">
-    <div class="sub-feat"><span class="check">✓</span> Weekly SEO Audits</div>
-    <div class="sub-feat"><span class="check">✓</span> AI Recommendations</div>
-    <div class="sub-feat"><span class="check">✓</span> Progress Timeline</div>
-    <div class="sub-feat"><span class="check">✓</span> Cancel Anytime</div>
+    <div class="sub-feat"><span class="check">â</span> Weekly SEO Audits</div>
+    <div class="sub-feat"><span class="check">â</span> AI Recommendations</div>
+    <div class="sub-feat"><span class="check">â</span> Progress Timeline</div>
+    <div class="sub-feat"><span class="check">â</span> Cancel Anytime</div>
   </div>
 </div>
 </div></div>
@@ -207,7 +207,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
     <div class="form-group" style="max-width:500px;margin:0 auto 1rem">
       <input type="text" id="domainUrl" placeholder="https://yourwebsite.com" style="text-align:center;font-size:1rem">
     </div>
-    <button class="btn-optimize" onclick="runFullAudit()">Click Here To Optimize SEO →</button>
+    <button class="btn-optimize" onclick="runFullAudit()">Click Here To Optimize SEO â</button>
   </div>
 
   <!-- Results (hidden until audit runs) -->
@@ -266,15 +266,15 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
 
     <!-- Re-run button -->
     <div style="text-align:center;margin-top:2rem;padding-bottom:2rem">
-      <button class="btn-optimize" onclick="runFullAudit()" style="font-size:.95rem;padding:.8rem 2rem">Re-Run SEO Audit →</button>
+      <button class="btn-optimize" onclick="runFullAudit()" style="font-size:.95rem;padding:.8rem 2rem">Re-Run SEO Audit â</button>
     </div>
   </div>
 
 </div></div>
 
 <script>
-// ─── CONFIG ───
-const API = 'https://super-hero-api.replit.app';
+// âââ CONFIG âââ
+const API = 'https://seo-backend-jarvisstark1985.replit.app';
 const SK = 'seo_token', SU = 'seo_user', SD = 'seo_domain', SH = 'seo_history';
 const S3_REGION = 'us-east-2';
 const S3_POOL = 'us-east-2:662dfd2a-8d86-4ee3-875b-cd55d0acff8d';
@@ -284,7 +284,7 @@ const CORS_PROXIES = ['https://api.allorigins.win/raw?url=','https://corsproxy.i
 let token = sessionStorage.getItem(SK), user = null;
 try { user = JSON.parse(sessionStorage.getItem(SU)); } catch(e) {}
 
-// ─── AUTH ───
+// âââ AUTH âââ
 function showMsg(id, msg, type) { document.getElementById(id).innerHTML = '<div class="msg msg-' + type + '">' + msg + '</div>'; }
 function showLogin() { document.getElementById('loginForm').classList.remove('hide'); document.getElementById('regForm').classList.add('hide'); document.getElementById('authTitle').textContent = 'Sign In'; document.getElementById('authMsg').innerHTML = ''; }
 function showRegister() { document.getElementById('loginForm').classList.add('hide'); document.getElementById('regForm').classList.remove('hide'); document.getElementById('authTitle').textContent = 'Create Account'; document.getElementById('authMsg').innerHTML = ''; }
@@ -329,7 +329,7 @@ function loadSavedDomain() {
   if (saved) document.getElementById('domainUrl').value = saved;
 }
 
-// ─── CORS FETCH ───
+// âââ CORS FETCH âââ
 async function fetchViaProxy(url) {
   for (const proxy of CORS_PROXIES) {
     try {
@@ -340,7 +340,7 @@ async function fetchViaProxy(url) {
   return null;
 }
 
-// ─── FULL SEO AUDIT ───
+// âââ FULL SEO AUDIT âââ
 async function runFullAudit() {
   let targetUrl = document.getElementById('domainUrl').value.trim();
   if (!targetUrl) return alert('Please enter a website URL');
@@ -473,7 +473,7 @@ async function runFullAudit() {
   renderResults(score, checks, domain);
 }
 
-// ─── RENDER RESULTS ───
+// âââ RENDER RESULTS âââ
 function renderResults(score, checks, domain) {
   // Score ring
   const circumference = 2 * Math.PI * 60;
@@ -492,7 +492,7 @@ function renderResults(score, checks, domain) {
   // Grade
   let grade, summary;
   if (score >= 80) { grade = 'Excellent'; summary = 'Great SEO fundamentals. Focus on content strategy and backlinks for even higher rankings.'; }
-  else if (score >= 60) { grade = 'Good — Room to Grow'; summary = 'Solid base but several optimizations will significantly boost your rankings.'; }
+  else if (score >= 60) { grade = 'Good â Room to Grow'; summary = 'Solid base but several optimizations will significantly boost your rankings.'; }
   else if (score >= 40) { grade = 'Needs Work'; summary = 'Significant gaps in your SEO. Follow the optimization steps below to improve quickly.'; }
   else { grade = 'Critical'; summary = 'Major issues detected. Your site is likely not ranking well. Take immediate action on the items below.'; }
   document.getElementById('scoreGrade').textContent = grade;
@@ -529,7 +529,7 @@ function renderResults(score, checks, domain) {
     // Show fails first, then warns, then passes
     const sorted = [...items].sort((a, b) => { const o = { fail: 0, warn: 1, pass: 2 }; return o[a.status] - o[b.status]; });
     for (const item of sorted) {
-      const icon = item.status === 'pass' ? '✓' : item.status === 'warn' ? '!' : '✗';
+      const icon = item.status === 'pass' ? 'â' : item.status === 'warn' ? '!' : 'â';
       issuesHTML += '<div class="issue-item"><div class="issue-icon ' + item.status + '">' + icon + '</div><div class="issue-text">' + item.text + (item.fix ? '<span class="issue-fix">Fix: ' + item.fix + '</span>' : '') + '</div></div>';
     }
     issuesHTML += '</div>';
@@ -546,7 +546,7 @@ function renderResults(score, checks, domain) {
   document.getElementById('scoreCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ─── HISTORY ───
+// âââ HISTORY âââ
 function saveToHistory(domain, score) {
   let history = [];
   try { history = JSON.parse(sessionStorage.getItem(SH) || '[]'); } catch(e) {}
@@ -572,14 +572,14 @@ function renderHistory(domain) {
     const date = new Date(h.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     const color = h.score >= 80 ? 'var(--green)' : h.score >= 60 ? 'var(--yellow)' : h.score >= 40 ? 'var(--orange)' : 'var(--red)';
     const change = i > 0 ? h.score - filtered[i - 1].score : 0;
-    const changeText = change > 0 ? '<span style="color:var(--green)">+' + change + '</span>' : change < 0 ? '<span style="color:var(--red)">' + change + '</span>' : '<span style="color:var(--txt2)">—</span>';
+    const changeText = change > 0 ? '<span style="color:var(--green)">+' + change + '</span>' : change < 0 ? '<span style="color:var(--red)">' + change + '</span>' : '<span style="color:var(--txt2)">â</span>';
 
     html += '<div class="history-row"><div class="history-date">' + date + '</div><div class="history-bar"><div class="history-bar-fill" style="width:' + h.score + '%;background:' + color + '"></div></div><div class="history-score" style="color:' + color + '">' + h.score + '</div><div class="history-change">' + changeText + '</div></div>';
   }
   document.getElementById('historyList').innerHTML = html;
 }
 
-// ─── TIMELINE ───
+// âââ TIMELINE âââ
 function renderTimeline(currentScore) {
   const steps = [
     { week: 'Week 1-2', desc: 'Fix critical meta tags: title, description, viewport, canonical URL', target: Math.min(currentScore + 15, 100), active: true },
