@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Dashboard Ã¢ÂÂ SEOAi SuperHero</title>
+<title>SEO Dashboard ÃÂ¢ÃÂÃÂ SEOAi SuperHero</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- Google Tag Manager -->
@@ -144,6 +144,15 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
   .sub-features{flex-direction:column;align-items:center}
 }
 </style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEZ05DRNC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-FHEZ05DRNC");
+</script>
+<script src="referral-tracking.js" defer></script>
 </head>
 <body>
 
@@ -186,13 +195,13 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
   <h2>Unlock Your SEO Dashboard</h2>
   <p class="desc">Get weekly AI-powered SEO audits, optimization recommendations, progress tracking, and a clear roadmap to #1 rankings.</p>
   <div class="price">$19.99<span>/month</span></div>
-  <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-subscribe" target="_blank">Click Here To Optimize SEO Ã¢ÂÂ</a>
+  <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-subscribe" target="_blank">Click Here To Optimize SEO ÃÂ¢ÃÂÃÂ</a>
   <p style="margin-top:1rem;font-size:.8rem;color:var(--txt2)">After subscribing, refresh this page to access your dashboard.</p>
   <div class="sub-features">
-    <div class="sub-feat"><span class="check">Ã¢ÂÂ</span> Weekly SEO Audits</div>
-    <div class="sub-feat"><span class="check">Ã¢ÂÂ</span> AI Recommendations</div>
-    <div class="sub-feat"><span class="check">Ã¢ÂÂ</span> Progress Timeline</div>
-    <div class="sub-feat"><span class="check">Ã¢ÂÂ</span> Cancel Anytime</div>
+    <div class="sub-feat"><span class="check">ÃÂ¢ÃÂÃÂ</span> Weekly SEO Audits</div>
+    <div class="sub-feat"><span class="check">ÃÂ¢ÃÂÃÂ</span> AI Recommendations</div>
+    <div class="sub-feat"><span class="check">ÃÂ¢ÃÂÃÂ</span> Progress Timeline</div>
+    <div class="sub-feat"><span class="check">ÃÂ¢ÃÂÃÂ</span> Cancel Anytime</div>
   </div>
 </div>
 </div></div>
@@ -207,7 +216,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
     <div class="form-group" style="max-width:500px;margin:0 auto 1rem">
       <input type="text" id="domainUrl" placeholder="https://yourwebsite.com" style="text-align:center;font-size:1rem">
     </div>
-    <button class="btn-optimize" onclick="runFullAudit()">Click Here To Optimize SEO Ã¢ÂÂ</button>
+    <button class="btn-optimize" onclick="runFullAudit()">Click Here To Optimize SEO ÃÂ¢ÃÂÃÂ</button>
   </div>
 
   <!-- Results (hidden until audit runs) -->
@@ -266,14 +275,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);min-he
 
     <!-- Re-run button -->
     <div style="text-align:center;margin-top:2rem;padding-bottom:2rem">
-      <button class="btn-optimize" onclick="runFullAudit()" style="font-size:.95rem;padding:.8rem 2rem">Re-Run SEO Audit Ã¢ÂÂ</button>
+      <button class="btn-optimize" onclick="runFullAudit()" style="font-size:.95rem;padding:.8rem 2rem">Re-Run SEO Audit ÃÂ¢ÃÂÃÂ</button>
     </div>
   </div>
 
 </div></div>
 
 <script>
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CONFIG Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CONFIG ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 const API = 'https://seo-backend.replit.app';
 const SK = 'seo_token', SU = 'seo_user', SD = 'seo_domain', SH = 'seo_history';
 const S3_REGION = 'us-east-2';
@@ -284,7 +293,7 @@ const CORS_PROXIES = ['https://api.allorigins.win/raw?url=','https://corsproxy.i
 let token = sessionStorage.getItem(SK), user = null;
 try { user = JSON.parse(sessionStorage.getItem(SU)); } catch(e) {}
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ AUTH Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ AUTH ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function showMsg(id, msg, type) { document.getElementById(id).innerHTML = '<div class="msg msg-' + type + '">' + msg + '</div>'; }
 function showLogin() { document.getElementById('loginForm').classList.remove('hide'); document.getElementById('regForm').classList.add('hide'); document.getElementById('authTitle').textContent = 'Sign In'; document.getElementById('authMsg').innerHTML = ''; }
 function showRegister() { document.getElementById('loginForm').classList.add('hide'); document.getElementById('regForm').classList.remove('hide'); document.getElementById('authTitle').textContent = 'Create Account'; document.getElementById('authMsg').innerHTML = ''; }
@@ -329,7 +338,7 @@ function loadSavedDomain() {
   if (saved) document.getElementById('domainUrl').value = saved;
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CORS FETCH Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ CORS FETCH ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 async function fetchViaProxy(url) {
   for (const proxy of CORS_PROXIES) {
     try {
@@ -340,7 +349,7 @@ async function fetchViaProxy(url) {
   return null;
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ FULL SEO AUDIT Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ FULL SEO AUDIT ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 async function runFullAudit() {
   let targetUrl = document.getElementById('domainUrl').value.trim();
   if (!targetUrl) return alert('Please enter a website URL');
@@ -473,7 +482,7 @@ async function runFullAudit() {
   renderResults(score, checks, domain);
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ RENDER RESULTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ RENDER RESULTS ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function renderResults(score, checks, domain) {
   // Score ring
   const circumference = 2 * Math.PI * 60;
@@ -492,7 +501,7 @@ function renderResults(score, checks, domain) {
   // Grade
   let grade, summary;
   if (score >= 80) { grade = 'Excellent'; summary = 'Great SEO fundamentals. Focus on content strategy and backlinks for even higher rankings.'; }
-  else if (score >= 60) { grade = 'Good Ã¢ÂÂ Room to Grow'; summary = 'Solid base but several optimizations will significantly boost your rankings.'; }
+  else if (score >= 60) { grade = 'Good ÃÂ¢ÃÂÃÂ Room to Grow'; summary = 'Solid base but several optimizations will significantly boost your rankings.'; }
   else if (score >= 40) { grade = 'Needs Work'; summary = 'Significant gaps in your SEO. Follow the optimization steps below to improve quickly.'; }
   else { grade = 'Critical'; summary = 'Major issues detected. Your site is likely not ranking well. Take immediate action on the items below.'; }
   document.getElementById('scoreGrade').textContent = grade;
@@ -529,7 +538,7 @@ function renderResults(score, checks, domain) {
     // Show fails first, then warns, then passes
     const sorted = [...items].sort((a, b) => { const o = { fail: 0, warn: 1, pass: 2 }; return o[a.status] - o[b.status]; });
     for (const item of sorted) {
-      const icon = item.status === 'pass' ? 'Ã¢ÂÂ' : item.status === 'warn' ? '!' : 'Ã¢ÂÂ';
+      const icon = item.status === 'pass' ? 'ÃÂ¢ÃÂÃÂ' : item.status === 'warn' ? '!' : 'ÃÂ¢ÃÂÃÂ';
       issuesHTML += '<div class="issue-item"><div class="issue-icon ' + item.status + '">' + icon + '</div><div class="issue-text">' + item.text + (item.fix ? '<span class="issue-fix">Fix: ' + item.fix + '</span>' : '') + '</div></div>';
     }
     issuesHTML += '</div>';
@@ -546,7 +555,7 @@ function renderResults(score, checks, domain) {
   document.getElementById('scoreCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ HISTORY Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ HISTORY ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function saveToHistory(domain, score) {
   let history = [];
   try { history = JSON.parse(sessionStorage.getItem(SH) || '[]'); } catch(e) {}
@@ -572,14 +581,14 @@ function renderHistory(domain) {
     const date = new Date(h.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     const color = h.score >= 80 ? 'var(--green)' : h.score >= 60 ? 'var(--yellow)' : h.score >= 40 ? 'var(--orange)' : 'var(--red)';
     const change = i > 0 ? h.score - filtered[i - 1].score : 0;
-    const changeText = change > 0 ? '<span style="color:var(--green)">+' + change + '</span>' : change < 0 ? '<span style="color:var(--red)">' + change + '</span>' : '<span style="color:var(--txt2)">Ã¢ÂÂ</span>';
+    const changeText = change > 0 ? '<span style="color:var(--green)">+' + change + '</span>' : change < 0 ? '<span style="color:var(--red)">' + change + '</span>' : '<span style="color:var(--txt2)">ÃÂ¢ÃÂÃÂ</span>';
 
     html += '<div class="history-row"><div class="history-date">' + date + '</div><div class="history-bar"><div class="history-bar-fill" style="width:' + h.score + '%;background:' + color + '"></div></div><div class="history-score" style="color:' + color + '">' + h.score + '</div><div class="history-change">' + changeText + '</div></div>';
   }
   document.getElementById('historyList').innerHTML = html;
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ TIMELINE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ TIMELINE ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 function renderTimeline(currentScore) {
   const steps = [
     { week: 'Week 1-2', desc: 'Fix critical meta tags: title, description, viewport, canonical URL', target: Math.min(currentScore + 15, 100), active: true },
