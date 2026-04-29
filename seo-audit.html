@@ -339,6 +339,7 @@ async function tryBackendAudit(url, userData) {
 function convertBackendResults(data) {
   const audit = data.audit || data; const scores = audit.scores || {};
   const results = { categories: {}, totalScore: 0, maxScore: 100, issues: [], passes: [], warnings: [] };
+  // Use distinct scores per category, with varied defaults if backend returns nothing useful
   const metaScore = scores.seo || scores.meta || 65;
   const contentScore = scores.accessibility || scores.content || 55;
   const techScore = scores.bestPractices || scores.technical || 60;
@@ -348,7 +349,7 @@ function convertBackendResults(data) {
   results.categories.tech = { name: 'Technical SEO', score: Math.round(techScore / 100 * 25), max: 25, items: [] };
   results.categories.perf = { name: 'Performance & Speed', score: Math.round(perfScore / 100 * 25), max: 25, items: [] };
   for (const rec of (audit.recommendations || [])) {
-    const recText = rec.title || rec.description || (rec.issue ? rec.issue + (rec.action ? ' \u2014 ' + rec.action : '') : null) || rec.action || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
+    const recText = rec.title || rec.description || (rec.issue ? rec.issue + (rec.action ? ' &#8212; ' + rec.action : '') : null) || rec.action || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
     const item = { status: rec.priority === 'high' ? 'fail' : rec.priority === 'medium' ? 'warn' : 'pass', text: recText };
     if (rec.category === 'seo' || rec.category === 'meta') results.categories.meta.items.push(item);
     else if (rec.category === 'content' || rec.category === 'accessibility') results.categories.content.items.push(item);
@@ -373,9 +374,11 @@ function convertBackendResults(data) {
     if (crawl.links.external > 0) results.categories.perf.items.push({ status: 'pass', text: crawl.links.external + ' external links found' });
   }
   if (crawl.https) results.categories.tech.items.push({ status: 'pass', text: 'Site uses HTTPS' });
+  // Add fallback item if a category ended up empty
   for (const cat of Object.values(results.categories)) {
     if (cat.items.length === 0) cat.items.push({ status: cat.score >= cat.max * 0.7 ? 'pass' : 'warn', text: 'Score: ' + Math.round(cat.score / cat.max * 100) + '/100' });
   }
+  // Calculate totalScore from actual category scores
   let totalPts = 0, maxPts = 0;
   for (const cat of Object.values(results.categories)) { totalPts += cat.score; maxPts += cat.max; }
   results.totalScore = Math.round((totalPts / maxPts) * 100);
@@ -383,16 +386,21 @@ function convertBackendResults(data) {
 }
 
 // &#9472;&#9472;&#9472; SAVE LEAD TO S3 &#9472;&#9472;&#9472;
+function getUtmParams() {
+  var ps = new URLSearchParams(window.location.search);
+  return { utm_source: ps.get('utm_source') || '', utm_medium: ps.get('utm_medium') || '', utm_campaign: ps.get('utm_campaign') || '', utm_term: ps.get('utm_term') || '', utm_content: ps.get('utm_content') || '' };
+}
 async function saveLeadToS3(data) {
   try {
     AWS.config.region = S3_REGION;
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({ IdentityPoolId: S3_POOL });
     await new Promise((res, rej) => AWS.config.credentials.get(err => err ? rej(err) : res()));
-    const s3 = new AWS.S3({ region: S3_REGION });
-    const key = 'leads/seoaudit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6) + '.json';
+    var s3 = new AWS.S3({ region: S3_REGION });
+    var key = 'leads/seoaudit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6) + '.json';
+    var utm = getUtmParams();
     await s3.putObject({
       Bucket: S3_BUCKET, Key: key,
-      Body: JSON.stringify({ ...data, source: 'seo-audit-free', timestamp: new Date().toISOString(), userAgent: navigator.userAgent }),
+      Body: JSON.stringify({ ...data, source: 'seo-audit-free', timestamp: new Date().toISOString(), userAgent: navigator.userAgent, referrer: document.referrer || 'direct', landingPage: window.location.href, utm_source: utm.utm_source, utm_medium: utm.utm_medium, utm_campaign: utm.utm_campaign, utm_term: utm.utm_term, utm_content: utm.utm_content }),
       ContentType: 'application/json'
     }).promise();
   } catch (e) { console.error('S3 lead save error:', e); }
