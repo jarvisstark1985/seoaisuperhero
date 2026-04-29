@@ -338,14 +338,18 @@ async function tryBackendAudit(url, userData) {
 
 function convertBackendResults(data) {
   const audit = data.audit || data; const scores = audit.scores || {};
-  const totalScore = scores.overall || scores.seo || 50;
-  const results = { categories: {}, totalScore, maxScore: 100, issues: [], passes: [], warnings: [] };
-  results.categories.meta = { name: 'Meta Tags & Headers', score: Math.round((scores.seo || 50) / 100 * 25), max: 25, items: [] };
-  results.categories.content = { name: 'Content & Structure', score: Math.round((scores.accessibility || 50) / 100 * 25), max: 25, items: [] };
-  results.categories.tech = { name: 'Technical SEO', score: Math.round((scores.bestPractices || 50) / 100 * 25), max: 25, items: [] };
-  results.categories.perf = { name: 'Performance & Speed', score: Math.round((scores.performance || 50) / 100 * 25), max: 25, items: [] };
+  const results = { categories: {}, totalScore: 0, maxScore: 100, issues: [], passes: [], warnings: [] };
+  const metaScore = scores.seo || scores.meta || 65;
+  const contentScore = scores.accessibility || scores.content || 55;
+  const techScore = scores.bestPractices || scores.technical || 60;
+  const perfScore = scores.performance || 50;
+  results.categories.meta = { name: 'Meta Tags & Headers', score: Math.round(metaScore / 100 * 25), max: 25, items: [] };
+  results.categories.content = { name: 'Content & Structure', score: Math.round(contentScore / 100 * 25), max: 25, items: [] };
+  results.categories.tech = { name: 'Technical SEO', score: Math.round(techScore / 100 * 25), max: 25, items: [] };
+  results.categories.perf = { name: 'Performance & Speed', score: Math.round(perfScore / 100 * 25), max: 25, items: [] };
   for (const rec of (audit.recommendations || [])) {
-    const item = { status: rec.priority === 'high' ? 'fail' : rec.priority === 'medium' ? 'warn' : 'pass', text: rec.title || rec.description || rec };
+    const recText = rec.title || rec.description || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
+    const item = { status: rec.priority === 'high' ? 'fail' : rec.priority === 'medium' ? 'warn' : 'pass', text: recText };
     if (rec.category === 'seo' || rec.category === 'meta') results.categories.meta.items.push(item);
     else if (rec.category === 'content' || rec.category === 'accessibility') results.categories.content.items.push(item);
     else if (rec.category === 'best-practices' || rec.category === 'technical') results.categories.tech.items.push(item);
@@ -355,15 +359,26 @@ function convertBackendResults(data) {
   const crawl = audit.crawl || {};
   if (crawl.meta) {
     if (crawl.meta.title) results.categories.meta.items.push({ status: 'pass', text: 'Title: ' + crawl.meta.title.substring(0, 60) });
-    if (crawl.meta.description) results.categories.meta.items.push({ status: 'pass', text: 'Meta description present (' + crawl.meta.description.length + ' chars)' });
+    if (crawl.meta.description) results.categories.meta.items.push({ status: crawl.meta.description.length >= 120 && crawl.meta.description.length <= 160 ? 'pass' : 'warn', text: 'Meta description (' + crawl.meta.description.length + ' chars)' });
+    if (crawl.meta.viewport) results.categories.meta.items.push({ status: 'pass', text: 'Viewport meta tag present' });
+    if (crawl.meta.canonical) results.categories.meta.items.push({ status: 'pass', text: 'Canonical URL set' });
   }
   if (crawl.headings) {
-    if (crawl.headings.h1Count === 1) results.categories.content.items.push({ status: 'pass', text: 'Single H1 tag \u2014 good heading hierarchy' });
-    else if (crawl.headings.h1Count > 1) results.categories.content.items.push({ status: 'warn', text: crawl.headings.h1Count + ' H1 tags found \u2014 use only one' });
+    if (crawl.headings.h1Count === 1) results.categories.content.items.push({ status: 'pass', text: 'Single H1 tag -- good heading hierarchy' });
+    else if (crawl.headings.h1Count > 1) results.categories.content.items.push({ status: 'warn', text: crawl.headings.h1Count + ' H1 tags found -- use only one' });
+    if (crawl.headings.h2Count >= 2) results.categories.content.items.push({ status: 'pass', text: crawl.headings.h2Count + ' H2 subheadings found' });
   }
+  if (crawl.links) {
+    if (crawl.links.internal > 0) results.categories.perf.items.push({ status: 'pass', text: crawl.links.internal + ' internal links found' });
+    if (crawl.links.external > 0) results.categories.perf.items.push({ status: 'pass', text: crawl.links.external + ' external links found' });
+  }
+  if (crawl.https) results.categories.tech.items.push({ status: 'pass', text: 'Site uses HTTPS' });
   for (const cat of Object.values(results.categories)) {
     if (cat.items.length === 0) cat.items.push({ status: cat.score >= cat.max * 0.7 ? 'pass' : 'warn', text: 'Score: ' + Math.round(cat.score / cat.max * 100) + '/100' });
   }
+  let totalPts = 0, maxPts = 0;
+  for (const cat of Object.values(results.categories)) { totalPts += cat.score; maxPts += cat.max; }
+  results.totalScore = Math.round((totalPts / maxPts) * 100);
   return results;
 }
 
@@ -784,7 +799,7 @@ function showResults(results, url, domain) {
     grid.innerHTML += `
       <div class="cat-card">
         <div class="cat-header">
-          <div class="cat-title">${catIcons[key]} ${cat.name}</div>
+          <div class="cat-title">${cat.name}</div>
           <div class="cat-score" style="color:${barColor}">${cat.score}/${cat.max}</div>
         </div>
         <div class="cat-bar"><div class="cat-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
