@@ -160,7 +160,7 @@ gtag("config", "G-FHEZ05DRNC");
 <!-- STEP 1: Hero + Form -->
 <div id="formView">
   <section class="audit-hero">
-    <div class="badge">100% Free Ã¢ÂÂ No Credit Card Required</div>
+    <div class="badge">100% Free &#8212; No Credit Card Required</div>
     <h1>Get Your <em>Free SEO Audit</em> in 60 Seconds</h1>
     <p>Enter your website and we'll analyze 20+ real SEO factors, give you a score from 1-100, and show you exactly what to fix.</p>
   </section>
@@ -191,7 +191,7 @@ gtag("config", "G-FHEZ05DRNC");
         <input type="url" id="website" placeholder="https://yourwebsite.com">
         <div class="form-error" id="urlErr">Please enter a valid URL (include https://)</div>
       </div>
-      <button class="btn-audit" id="auditBtn" onclick="startAudit()">Run Free SEO Audit Ã¢ÂÂ</button>
+      <button class="btn-audit" id="auditBtn" onclick="startAudit()">Run Free SEO Audit &#8594;</button>
       <p class="form-trust">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
         Your information is secure and will never be shared.
@@ -235,9 +235,9 @@ gtag("config", "G-FHEZ05DRNC");
   <!-- CTA to paid -->
   <div class="cta-card">
     <h2>Ready to Fix These Issues?</h2>
-    <p>Our AI-powered SEO optimizer will automatically identify and guide you through fixing every issue Ã¢ÂÂ with weekly progress tracking.</p>
+    <p>Our AI-powered SEO optimizer will automatically identify and guide you through fixing every issue &#8212; with weekly progress tracking.</p>
     <div class="price">$19.99<span style="font-size:.9rem;font-weight:400;color:var(--gray)">/month</span></div>
-    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-optimize" id="ctaOptimize">Click Here To Optimize SEO Ã¢ÂÂ</a>
+    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-optimize" id="ctaOptimize">Click Here To Optimize SEO &#8594;</a>
     <div class="cta-features">
       <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Weekly SEO Audits</div>
       <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> AI Recommendations</div>
@@ -254,11 +254,11 @@ gtag("config", "G-FHEZ05DRNC");
 </div>
 
 <div class="audit-footer">
-  &copy; 2026 SEOAi SuperHero Ã¢ÂÂ Part of <a href="https://www.theaisuperheroes.com" style="color:var(--orange)">The AI SuperHeroes</a> family.
+  &copy; 2026 SEOAi SuperHero &#8212; Part of <a href="https://www.theaisuperheroes.com" style="color:var(--orange)">The AI SuperHeroes</a> family.
 </div>
 
 <script>
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ CONFIGURATION Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; CONFIGURATION &#9472;&#9472;&#9472;
 const API_BASE = 'https://seo-backend.replit.app';
 const S3_REGION = 'us-east-2';
 const S3_POOL = 'us-east-2:662dfd2a-8d86-4ee3-875b-cd55d0acff8d';
@@ -270,7 +270,7 @@ const CORS_PROXIES = [
 ];
 let authToken = null;
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ FORM VALIDATION & SUBMIT Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; FORM VALIDATION & SUBMIT &#9472;&#9472;&#9472;
 function startAudit() {
   const fn = document.getElementById('firstName').value.trim();
   const ln = document.getElementById('lastName').value.trim();
@@ -367,7 +367,7 @@ function convertBackendResults(data) {
   return results;
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ SAVE LEAD TO S3 Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; SAVE LEAD TO S3 &#9472;&#9472;&#9472;
 async function saveLeadToS3(data) {
   try {
     AWS.config.region = S3_REGION;
@@ -383,7 +383,7 @@ async function saveLeadToS3(data) {
   } catch (e) { console.error('S3 lead save error:', e); }
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ LOADING STEP ANIMATION Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; LOADING STEP ANIMATION &#9472;&#9472;&#9472;
 function animateStep(stepNum, delay) {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -392,7 +392,7 @@ function animateStep(stepNum, delay) {
       for (let i = 0; i < stepNum - 1; i++) {
         steps[i].classList.remove('active');
         steps[i].classList.add('done');
-        steps[i].querySelector('.check').textContent = 'Ã¢ÂÂ';
+        steps[i].querySelector('.check').textContent = '&#10003;';
       }
       // Mark current as active
       if (steps[stepNum - 1]) {
@@ -403,7 +403,7 @@ function animateStep(stepNum, delay) {
   });
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ FETCH VIA CORS PROXY Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; FETCH VIA CORS PROXY &#9472;&#9472;&#9472;
 async function fetchViaProxy(url) {
   for (const proxy of CORS_PROXIES) {
     try {
@@ -417,7 +417,7 @@ async function fetchViaProxy(url) {
   return null;
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ THE REAL SEO AUDIT ENGINE Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; THE REAL SEO AUDIT ENGINE &#9472;&#9472;&#9472;
 async function runSEOAudit(targetUrl, userData) {
   const results = { categories: {}, totalScore: 0, maxScore: 100, issues: [], passes: [], warnings: [] };
 
@@ -453,7 +453,7 @@ async function runSEOAudit(targetUrl, userData) {
 
   await animateStep(4, 700);
 
-  // Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ SCORING CATEGORIES Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+  // &#9472;&#9472;&#9472; SCORING CATEGORIES &#9472;&#9472;&#9472;
 
   // 1. META TAGS (25 points)
   const meta = { name: 'Meta Tags & Headers', score: 0, max: 25, items: [] };
@@ -469,7 +469,7 @@ async function runSEOAudit(targetUrl, userData) {
         meta.score += 4; meta.items.push({ status: 'warn', text: 'Title tag present but ' + (titleText.length < 30 ? 'too short' : 'too long') + ' (' + titleText.length + ' chars, ideal: 30-65)' });
       }
     } else {
-      meta.items.push({ status: 'fail', text: 'Missing title tag Ã¢ÂÂ critical for SEO rankings' });
+      meta.items.push({ status: 'fail', text: 'Missing title tag &#8212; critical for SEO rankings' });
     }
 
     // Meta description
@@ -482,7 +482,7 @@ async function runSEOAudit(targetUrl, userData) {
         meta.score += 3; meta.items.push({ status: 'warn', text: 'Meta description ' + (descText.length < 120 ? 'too short' : 'too long') + ' (' + descText.length + ' chars, ideal: 120-160)' });
       }
     } else {
-      meta.items.push({ status: 'fail', text: 'Missing meta description Ã¢ÂÂ shows in search results' });
+      meta.items.push({ status: 'fail', text: 'Missing meta description &#8212; shows in search results' });
     }
 
     // Viewport
@@ -490,7 +490,7 @@ async function runSEOAudit(targetUrl, userData) {
     if (viewport) {
       meta.score += 5; meta.items.push({ status: 'pass', text: 'Mobile viewport meta tag present' });
     } else {
-      meta.items.push({ status: 'fail', text: 'Missing viewport meta tag Ã¢ÂÂ hurts mobile rankings' });
+      meta.items.push({ status: 'fail', text: 'Missing viewport meta tag &#8212; hurts mobile rankings' });
     }
 
     // Canonical
@@ -498,10 +498,10 @@ async function runSEOAudit(targetUrl, userData) {
     if (canonical) {
       meta.score += 5; meta.items.push({ status: 'pass', text: 'Canonical URL defined' });
     } else {
-      meta.score += 1; meta.items.push({ status: 'warn', text: 'No canonical URL Ã¢ÂÂ risk of duplicate content issues' });
+      meta.score += 1; meta.items.push({ status: 'warn', text: 'No canonical URL &#8212; risk of duplicate content issues' });
     }
   } else {
-    meta.items.push({ status: 'fail', text: 'Could not fetch page Ã¢ÂÂ site may be blocking crawlers' });
+    meta.items.push({ status: 'fail', text: 'Could not fetch page &#8212; site may be blocking crawlers' });
     meta.score += 2;
   }
   results.categories.meta = meta;
@@ -515,22 +515,22 @@ async function runSEOAudit(targetUrl, userData) {
     // H1 tag
     const h1s = doc.querySelectorAll('h1');
     if (h1s.length === 1) {
-      content.score += 7; content.items.push({ status: 'pass', text: 'Single H1 tag found Ã¢ÂÂ good heading hierarchy' });
+      content.score += 7; content.items.push({ status: 'pass', text: 'Single H1 tag found &#8212; good heading hierarchy' });
     } else if (h1s.length > 1) {
-      content.score += 3; content.items.push({ status: 'warn', text: 'Multiple H1 tags found (' + h1s.length + ') Ã¢ÂÂ use only one per page' });
+      content.score += 3; content.items.push({ status: 'warn', text: 'Multiple H1 tags found (' + h1s.length + ') &#8212; use only one per page' });
     } else {
-      content.items.push({ status: 'fail', text: 'No H1 tag found Ã¢ÂÂ every page needs one primary heading' });
+      content.items.push({ status: 'fail', text: 'No H1 tag found &#8212; every page needs one primary heading' });
     }
 
     // Heading hierarchy
     const h2s = doc.querySelectorAll('h2');
     const h3s = doc.querySelectorAll('h3');
     if (h2s.length >= 2) {
-      content.score += 4; content.items.push({ status: 'pass', text: h2s.length + ' H2 subheadings found Ã¢ÂÂ good structure' });
+      content.score += 4; content.items.push({ status: 'pass', text: h2s.length + ' H2 subheadings found &#8212; good structure' });
     } else if (h2s.length === 1) {
-      content.score += 2; content.items.push({ status: 'warn', text: 'Only 1 H2 tag Ã¢ÂÂ add more subheadings for better structure' });
+      content.score += 2; content.items.push({ status: 'warn', text: 'Only 1 H2 tag &#8212; add more subheadings for better structure' });
     } else {
-      content.items.push({ status: 'fail', text: 'No H2 tags Ã¢ÂÂ content lacks structural hierarchy' });
+      content.items.push({ status: 'fail', text: 'No H2 tags &#8212; content lacks structural hierarchy' });
     }
 
     // Content length
@@ -541,22 +541,22 @@ async function runSEOAudit(targetUrl, userData) {
     } else if (wordCount >= 300) {
       content.score += 4; content.items.push({ status: 'warn', text: 'Content is thin (~' + wordCount + ' words, aim for 800+)' });
     } else {
-      content.score += 1; content.items.push({ status: 'fail', text: 'Very thin content (~' + wordCount + ' words) Ã¢ÂÂ add more valuable content' });
+      content.score += 1; content.items.push({ status: 'fail', text: 'Very thin content (~' + wordCount + ' words) &#8212; add more valuable content' });
     }
 
     // Image alt text
     const imgs = doc.querySelectorAll('img');
     const imgsWithAlt = Array.from(imgs).filter(i => i.getAttribute('alt') && i.getAttribute('alt').trim());
     if (imgs.length === 0) {
-      content.score += 4; content.items.push({ status: 'warn', text: 'No images found Ã¢ÂÂ images improve engagement' });
+      content.score += 4; content.items.push({ status: 'warn', text: 'No images found &#8212; images improve engagement' });
     } else {
       const altPct = Math.round((imgsWithAlt.length / imgs.length) * 100);
       if (altPct >= 90) {
         content.score += 7; content.items.push({ status: 'pass', text: altPct + '% of images have alt text (' + imgsWithAlt.length + '/' + imgs.length + ')' });
       } else if (altPct >= 50) {
-        content.score += 3; content.items.push({ status: 'warn', text: 'Only ' + altPct + '% of images have alt text Ã¢ÂÂ add alt text to all images' });
+        content.score += 3; content.items.push({ status: 'warn', text: 'Only ' + altPct + '% of images have alt text &#8212; add alt text to all images' });
       } else {
-        content.score += 1; content.items.push({ status: 'fail', text: 'Only ' + altPct + '% of images have alt text Ã¢ÂÂ critical accessibility issue' });
+        content.score += 1; content.items.push({ status: 'fail', text: 'Only ' + altPct + '% of images have alt text &#8212; critical accessibility issue' });
       }
     }
   } else {
@@ -572,40 +572,40 @@ async function runSEOAudit(targetUrl, userData) {
 
   // HTTPS
   if (urlObj.protocol === 'https:') {
-    tech.score += 8; tech.items.push({ status: 'pass', text: 'Site uses HTTPS Ã¢ÂÂ secure connection' });
+    tech.score += 8; tech.items.push({ status: 'pass', text: 'Site uses HTTPS &#8212; secure connection' });
   } else {
-    tech.items.push({ status: 'fail', text: 'Site not using HTTPS Ã¢ÂÂ Google penalizes insecure sites' });
+    tech.items.push({ status: 'fail', text: 'Site not using HTTPS &#8212; Google penalizes insecure sites' });
   }
 
   // Robots.txt
   if (robotsTxt && robotsTxt.length > 10 && robotsTxt.toLowerCase().includes('user-agent')) {
     tech.score += 5; tech.items.push({ status: 'pass', text: 'robots.txt file found and configured' });
   } else {
-    tech.score += 1; tech.items.push({ status: 'warn', text: 'No robots.txt found Ã¢ÂÂ tells search engines how to crawl your site' });
+    tech.score += 1; tech.items.push({ status: 'warn', text: 'No robots.txt found &#8212; tells search engines how to crawl your site' });
   }
 
   // Sitemap
   if (sitemapXml && sitemapXml.length > 50 && (sitemapXml.includes('<urlset') || sitemapXml.includes('<sitemapindex'))) {
-    tech.score += 5; tech.items.push({ status: 'pass', text: 'XML sitemap found Ã¢ÂÂ helps search engines discover pages' });
+    tech.score += 5; tech.items.push({ status: 'pass', text: 'XML sitemap found &#8212; helps search engines discover pages' });
   } else {
-    tech.items.push({ status: 'fail', text: 'No XML sitemap Ã¢ÂÂ create one to help Google index all your pages' });
+    tech.items.push({ status: 'fail', text: 'No XML sitemap &#8212; create one to help Google index all your pages' });
   }
 
   if (doc) {
     // Open Graph
     const og = doc.querySelector('meta[property="og:title"]');
     if (og) {
-      tech.score += 4; tech.items.push({ status: 'pass', text: 'Open Graph tags present Ã¢ÂÂ good social sharing' });
+      tech.score += 4; tech.items.push({ status: 'pass', text: 'Open Graph tags present &#8212; good social sharing' });
     } else {
-      tech.score += 1; tech.items.push({ status: 'warn', text: 'No Open Graph tags Ã¢ÂÂ social media shares won\'t look good' });
+      tech.score += 1; tech.items.push({ status: 'warn', text: 'No Open Graph tags &#8212; social media shares won\'t look good' });
     }
 
     // Structured data
     const jsonLd = doc.querySelectorAll('script[type="application/ld+json"]');
     if (jsonLd.length > 0) {
-      tech.score += 3; tech.items.push({ status: 'pass', text: 'Structured data (JSON-LD) found Ã¢ÂÂ enables rich snippets' });
+      tech.score += 3; tech.items.push({ status: 'pass', text: 'Structured data (JSON-LD) found &#8212; enables rich snippets' });
     } else {
-      tech.items.push({ status: 'warn', text: 'No structured data Ã¢ÂÂ add Schema.org markup for rich search results' });
+      tech.items.push({ status: 'warn', text: 'No structured data &#8212; add Schema.org markup for rich search results' });
     }
   }
   results.categories.tech = tech;
@@ -626,24 +626,24 @@ async function runSEOAudit(targetUrl, userData) {
     });
 
     if (internalLinks.length >= 5) {
-      perf.score += 6; perf.items.push({ status: 'pass', text: internalLinks.length + ' internal links Ã¢ÂÂ good site navigation' });
+      perf.score += 6; perf.items.push({ status: 'pass', text: internalLinks.length + ' internal links &#8212; good site navigation' });
     } else if (internalLinks.length >= 1) {
-      perf.score += 3; perf.items.push({ status: 'warn', text: 'Only ' + internalLinks.length + ' internal links Ã¢ÂÂ add more for better crawlability' });
+      perf.score += 3; perf.items.push({ status: 'warn', text: 'Only ' + internalLinks.length + ' internal links &#8212; add more for better crawlability' });
     } else {
-      perf.items.push({ status: 'fail', text: 'No internal links found Ã¢ÂÂ critical for site structure' });
+      perf.items.push({ status: 'fail', text: 'No internal links found &#8212; critical for site structure' });
     }
 
     if (externalLinks.length >= 1) {
-      perf.score += 4; perf.items.push({ status: 'pass', text: externalLinks.length + ' external links Ã¢ÂÂ good for authority signals' });
+      perf.score += 4; perf.items.push({ status: 'pass', text: externalLinks.length + ' external links &#8212; good for authority signals' });
     } else {
-      perf.score += 1; perf.items.push({ status: 'warn', text: 'No external links Ã¢ÂÂ linking to authoritative sources builds trust' });
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'No external links &#8212; linking to authoritative sources builds trust' });
     }
 
     // URL structure
     if (!targetUrl.includes('?') && !targetUrl.includes('#!')) {
-      perf.score += 4; perf.items.push({ status: 'pass', text: 'Clean URL structure Ã¢ÂÂ no query parameters' });
+      perf.score += 4; perf.items.push({ status: 'pass', text: 'Clean URL structure &#8212; no query parameters' });
     } else {
-      perf.score += 1; perf.items.push({ status: 'warn', text: 'URL contains parameters Ã¢ÂÂ clean URLs rank better' });
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'URL contains parameters &#8212; clean URLs rank better' });
     }
 
     // Check for render-blocking / page weight indicators
@@ -651,11 +651,11 @@ async function runSEOAudit(targetUrl, userData) {
     const stylesheets = doc.querySelectorAll('link[rel="stylesheet"]');
     const totalResources = scripts.length + stylesheets.length;
     if (totalResources <= 10) {
-      perf.score += 5; perf.items.push({ status: 'pass', text: totalResources + ' external resources Ã¢ÂÂ lightweight page' });
+      perf.score += 5; perf.items.push({ status: 'pass', text: totalResources + ' external resources &#8212; lightweight page' });
     } else if (totalResources <= 20) {
-      perf.score += 3; perf.items.push({ status: 'warn', text: totalResources + ' external resources Ã¢ÂÂ consider reducing for speed' });
+      perf.score += 3; perf.items.push({ status: 'warn', text: totalResources + ' external resources &#8212; consider reducing for speed' });
     } else {
-      perf.score += 1; perf.items.push({ status: 'fail', text: totalResources + ' external resources Ã¢ÂÂ heavy page, optimize for speed' });
+      perf.score += 1; perf.items.push({ status: 'fail', text: totalResources + ' external resources &#8212; heavy page, optimize for speed' });
     }
 
     // Lang attribute
@@ -664,7 +664,7 @@ async function runSEOAudit(targetUrl, userData) {
     if (lang) {
       perf.score += 3; perf.items.push({ status: 'pass', text: 'HTML lang attribute set (' + lang + ')' });
     } else {
-      perf.items.push({ status: 'warn', text: 'No lang attribute on HTML Ã¢ÂÂ set it for accessibility & SEO' });
+      perf.items.push({ status: 'warn', text: 'No lang attribute on HTML &#8212; set it for accessibility & SEO' });
     }
 
     // Favicon
@@ -672,11 +672,11 @@ async function runSEOAudit(targetUrl, userData) {
     if (favicon) {
       perf.score += 3; perf.items.push({ status: 'pass', text: 'Favicon found' });
     } else {
-      perf.score += 1; perf.items.push({ status: 'warn', text: 'No favicon Ã¢ÂÂ adds brand recognition in browser tabs & bookmarks' });
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'No favicon &#8212; adds brand recognition in browser tabs & bookmarks' });
     }
   } else {
     perf.score += 5;
-    perf.items.push({ status: 'warn', text: 'Limited analysis Ã¢ÂÂ could not fully access page resources' });
+    perf.items.push({ status: 'warn', text: 'Limited analysis &#8212; could not fully access page resources' });
   }
   results.categories.perf = perf;
 
@@ -711,7 +711,7 @@ async function runSEOAudit(targetUrl, userData) {
   document.querySelectorAll('.loading-step').forEach(s => {
     s.classList.remove('active');
     s.classList.add('done');
-    s.querySelector('.check').textContent = 'Ã¢ÂÂ';
+    s.querySelector('.check').textContent = '&#10003;';
   });
   await new Promise(r => setTimeout(r, 500));
 
@@ -719,7 +719,7 @@ async function runSEOAudit(targetUrl, userData) {
   showResults(results, targetUrl, domain);
 }
 
-// Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ DISPLAY RESULTS Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+// &#9472;&#9472;&#9472; DISPLAY RESULTS &#9472;&#9472;&#9472;
 function showResults(results, url, domain) {
   document.getElementById('loadingView').classList.remove('active');
   document.getElementById('resultsView').classList.add('active');
@@ -738,13 +738,13 @@ function showResults(results, url, domain) {
     color = '#28CA41'; grade = 'Excellent SEO';
     summary = domain + ' has strong SEO fundamentals. A few optimizations could push you even higher in search rankings.';
   } else if (score >= 60) {
-    color = '#FFD93D'; grade = 'Good Ã¢ÂÂ Room for Improvement';
+    color = '#FFD93D'; grade = 'Good &#8212; Room for Improvement';
     summary = domain + ' has decent SEO but there are several areas that need attention to reach top search positions.';
   } else if (score >= 40) {
     color = '#FF6B35'; grade = 'Needs Work';
     summary = domain + ' has significant SEO gaps. Fixing these issues could dramatically improve your search visibility.';
   } else {
-    color = '#FF4444'; grade = 'Critical Ã¢ÂÂ Immediate Action Needed';
+    color = '#FF4444'; grade = 'Critical &#8212; Immediate Action Needed';
     summary = domain + ' has major SEO problems. Your site is likely invisible to search engines. Immediate optimization is recommended.';
   }
 
@@ -777,7 +777,7 @@ function showResults(results, url, domain) {
 
     let itemsHTML = '';
     for (const item of cat.items) {
-      const icon = item.status === 'pass' ? 'Ã¢ÂÂ' : item.status === 'warn' ? '!' : 'Ã¢ÂÂ';
+      const icon = item.status === 'pass' ? '&#10003;' : item.status === 'warn' ? '!' : '&#10007;';
       itemsHTML += '<div class="cat-item"><div class="icon ' + item.status + '">' + icon + '</div><span>' + item.text + '</span></div>';
     }
 
@@ -814,7 +814,7 @@ function showResults(results, url, domain) {
       <div class="tl-row">
         <div class="tl-week">${row.week}</div>
         <div class="tl-desc">${row.desc}</div>
-        <div class="tl-score" style="color:${scoreColor}">${row.gain > 0 ? runningScore + '/100' : 'Ã°ÂÂÂ'}</div>
+        <div class="tl-score" style="color:${scoreColor}">${row.gain > 0 ? runningScore + '/100' : '&#128260;'}</div>
       </div>
     `;
   }
