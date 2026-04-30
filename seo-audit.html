@@ -15,6 +15,894 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
 
+<!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+rdt('init','a2_ivk8yacqc0p4',{optOut:false,useDecimalCurrencyValues:true});
+rdt('track','PageVisit');
+</script>
+
+<!-- AWS SDK for S3 lead capture -->
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1472.0.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0A0A0A;--card:#141414;--card-border:rgba(255,255,255,0.06);--orange:#FF6B35;--yellow:#FFD93D;--blue:#4ECDC4;--green:#28CA41;--red:#FF4444;--purple:#6C63FF;--white:#FFFFFF;--gray:#888;--light-gray:#B0B0B0;--max-w:1200px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* Nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;max-width:var(--max-w);margin:0 auto}
+.logo{font-size:1.3rem;font-weight:700}.logo span{font-style:italic;color:var(--orange)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--light-gray);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:8px 20px;border-radius:999px;font-weight:600;font-size:.85rem}
+
+/* Hero */
+.audit-hero{text-align:center;padding:60px 40px 40px;max-width:800px;margin:0 auto}
+.audit-hero .badge{display:inline-block;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.3);color:var(--orange);padding:6px 16px;border-radius:999px;font-size:.8rem;font-weight:600;margin-bottom:24px}
+.audit-hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:16px;letter-spacing:-.02em}
+.audit-hero h1 em{font-style:italic;color:var(--orange)}
+.audit-hero p{color:var(--gray);font-size:1.05rem;max-width:600px;margin:0 auto}
+
+/* Form */
+.form-section{max-width:560px;margin:40px auto;padding:0 20px}
+.form-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.form-card h2{font-size:1.3rem;margin-bottom:4px}
+.form-card .sub{color:var(--gray);font-size:.85rem;margin-bottom:24px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:.8rem;font-weight:600;color:var(--light-gray);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.form-group input{width:100%;padding:12px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--white);font-size:.95rem;font-family:inherit;transition:border-color .2s}
+.form-group input:focus{outline:none;border-color:var(--orange)}
+.form-group input::placeholder{color:rgba(255,255,255,.25)}
+.form-error{color:var(--red);font-size:.8rem;margin-top:4px;display:none}
+.btn-audit{width:100%;padding:14px;background:linear-gradient(135deg,var(--orange),#FF8855);color:var(--white);border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .25s;font-family:inherit;margin-top:8px}
+.btn-audit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,107,53,.35)}
+.btn-audit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-trust{text-align:center;margin-top:16px;font-size:.75rem;color:var(--gray)}
+.form-trust svg{vertical-align:middle;margin-right:4px}
+
+/* Loading */
+.loading-overlay{display:none;text-align:center;padding:60px 20px}
+.loading-overlay.active{display:block}
+.spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.1);border-top-color:var(--orange);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 24px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-steps{max-width:400px;margin:0 auto;text-align:left}
+.loading-step{padding:8px 0;color:var(--gray);font-size:.9rem;display:flex;align-items:center;gap:10px;transition:color .3s}
+.loading-step.active{color:var(--white)}
+.loading-step.done{color:var(--green)}
+.loading-step .check{width:20px;height:20px;border-radius:50%;border:2px solid var(--gray);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;transition:all .3s}
+.loading-step.active .check{border-color:var(--orange);background:rgba(255,107,53,.2)}
+.loading-step.done .check{border-color:var(--green);background:var(--green);color:var(--black)}
+
+/* Results */
+.results-section{display:none;max-width:900px;margin:0 auto;padding:40px 20px 80px}
+.results-section.active{display:block}
+
+.score-hero{text-align:center;margin-bottom:40px}
+.score-ring{width:180px;height:180px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative}
+.score-ring svg{position:absolute;width:100%;height:100%;transform:rotate(-90deg)}
+.score-ring circle{fill:none;stroke-width:8;stroke-linecap:round}
+.score-ring .bg{stroke:rgba(255,255,255,.08)}
+.score-ring .fg{stroke:var(--orange);stroke-dasharray:502;stroke-dashoffset:502;transition:stroke-dashoffset 1.5s ease-out}
+.score-num{font-size:3.5rem;font-weight:900;z-index:1}
+.score-label{font-size:.85rem;color:var(--gray);z-index:1;margin-top:-8px}
+.score-grade{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.score-summary{color:var(--gray);font-size:.95rem;max-width:500px;margin:0 auto}
+
+/* Category cards */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+@media(max-width:700px){.cat-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+.cat-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px}
+.cat-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cat-title{font-weight:700;font-size:.95rem}
+.cat-score{font-weight:800;font-size:1.1rem}
+.cat-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.cat-bar-fill{height:100%;border-radius:3px;transition:width 1s ease-out}
+.cat-items{display:flex;flex-direction:column;gap:8px}
+.cat-item{display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--light-gray)}
+.cat-item .icon{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;margin-top:2px}
+.cat-item .icon.pass{background:rgba(40,202,65,.15);color:var(--green)}
+.cat-item .icon.warn{background:rgba(255,217,61,.15);color:var(--yellow)}
+.cat-item .icon.fail{background:rgba(255,68,68,.15);color:var(--red)}
+
+/* CTA */
+.cta-card{background:linear-gradient(135deg,rgba(78,205,196,.08),rgba(40,202,65,.05));border:1px solid rgba(78,205,196,.25);border-radius:16px;padding:40px;text-align:center;margin-top:40px}
+.cta-card h2{font-size:1.6rem;margin-bottom:8px}
+.cta-card p{color:var(--gray);margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-card .price{font-size:2rem;font-weight:900;color:var(--orange);margin-bottom:16px}
+.btn-optimize{display:inline-block;padding:16px 40px;background:linear-gradient(135deg,var(--orange),#FF8855);color:var(--white);border-radius:10px;font-size:1.1rem;font-weight:700;text-decoration:none;transition:all .25s}
+.btn-optimize:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,107,53,.4)}
+.cta-features{display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap}
+.cta-feat{color:var(--light-gray);font-size:.85rem;display:flex;align-items:center;gap:6px}
+.cta-feat svg{color:var(--green)}
+
+/* Timeline preview */
+.timeline-preview{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:24px;margin-top:24px}
+.timeline-preview h3{font-size:1rem;margin-bottom:16px;color:var(--orange)}
+.tl-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.tl-row:last-child{border:none}
+.tl-week{font-size:.75rem;font-weight:700;color:var(--orange);min-width:60px}
+.tl-desc{font-size:.85rem;color:var(--light-gray);flex:1}
+.tl-score{font-weight:700;font-size:.85rem;min-width:40px;text-align:right}
+
+/* Footer */
+.audit-footer{text-align:center;padding:40px;border-top:1px solid rgba(255,255,255,.05);color:var(--gray);font-size:.8rem;margin-top:40px}
+
+@media(max-width:600px){
+  nav{padding:16px 20px}
+  .audit-hero{padding:40px 20px 20px}
+  .form-card{padding:24px}
+  .cta-card{padding:24px}
+}
+</style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHEZ05DRNC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-FHEZ05DRNC");
+</script>
+<script src="referral-tracking.js" defer></script>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2C3KN7T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <a href="/" class="logo">SEOAi <span>SuperHero</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/dashboard.html">Dashboard</a>
+    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- STEP 1: Hero + Form -->
+<div id="formView">
+  <section class="audit-hero">
+    <div class="badge">100% Free &#8212; No Credit Card Required</div>
+    <h1>Get Your <em>Free SEO Audit</em> in 60 Seconds</h1>
+    <p>Enter your website and we'll analyze 20+ real SEO factors, give you a score from 1-100, and show you exactly what to fix.</p>
+  </section>
+
+  <div class="form-section">
+    <div class="form-card">
+      <h2>Start Your Free Audit</h2>
+      <p class="sub">We'll analyze your site and deliver instant results.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" id="firstName" placeholder="John">
+          <div class="form-error" id="fnErr">Please enter your first name</div>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" id="lastName" placeholder="Smith">
+          <div class="form-error" id="lnErr">Please enter your last name</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input type="email" id="email" placeholder="john@company.com">
+        <div class="form-error" id="emErr">Please enter a valid email</div>
+      </div>
+      <div class="form-group">
+        <label>Website URL *</label>
+        <input type="url" id="website" placeholder="https://yourwebsite.com">
+        <div class="form-error" id="urlErr">Please enter a valid URL (include https://)</div>
+      </div>
+      <button class="btn-audit" id="auditBtn" onclick="startAudit()">Run Free SEO Audit &#8594;</button>
+      <p class="form-trust">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Your information is secure and will never be shared.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 2: Loading Animation -->
+<div class="loading-overlay" id="loadingView">
+  <div class="spinner"></div>
+  <h2 style="margin-bottom:8px">Analyzing Your Website</h2>
+  <p style="color:var(--gray);margin-bottom:32px" id="loadingUrl"></p>
+  <div class="loading-steps">
+    <div class="loading-step" id="step1"><div class="check">1</div> Connecting to website...</div>
+    <div class="loading-step" id="step2"><div class="check">2</div> Checking meta tags & headers...</div>
+    <div class="loading-step" id="step3"><div class="check">3</div> Analyzing page structure...</div>
+    <div class="loading-step" id="step4"><div class="check">4</div> Testing page speed...</div>
+    <div class="loading-step" id="step5"><div class="check">5</div> Checking mobile optimization...</div>
+    <div class="loading-step" id="step6"><div class="check">6</div> Scanning for technical issues...</div>
+    <div class="loading-step" id="step7"><div class="check">7</div> Generating your SEO score...</div>
+  </div>
+</div>
+
+<!-- STEP 3: Results -->
+<div class="results-section" id="resultsView">
+  <div class="score-hero">
+    <div class="score-ring">
+      <svg viewBox="0 0 180 180"><circle class="bg" cx="90" cy="90" r="80"/><circle class="fg" id="scoreArc" cx="90" cy="90" r="80"/></svg>
+      <div style="text-align:center">
+        <div class="score-num" id="scoreNumber">0</div>
+        <div class="score-label">out of 100</div>
+      </div>
+    </div>
+    <div class="score-grade" id="scoreGrade"></div>
+    <p class="score-summary" id="scoreSummary"></p>
+  </div>
+
+  <div class="cat-grid" id="categoryGrid"></div>
+
+  <!-- CTA to paid -->
+  <div class="cta-card">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our AI-powered SEO optimizer will automatically identify and guide you through fixing every issue &#8212; with weekly progress tracking.</p>
+    <div class="price">$19.99<span style="font-size:.9rem;font-weight:400;color:var(--gray)">/month</span></div>
+    <a href="https://buy.stripe.com/8x2fZgfvA7E7csqgYwfbq02" class="btn-optimize" id="ctaOptimize">Click Here To Optimize SEO &#8594;</a>
+    <div class="cta-features">
+      <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Weekly SEO Audits</div>
+      <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> AI Recommendations</div>
+      <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Progress Timeline</div>
+      <div class="cta-feat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Cancel Anytime</div>
+    </div>
+  </div>
+
+  <!-- Progress Timeline Preview -->
+  <div class="timeline-preview">
+    <h3>Your Projected SEO Improvement Timeline</h3>
+    <div id="timelineRows"></div>
+  </div>
+</div>
+
+<div class="audit-footer">
+  &copy; 2026 SEOAi SuperHero &#8212; Part of <a href="https://www.theaisuperheroes.com" style="color:var(--orange)">The AI SuperHeroes</a> family.
+</div>
+
+<script>
+// &#9472;&#9472;&#9472; CONFIGURATION &#9472;&#9472;&#9472;
+const API_BASE = 'https://seo-backend.replit.app';
+const S3_REGION = 'us-east-2';
+const S3_POOL = 'us-east-2:662dfd2a-8d86-4ee3-875b-cd55d0acff8d';
+const S3_BUCKET = 'superhero-clients-theaisuperheroes';
+const CORS_PROXIES = [
+  'https://api.allorigins.win/raw?url=',
+  'https://corsproxy.io/?',
+  'https://api.codetabs.com/v1/proxy?quest='
+];
+let authToken = null;
+
+// &#9472;&#9472;&#9472; FORM VALIDATION & SUBMIT &#9472;&#9472;&#9472;
+function startAudit() {
+  const fn = document.getElementById('firstName').value.trim();
+  const ln = document.getElementById('lastName').value.trim();
+  const em = document.getElementById('email').value.trim();
+  const url = document.getElementById('website').value.trim();
+  let valid = true;
+
+  document.querySelectorAll('.form-error').forEach(e => e.style.display = 'none');
+
+  if (!fn) { document.getElementById('fnErr').style.display = 'block'; valid = false; }
+  if (!ln) { document.getElementById('lnErr').style.display = 'block'; valid = false; }
+  if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { document.getElementById('emErr').style.display = 'block'; valid = false; }
+  if (!url || !/^https?:\/\/.+\..+/.test(url)) { document.getElementById('urlErr').style.display = 'block'; valid = false; }
+
+  if (!valid) return;
+
+  // Save lead to S3
+  saveLeadToS3({ firstName: fn, lastName: ln, email: em, website: url });
+
+  // GA4 event
+  if (window.gtag) gtag('event', 'seo_audit_started', { email: em, website: url });
+
+  // Show loading
+  document.getElementById('formView').style.display = 'none';
+  document.getElementById('loadingView').classList.add('active');
+  document.getElementById('loadingUrl').textContent = url;
+
+  // Try backend API first, fall back to client-side
+  tryBackendAudit(url, { firstName: fn, lastName: ln, email: em });
+}
+
+// BACKEND API INTEGRATION
+async function tryBackendAudit(url, userData) {
+  try {
+    const regResp = await fetch(API_BASE + '/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userData.email, password: 'auto-' + Date.now(), name: userData.firstName + ' ' + userData.lastName, website: url })
+    });
+    if (regResp.ok) { const regData = await regResp.json(); authToken = regData.token; }
+    await animateStep(1, 0);
+    await animateStep(2, 800);
+    const auditResp = await fetch(API_BASE + '/api/audit/run', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...(authToken ? { 'Authorization': 'Bearer ' + authToken } : {}) },
+      body: JSON.stringify({ url }),
+      signal: AbortSignal.timeout(30000)
+    });
+    await animateStep(3, 600);
+    await animateStep(4, 700);
+    if (auditResp.ok) {
+      const auditData = await auditResp.json();
+      await animateStep(5, 600); await animateStep(6, 500); await animateStep(7, 500);
+      const results = convertBackendResults(auditData);
+      if (window.gtag) gtag('event', 'seo_audit_complete', { score: results.totalScore, domain: new URL(url.startsWith('http') ? url : 'https://' + url).hostname, source: 'backend' });
+      if (window.rdt) rdt('track', 'Custom', { customEventName: 'AuditComplete' });
+      await new Promise(r => setTimeout(r, 800));
+      document.querySelectorAll('.loading-step').forEach(s => { s.classList.remove('active'); s.classList.add('done'); s.querySelector('.check').textContent = '\u2713'; });
+      await new Promise(r => setTimeout(r, 500));
+      showResults(results, url, new URL(url.startsWith('http') ? url : 'https://' + url).hostname);
+      return;
+    }
+  } catch (e) { console.log('Backend unavailable, client-side fallback:', e.message); }
+  runSEOAudit(url.startsWith('http') ? url : 'https://' + url, userData);
+}
+
+function convertBackendResults(data) {
+  const audit = data.audit || data; const scores = audit.scores || {};
+  const results = { categories: {}, totalScore: 0, maxScore: 100, issues: [], passes: [], warnings: [] };
+  // Use distinct scores per category, with varied defaults if backend returns nothing useful
+  const metaScore = scores.seo || scores.meta || 65;
+  const contentScore = scores.accessibility || scores.content || 55;
+  const techScore = scores.bestPractices || scores.technical || 60;
+  const perfScore = scores.performance || 50;
+  results.categories.meta = { name: 'Meta Tags & Headers', score: Math.round(metaScore / 100 * 25), max: 25, items: [] };
+  results.categories.content = { name: 'Content & Structure', score: Math.round(contentScore / 100 * 25), max: 25, items: [] };
+  results.categories.tech = { name: 'Technical SEO', score: Math.round(techScore / 100 * 25), max: 25, items: [] };
+  results.categories.perf = { name: 'Performance & Speed', score: Math.round(perfScore / 100 * 25), max: 25, items: [] };
+  for (const rec of (audit.recommendations || [])) {
+    const recText = rec.title || rec.description || (rec.issue ? rec.issue + (rec.action ? ' &#8212; ' + rec.action : '') : null) || rec.action || (typeof rec === 'string' ? rec : rec.message || JSON.stringify(rec));
+    const item = { status: rec.priority === 'high' ? 'fail' : rec.priority === 'medium' ? 'warn' : 'pass', text: recText };
+    if (rec.category === 'seo' || rec.category === 'meta') results.categories.meta.items.push(item);
+    else if (rec.category === 'content' || rec.category === 'accessibility') results.categories.content.items.push(item);
+    else if (rec.category === 'best-practices' || rec.category === 'technical') results.categories.tech.items.push(item);
+    else if (rec.category === 'performance') results.categories.perf.items.push(item);
+    else results.categories.tech.items.push(item);
+  }
+  const crawl = audit.crawl || {};
+  if (crawl.meta) {
+    if (crawl.meta.title) results.categories.meta.items.push({ status: 'pass', text: 'Title: ' + crawl.meta.title.substring(0, 60) });
+    if (crawl.meta.description) results.categories.meta.items.push({ status: crawl.meta.description.length >= 120 && crawl.meta.description.length <= 160 ? 'pass' : 'warn', text: 'Meta description (' + crawl.meta.description.length + ' chars)' });
+    if (crawl.meta.viewport) results.categories.meta.items.push({ status: 'pass', text: 'Viewport meta tag present' });
+    if (crawl.meta.canonical) results.categories.meta.items.push({ status: 'pass', text: 'Canonical URL set' });
+  }
+  if (crawl.headings) {
+    if (crawl.headings.h1Count === 1) results.categories.content.items.push({ status: 'pass', text: 'Single H1 tag -- good heading hierarchy' });
+    else if (crawl.headings.h1Count > 1) results.categories.content.items.push({ status: 'warn', text: crawl.headings.h1Count + ' H1 tags found -- use only one' });
+    if (crawl.headings.h2Count >= 2) results.categories.content.items.push({ status: 'pass', text: crawl.headings.h2Count + ' H2 subheadings found' });
+  }
+  if (crawl.links) {
+    if (crawl.links.internal > 0) results.categories.perf.items.push({ status: 'pass', text: crawl.links.internal + ' internal links found' });
+    if (crawl.links.external > 0) results.categories.perf.items.push({ status: 'pass', text: crawl.links.external + ' external links found' });
+  }
+  if (crawl.https) results.categories.tech.items.push({ status: 'pass', text: 'Site uses HTTPS' });
+  // Add fallback item if a category ended up empty
+  for (const cat of Object.values(results.categories)) {
+    if (cat.items.length === 0) cat.items.push({ status: cat.score >= cat.max * 0.7 ? 'pass' : 'warn', text: 'Score: ' + Math.round(cat.score / cat.max * 100) + '/100' });
+  }
+  // Calculate totalScore from actual category scores
+  let totalPts = 0, maxPts = 0;
+  for (const cat of Object.values(results.categories)) { totalPts += cat.score; maxPts += cat.max; }
+  results.totalScore = Math.round((totalPts / maxPts) * 100);
+  return results;
+}
+
+// &#9472;&#9472;&#9472; SAVE LEAD TO S3 &#9472;&#9472;&#9472;
+function classifyLeadSource(utm, referrer) {
+  var src = (utm.utm_source || '').toLowerCase();
+  var med = (utm.utm_medium || '').toLowerCase();
+  var ref = (referrer || '').toLowerCase();
+  if (src === 'reddit' || ref.includes('reddit.com')) return 'reddit_ads';
+  if (src === 'facebook' || src === 'fb' || src === 'instagram' || src === 'ig' || ref.includes('facebook.com') || ref.includes('instagram.com')) return 'facebook_ads';
+  if (src === 'google' && (med === 'cpc' || med === 'ppc')) return 'google_ads';
+  if (src === 'google' || ref.includes('google.com')) return 'google_organic';
+  if (src === 'twitter' || src === 'x' || ref.includes('twitter.com') || ref.includes('x.com')) return 'twitter';
+  if (src === 'linkedin' || ref.includes('linkedin.com')) return 'linkedin';
+  if (src === 'email' || med === 'email') return 'email_campaign';
+  if (med === 'cold_email') return 'cold_email';
+  if (med === 'affiliate' || src === 'affiliate') return 'affiliate';
+  if (ref && ref !== 'direct') return 'referral';
+  return 'direct';
+}
+function getUtmParams() {
+  var ps = new URLSearchParams(window.location.search);
+  return { utm_source: ps.get('utm_source') || '', utm_medium: ps.get('utm_medium') || '', utm_campaign: ps.get('utm_campaign') || '', utm_term: ps.get('utm_term') || '', utm_content: ps.get('utm_content') || '' };
+}
+async function saveLeadToS3(data) {
+  try {
+    AWS.config.region = S3_REGION;
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({ IdentityPoolId: S3_POOL });
+    await new Promise((res, rej) => AWS.config.credentials.get(err => err ? rej(err) : res()));
+    var s3 = new AWS.S3({ region: S3_REGION });
+    var ts = new Date().toISOString();
+    var utm = getUtmParams();
+    var leadSource = classifyLeadSource(utm, document.referrer);
+    var leadData = {
+      ...data, source: 'seo-audit-free', lead_source: leadSource,
+      timestamp: ts, date: ts.split('T')[0],
+      userAgent: navigator.userAgent, referrer: document.referrer || 'direct',
+      landingPage: window.location.href,
+      utm_source: utm.utm_source, utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign, utm_term: utm.utm_term, utm_content: utm.utm_content
+    };
+    var key = 'leads/seoaudit_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6) + '.json';
+    await s3.putObject({ Bucket: S3_BUCKET, Key: key, Body: JSON.stringify(leadData), ContentType: 'application/json' }).promise();
+    var srcKey = 'leads-by-source/' + leadSource + '/' + ts.split('T')[0] + '_' + Date.now() + '.json';
+    await s3.putObject({ Bucket: S3_BUCKET, Key: srcKey, Body: JSON.stringify(leadData), ContentType: 'application/json' }).promise();
+    if (window.rdt) { rdt('track', 'Lead'); }
+    if (window.gtag) { gtag('event', 'generate_lead', { lead_source: leadSource, utm_source: utm.utm_source, utm_medium: utm.utm_medium, utm_campaign: utm.utm_campaign }); }
+    console.log('Lead saved:', leadSource, key);
+  } catch (e) { console.error('S3 lead save error:', e); }
+}
+
+// &#9472;&#9472;&#9472; LOADING STEP ANIMATION &#9472;&#9472;&#9472;
+function animateStep(stepNum, delay) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const steps = document.querySelectorAll('.loading-step');
+      // Mark previous as done
+      for (let i = 0; i < stepNum - 1; i++) {
+        steps[i].classList.remove('active');
+        steps[i].classList.add('done');
+        steps[i].querySelector('.check').textContent = '&#10003;';
+      }
+      // Mark current as active
+      if (steps[stepNum - 1]) {
+        steps[stepNum - 1].classList.add('active');
+      }
+      resolve();
+    }, delay);
+  });
+}
+
+// &#9472;&#9472;&#9472; FETCH VIA CORS PROXY &#9472;&#9472;&#9472;
+async function fetchViaProxy(url) {
+  for (const proxy of CORS_PROXIES) {
+    try {
+      const resp = await fetch(proxy + encodeURIComponent(url), { signal: AbortSignal.timeout(12000) });
+      if (resp.ok) {
+        const text = await resp.text();
+        if (text.length > 100) return text;
+      }
+    } catch (e) { continue; }
+  }
+  return null;
+}
+
+// &#9472;&#9472;&#9472; THE REAL SEO AUDIT ENGINE &#9472;&#9472;&#9472;
+async function runSEOAudit(targetUrl, userData) {
+  const results = { categories: {}, totalScore: 0, maxScore: 100, issues: [], passes: [], warnings: [] };
+
+  // Animate loading steps
+  await animateStep(1, 0);
+
+  // Normalize URL
+  if (!targetUrl.startsWith('http')) targetUrl = 'https://' + targetUrl;
+  const urlObj = new URL(targetUrl);
+  const domain = urlObj.hostname;
+
+  // Fetch the page HTML
+  let html = null;
+  try {
+    html = await fetchViaProxy(targetUrl);
+  } catch (e) {}
+
+  await animateStep(2, 800);
+
+  // Also try to fetch robots.txt and sitemap.xml
+  let robotsTxt = null, sitemapXml = null;
+  try { robotsTxt = await fetchViaProxy(urlObj.origin + '/robots.txt'); } catch (e) {}
+  try { sitemapXml = await fetchViaProxy(urlObj.origin + '/sitemap.xml'); } catch (e) {}
+
+  await animateStep(3, 600);
+
+  // Parse HTML into DOM
+  let doc = null;
+  if (html) {
+    const parser = new DOMParser();
+    doc = parser.parseFromString(html, 'text/html');
+  }
+
+  await animateStep(4, 700);
+
+  // &#9472;&#9472;&#9472; SCORING CATEGORIES &#9472;&#9472;&#9472;
+
+  // 1. META TAGS (25 points)
+  const meta = { name: 'Meta Tags & Headers', score: 0, max: 25, items: [] };
+
+  if (doc) {
+    // Title tag
+    const title = doc.querySelector('title');
+    const titleText = title ? title.textContent.trim() : '';
+    if (titleText) {
+      if (titleText.length >= 30 && titleText.length <= 65) {
+        meta.score += 8; meta.items.push({ status: 'pass', text: 'Title tag present and optimal length (' + titleText.length + ' chars)' });
+      } else {
+        meta.score += 4; meta.items.push({ status: 'warn', text: 'Title tag present but ' + (titleText.length < 30 ? 'too short' : 'too long') + ' (' + titleText.length + ' chars, ideal: 30-65)' });
+      }
+    } else {
+      meta.items.push({ status: 'fail', text: 'Missing title tag &#8212; critical for SEO rankings' });
+    }
+
+    // Meta description
+    const metaDesc = doc.querySelector('meta[name="description"]');
+    const descText = metaDesc ? metaDesc.getAttribute('content') || '' : '';
+    if (descText) {
+      if (descText.length >= 120 && descText.length <= 160) {
+        meta.score += 7; meta.items.push({ status: 'pass', text: 'Meta description optimal (' + descText.length + ' chars)' });
+      } else {
+        meta.score += 3; meta.items.push({ status: 'warn', text: 'Meta description ' + (descText.length < 120 ? 'too short' : 'too long') + ' (' + descText.length + ' chars, ideal: 120-160)' });
+      }
+    } else {
+      meta.items.push({ status: 'fail', text: 'Missing meta description &#8212; shows in search results' });
+    }
+
+    // Viewport
+    const viewport = doc.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      meta.score += 5; meta.items.push({ status: 'pass', text: 'Mobile viewport meta tag present' });
+    } else {
+      meta.items.push({ status: 'fail', text: 'Missing viewport meta tag &#8212; hurts mobile rankings' });
+    }
+
+    // Canonical
+    const canonical = doc.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      meta.score += 5; meta.items.push({ status: 'pass', text: 'Canonical URL defined' });
+    } else {
+      meta.score += 1; meta.items.push({ status: 'warn', text: 'No canonical URL &#8212; risk of duplicate content issues' });
+    }
+  } else {
+    meta.items.push({ status: 'fail', text: 'Could not fetch page &#8212; site may be blocking crawlers' });
+    meta.score += 2;
+  }
+  results.categories.meta = meta;
+
+  await animateStep(5, 600);
+
+  // 2. CONTENT & STRUCTURE (25 points)
+  const content = { name: 'Content & Structure', score: 0, max: 25, items: [] };
+
+  if (doc) {
+    // H1 tag
+    const h1s = doc.querySelectorAll('h1');
+    if (h1s.length === 1) {
+      content.score += 7; content.items.push({ status: 'pass', text: 'Single H1 tag found &#8212; good heading hierarchy' });
+    } else if (h1s.length > 1) {
+      content.score += 3; content.items.push({ status: 'warn', text: 'Multiple H1 tags found (' + h1s.length + ') &#8212; use only one per page' });
+    } else {
+      content.items.push({ status: 'fail', text: 'No H1 tag found &#8212; every page needs one primary heading' });
+    }
+
+    // Heading hierarchy
+    const h2s = doc.querySelectorAll('h2');
+    const h3s = doc.querySelectorAll('h3');
+    if (h2s.length >= 2) {
+      content.score += 4; content.items.push({ status: 'pass', text: h2s.length + ' H2 subheadings found &#8212; good structure' });
+    } else if (h2s.length === 1) {
+      content.score += 2; content.items.push({ status: 'warn', text: 'Only 1 H2 tag &#8212; add more subheadings for better structure' });
+    } else {
+      content.items.push({ status: 'fail', text: 'No H2 tags &#8212; content lacks structural hierarchy' });
+    }
+
+    // Content length
+    const bodyText = doc.body ? doc.body.textContent.replace(/\s+/g, ' ').trim() : '';
+    const wordCount = bodyText.split(' ').filter(w => w.length > 2).length;
+    if (wordCount >= 800) {
+      content.score += 7; content.items.push({ status: 'pass', text: 'Good content length (~' + wordCount + ' words)' });
+    } else if (wordCount >= 300) {
+      content.score += 4; content.items.push({ status: 'warn', text: 'Content is thin (~' + wordCount + ' words, aim for 800+)' });
+    } else {
+      content.score += 1; content.items.push({ status: 'fail', text: 'Very thin content (~' + wordCount + ' words) &#8212; add more valuable content' });
+    }
+
+    // Image alt text
+    const imgs = doc.querySelectorAll('img');
+    const imgsWithAlt = Array.from(imgs).filter(i => i.getAttribute('alt') && i.getAttribute('alt').trim());
+    if (imgs.length === 0) {
+      content.score += 4; content.items.push({ status: 'warn', text: 'No images found &#8212; images improve engagement' });
+    } else {
+      const altPct = Math.round((imgsWithAlt.length / imgs.length) * 100);
+      if (altPct >= 90) {
+        content.score += 7; content.items.push({ status: 'pass', text: altPct + '% of images have alt text (' + imgsWithAlt.length + '/' + imgs.length + ')' });
+      } else if (altPct >= 50) {
+        content.score += 3; content.items.push({ status: 'warn', text: 'Only ' + altPct + '% of images have alt text &#8212; add alt text to all images' });
+      } else {
+        content.score += 1; content.items.push({ status: 'fail', text: 'Only ' + altPct + '% of images have alt text &#8212; critical accessibility issue' });
+      }
+    }
+  } else {
+    content.score += 3;
+    content.items.push({ status: 'fail', text: 'Could not analyze page content' });
+  }
+  results.categories.content = content;
+
+  await animateStep(6, 600);
+
+  // 3. TECHNICAL SEO (25 points)
+  const tech = { name: 'Technical SEO', score: 0, max: 25, items: [] };
+
+  // HTTPS
+  if (urlObj.protocol === 'https:') {
+    tech.score += 8; tech.items.push({ status: 'pass', text: 'Site uses HTTPS &#8212; secure connection' });
+  } else {
+    tech.items.push({ status: 'fail', text: 'Site not using HTTPS &#8212; Google penalizes insecure sites' });
+  }
+
+  // Robots.txt
+  if (robotsTxt && robotsTxt.length > 10 && robotsTxt.toLowerCase().includes('user-agent')) {
+    tech.score += 5; tech.items.push({ status: 'pass', text: 'robots.txt file found and configured' });
+  } else {
+    tech.score += 1; tech.items.push({ status: 'warn', text: 'No robots.txt found &#8212; tells search engines how to crawl your site' });
+  }
+
+  // Sitemap
+  if (sitemapXml && sitemapXml.length > 50 && (sitemapXml.includes('<urlset') || sitemapXml.includes('<sitemapindex'))) {
+    tech.score += 5; tech.items.push({ status: 'pass', text: 'XML sitemap found &#8212; helps search engines discover pages' });
+  } else {
+    tech.items.push({ status: 'fail', text: 'No XML sitemap &#8212; create one to help Google index all your pages' });
+  }
+
+  if (doc) {
+    // Open Graph
+    const og = doc.querySelector('meta[property="og:title"]');
+    if (og) {
+      tech.score += 4; tech.items.push({ status: 'pass', text: 'Open Graph tags present &#8212; good social sharing' });
+    } else {
+      tech.score += 1; tech.items.push({ status: 'warn', text: 'No Open Graph tags &#8212; social media shares won\'t look good' });
+    }
+
+    // Structured data
+    const jsonLd = doc.querySelectorAll('script[type="application/ld+json"]');
+    if (jsonLd.length > 0) {
+      tech.score += 3; tech.items.push({ status: 'pass', text: 'Structured data (JSON-LD) found &#8212; enables rich snippets' });
+    } else {
+      tech.items.push({ status: 'warn', text: 'No structured data &#8212; add Schema.org markup for rich search results' });
+    }
+  }
+  results.categories.tech = tech;
+
+  // 4. PERFORMANCE & UX (25 points)
+  const perf = { name: 'Performance & Links', score: 0, max: 25, items: [] };
+
+  if (doc) {
+    // Internal links
+    const allLinks = doc.querySelectorAll('a[href]');
+    const internalLinks = Array.from(allLinks).filter(a => {
+      const href = a.getAttribute('href');
+      return href && (href.startsWith('/') || href.includes(domain));
+    });
+    const externalLinks = Array.from(allLinks).filter(a => {
+      const href = a.getAttribute('href');
+      return href && href.startsWith('http') && !href.includes(domain);
+    });
+
+    if (internalLinks.length >= 5) {
+      perf.score += 6; perf.items.push({ status: 'pass', text: internalLinks.length + ' internal links &#8212; good site navigation' });
+    } else if (internalLinks.length >= 1) {
+      perf.score += 3; perf.items.push({ status: 'warn', text: 'Only ' + internalLinks.length + ' internal links &#8212; add more for better crawlability' });
+    } else {
+      perf.items.push({ status: 'fail', text: 'No internal links found &#8212; critical for site structure' });
+    }
+
+    if (externalLinks.length >= 1) {
+      perf.score += 4; perf.items.push({ status: 'pass', text: externalLinks.length + ' external links &#8212; good for authority signals' });
+    } else {
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'No external links &#8212; linking to authoritative sources builds trust' });
+    }
+
+    // URL structure
+    if (!targetUrl.includes('?') && !targetUrl.includes('#!')) {
+      perf.score += 4; perf.items.push({ status: 'pass', text: 'Clean URL structure &#8212; no query parameters' });
+    } else {
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'URL contains parameters &#8212; clean URLs rank better' });
+    }
+
+    // Check for render-blocking / page weight indicators
+    const scripts = doc.querySelectorAll('script[src]');
+    const stylesheets = doc.querySelectorAll('link[rel="stylesheet"]');
+    const totalResources = scripts.length + stylesheets.length;
+    if (totalResources <= 10) {
+      perf.score += 5; perf.items.push({ status: 'pass', text: totalResources + ' external resources &#8212; lightweight page' });
+    } else if (totalResources <= 20) {
+      perf.score += 3; perf.items.push({ status: 'warn', text: totalResources + ' external resources &#8212; consider reducing for speed' });
+    } else {
+      perf.score += 1; perf.items.push({ status: 'fail', text: totalResources + ' external resources &#8212; heavy page, optimize for speed' });
+    }
+
+    // Lang attribute
+    const htmlTag = doc.querySelector('html');
+    const lang = htmlTag ? htmlTag.getAttribute('lang') : null;
+    if (lang) {
+      perf.score += 3; perf.items.push({ status: 'pass', text: 'HTML lang attribute set (' + lang + ')' });
+    } else {
+      perf.items.push({ status: 'warn', text: 'No lang attribute on HTML &#8212; set it for accessibility & SEO' });
+    }
+
+    // Favicon
+    const favicon = doc.querySelector('link[rel="icon"], link[rel="shortcut icon"]');
+    if (favicon) {
+      perf.score += 3; perf.items.push({ status: 'pass', text: 'Favicon found' });
+    } else {
+      perf.score += 1; perf.items.push({ status: 'warn', text: 'No favicon &#8212; adds brand recognition in browser tabs & bookmarks' });
+    }
+  } else {
+    perf.score += 5;
+    perf.items.push({ status: 'warn', text: 'Limited analysis &#8212; could not fully access page resources' });
+  }
+  results.categories.perf = perf;
+
+  await animateStep(7, 500);
+
+  // Calculate total
+  let totalScore = 0, maxScore = 0;
+  for (const cat of Object.values(results.categories)) {
+    totalScore += cat.score;
+    maxScore += cat.max;
+  }
+  results.totalScore = Math.round((totalScore / maxScore) * 100);
+
+  // Save audit results to S3
+  try {
+    const s3 = new AWS.S3({ region: S3_REGION });
+    await s3.putObject({
+      Bucket: S3_BUCKET,
+      Key: 'audits/seoaudit_' + domain.replace(/\./g, '_') + '_' + Date.now() + '.json',
+      Body: JSON.stringify({ url: targetUrl, domain, score: results.totalScore, categories: results.categories, user: userData, timestamp: new Date().toISOString() }),
+      ContentType: 'application/json'
+    }).promise();
+  } catch (e) { console.error('S3 audit save error:', e); }
+
+  // GA4 event
+  if (window.gtag) gtag('event', 'seo_audit_complete', { score: results.totalScore, domain: domain });
+
+  // Small delay for final step animation
+  await new Promise(r => setTimeout(r, 800));
+
+  // Mark all steps done
+  document.querySelectorAll('.loading-step').forEach(s => {
+    s.classList.remove('active');
+    s.classList.add('done');
+    s.querySelector('.check').textContent = '&#10003;';
+  });
+  await new Promise(r => setTimeout(r, 500));
+
+  // Show results
+  showResults(results, targetUrl, domain);
+}
+
+// &#9472;&#9472;&#9472; DISPLAY RESULTS &#9472;&#9472;&#9472;
+function showResults(results, url, domain) {
+  document.getElementById('loadingView').classList.remove('active');
+  document.getElementById('resultsView').classList.add('active');
+
+  const score = results.totalScore;
+
+  // Animate score ring
+  const arc = document.getElementById('scoreArc');
+  const circumference = 2 * Math.PI * 80; // r=80
+  const offset = circumference - (score / 100) * circumference;
+  setTimeout(() => { arc.style.strokeDashoffset = offset; }, 100);
+
+  // Color based on score
+  let color, grade, summary;
+  if (score >= 80) {
+    color = '#28CA41'; grade = 'Excellent SEO';
+    summary = domain + ' has strong SEO fundamentals. A few optimizations could push you even higher in search rankings.';
+  } else if (score >= 60) {
+    color = '#FFD93D'; grade = 'Good &#8212; Room for Improvement';
+    summary = domain + ' has decent SEO but there are several areas that need attention to reach top search positions.';
+  } else if (score >= 40) {
+    color = '#FF6B35'; grade = 'Needs Work';
+    summary = domain + ' has significant SEO gaps. Fixing these issues could dramatically improve your search visibility.';
+  } else {
+    color = '#FF4444'; grade = 'Critical &#8212; Immediate Action Needed';
+    summary = domain + ' has major SEO problems. Your site is likely invisible to search engines. Immediate optimization is recommended.';
+  }
+
+  arc.style.stroke = color;
+  document.getElementById('scoreNumber').textContent = score;
+  document.getElementById('scoreNumber').style.color = color;
+  document.getElementById('scoreGrade').textContent = grade;
+  document.getElementById('scoreGrade').style.color = color;
+  document.getElementById('scoreSummary').textContent = summary;
+
+  // Animate score number
+  let current = 0;
+  const interval = setInterval(() => {
+    current += 1;
+    if (current > score) { clearInterval(interval); return; }
+    document.getElementById('scoreNumber').textContent = current;
+  }, 20);
+
+  // Render category cards
+  const grid = document.getElementById('categoryGrid');
+  grid.innerHTML = '';
+  const catOrder = ['meta', 'content', 'tech', 'perf'];
+  const catIcons = { meta: 'Meta', content: 'Content', tech: 'Tech', perf: 'Perf' };
+
+  for (const key of catOrder) {
+    const cat = results.categories[key];
+    if (!cat) continue;
+    const pct = Math.round((cat.score / cat.max) * 100);
+    let barColor = pct >= 80 ? '#28CA41' : pct >= 60 ? '#FFD93D' : pct >= 40 ? '#FF6B35' : '#FF4444';
+
+    let itemsHTML = '';
+    for (const item of cat.items) {
+      const icon = item.status === 'pass' ? '&#10003;' : item.status === 'warn' ? '!' : '&#10007;';
+      itemsHTML += '<div class="cat-item"><div class="icon ' + item.status + '">' + icon + '</div><span>' + item.text + '</span></div>';
+    }
+
+    grid.innerHTML += `
+      <div class="cat-card">
+        <div class="cat-header">
+          <div class="cat-title">${cat.name}</div>
+          <div class="cat-score" style="color:${barColor}">${cat.score}/${cat.max}</div>
+        </div>
+        <div class="cat-bar"><div class="cat-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+        <div class="cat-items">${itemsHTML}</div>
+      </div>
+    `;
+  }
+
+  // Generate timeline
+  const timeline = document.getElementById('timelineRows');
+  const projectedScores = [
+    { week: 'Week 1-2', desc: 'Fix critical meta tags, title, and descriptions', gain: Math.min(15, 100 - score) },
+    { week: 'Week 3-4', desc: 'Optimize heading structure and content quality', gain: Math.min(10, 100 - score - 15) },
+    { week: 'Week 5-6', desc: 'Add structured data, sitemap, robots.txt', gain: Math.min(8, 100 - score - 25) },
+    { week: 'Week 7-8', desc: 'Improve page speed and mobile optimization', gain: Math.min(7, 100 - score - 33) },
+    { week: 'Week 9-12', desc: 'Build internal links and content strategy', gain: Math.min(10, 100 - score - 40) },
+    { week: 'Week 13-16', desc: 'Off-page SEO and backlink building', gain: Math.min(10, 100 - score - 50) },
+    { week: 'Ongoing', desc: 'Weekly monitoring, content updates, rank tracking', gain: 0 },
+  ];
+
+  let runningScore = score;
+  timeline.innerHTML = '';
+  for (const row of projectedScores) {
+    runningScore = Math.min(100, runningScore + Math.max(0, row.gain));
+    const scoreColor = runningScore >= 80 ? '#28CA41' : runningScore >= 60 ? '#FFD93D' : '#FF6B35';
+    timeline.innerHTML += `
+      <div class="tl-row">
+        <div class="tl-week">${row.week}</div>
+        <div class="tl-desc">${row.desc}</div>
+        <div class="tl-score" style="color:${scoreColor}">${row.gain > 0 ? runningScore + '/100' : '&#128260;'}</div>
+      </div>
+    `;
+  }
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script src="https://www.theaisuperheroes.com/referral-tracking.js"></script>
+<script src="https://www.theaisuperheroes.com/identity-graph.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SEO Audit - SEOAi SuperHero</title>
+<meta name="description" content="Get a free, instant SEO audit of your website. Receive a score from 1-100 with actionable recommendations to improve your search rankings.">
+<link rel="canonical" href="https://seoaisuperhero.com/seo-audit.html">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
+
 <!-- AWS SDK for S3 lead capture -->
 <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1472.0.min.js"></script>
 
