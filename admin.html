@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SEO AI SuperHero — OPS</title>
+<title>SEO AI SuperHero â OPS</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1472.0.min.js"></script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P2C3KN7T');</script>
 <style>
 :root{--bg:#0a0e1a;--bg2:#0f172a;--bg3:#1e293b;--bg4:#334155;--primary:#10b981;--primary2:#059669;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6}
@@ -59,6 +60,7 @@ td{padding:6px 8px;border-bottom:1px solid rgba(30,41,59,.4)}tr:hover td{backgro
 <div class="tab" onclick="goTab('revenue')">Revenue</div>
 <div class="tab" onclick="goTab('users')">Users</div>
 <div class="tab" onclick="goTab('analytics')">Analytics</div>
+<div class="tab" onclick="goTab('leads')">Leads</div>
 <div class="tab" onclick="goTab('marketing')">Marketing</div>
 <div class="tab" onclick="goTab('config')">Config</div>
 </div>
@@ -113,6 +115,23 @@ td{padding:6px 8px;border-bottom:1px solid rgba(30,41,59,.4)}tr:hover td{backgro
 <tr><td>Competitor Analysis</td><td>0</td><td>--</td></tr>
 </table></div>
 </div>
+<!-- LEADS -->
+<div class="section" id="sec-leads">
+<div class="grid g4" style="margin-bottom:12px">
+<div class="card"><h4>Total Leads</h4><div class="val" id="leadTotal">--</div><div class="sub">All time</div></div>
+<div class="card"><h4>Today</h4><div class="val" id="leadToday">--</div><div class="sub">New leads</div></div>
+<div class="card"><h4>This Week</h4><div class="val" id="leadWeek">--</div><div class="sub">Last 7 days</div></div>
+<div class="card"><h4>Top Source</h4><div class="val" id="leadTopSrc">--</div><div class="sub" id="leadTopSrcPct"></div></div>
+</div>
+<div class="grid g2" style="margin-bottom:12px">
+<div class="card"><h4>Leads by UTM Source</h4><div class="chart-box"><canvas id="leadSrcChart"></canvas></div></div>
+<div class="card"><h4>UTM Campaign Performance</h4><table id="utmCampaignTable"><tr><th>Campaign</th><th>Source</th><th>Medium</th><th>Leads</th></tr><tr><td colspan="4" style="text-align:center;color:var(--text3);padding:20px">Loading...</td></tr></table></div>
+</div>
+<div class="card" style="margin-bottom:12px"><h4>Recent Leads</h4>
+<div style="margin-bottom:8px"><input class="inp" id="leadSearch" placeholder="Search by email, name, or source..." style="width:300px" oninput="filterLeads()"><select class="inp" id="leadFilter" style="margin-left:8px" onchange="filterLeads()"><option value="">All Sources</option><option value="reddit_ads">Reddit Ads</option><option value="facebook_ads">Facebook Ads</option><option value="google_ads">Google Ads</option><option value="google_organic">Google Organic</option><option value="email_campaign">Email Campaign</option><option value="cold_email">Cold Email</option><option value="affiliate">Affiliate</option><option value="twitter">Twitter/X</option><option value="linkedin">LinkedIn</option><option value="referral">Referral</option><option value="direct">Direct</option></select></div>
+<table id="leadsTable"><tr><th>Date</th><th>Name</th><th>Email</th><th>Website</th><th>Source</th><th>UTM Campaign</th><th>UTM Medium</th></tr><tr><td colspan="7" style="text-align:center;color:var(--text3);padding:20px">Loading leads from S3...</td></tr></table>
+</div>
+</div>
 <!-- MARKETING -->
 <div class="section" id="sec-marketing">
 <div class="grid g3" style="margin-bottom:12px">
@@ -150,11 +169,78 @@ td{padding:6px 8px;border-bottom:1px solid rgba(30,41,59,.4)}tr:hover td{backgro
 </div>
 </div>
 <script>
-function doLogin(){const u=document.getElementById('lu').value,p=document.getElementById('lp').value;if(u==='Jarvis.Stark1985'&&p==='Superhero2026$'){document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='flex';initCharts()}else{document.getElementById('le').style.display='block';setTimeout(()=>document.getElementById('le').style.display='none',3000)}}
+function doLogin(){const u=document.getElementById('lu').value,p=document.getElementById('lp').value;if(u==='Jarvis.Stark1985'&&p==='Superhero2026$'){document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='flex';initCharts();loadLeadsFromS3()}else{document.getElementById('le').style.display='block';setTimeout(()=>document.getElementById('le').style.display='none',3000)}}
 function signOut(){document.getElementById('app').style.display='none';document.getElementById('loginScreen').style.display='flex'}
 function goTab(t){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('sec-'+t).classList.add('active');document.querySelectorAll('.tab').forEach(s=>s.classList.remove('active'));event.target.classList.add('active')}
 function initCharts(){new Chart(document.getElementById('revChart'),{type:'bar',data:{labels:['Apr 1','2','3','4','5','6','7','8','9','10','11','12','13','14'],datasets:[{label:'Revenue',data:[0,0,0,0,0,0,0,0,0,0,0,0,0,0],backgroundColor:'rgba(16,185,129,.3)',borderColor:'#10b981',borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#475569',font:{size:9}}},y:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'#475569',font:{size:9}}}}}})}
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.getElementById('loginScreen').style.display!=='none')doLogin()});
+
+// === LEADS FROM S3 ===
+var allLeads=[];
+async function loadLeadsFromS3(){
+  try{
+    AWS.config.region='us-east-2';
+    AWS.config.credentials=new AWS.CognitoIdentityCredentials({IdentityPoolId:'us-east-2:662dfd2a-8d86-4ee3-875b-cd55d0acff8d'});
+    await new Promise((r,j)=>AWS.config.credentials.get(e=>e?j(e):r()));
+    var s3=new AWS.S3({region:'us-east-2'});
+    var data=await s3.listObjectsV2({Bucket:'superhero-clients-theaisuperheroes',Prefix:'leads/',MaxKeys:1000}).promise();
+    allLeads=[];
+    var fetches=(data.Contents||[]).filter(o=>o.Key.endsWith('.json')).map(async o=>{
+      try{var obj=await s3.getObject({Bucket:'superhero-clients-theaisuperheroes',Key:o.Key}).promise();
+      var lead=JSON.parse(obj.Body.toString());allLeads.push(lead);}catch(e){}
+    });
+    await Promise.all(fetches);
+    allLeads.sort((a,b)=>new Date(b.timestamp||0)-new Date(a.timestamp||0));
+    renderLeads();
+  }catch(e){console.error('Load leads error:',e);}
+}
+function renderLeads(){
+  var today=new Date().toISOString().split('T')[0];
+  var weekAgo=new Date(Date.now()-7*86400000).toISOString().split('T')[0];
+  var todayLeads=allLeads.filter(l=>(l.date||'').startsWith(today));
+  var weekLeads=allLeads.filter(l=>(l.date||l.timestamp||'')>=weekAgo);
+  document.getElementById('leadTotal').textContent=allLeads.length;
+  document.getElementById('leadToday').textContent=todayLeads.length;
+  document.getElementById('leadWeek').textContent=weekLeads.length;
+  // Source breakdown
+  var srcCounts={};
+  allLeads.forEach(l=>{var s=l.lead_source||l.utm_source||'direct';srcCounts[s]=(srcCounts[s]||0)+1;});
+  var sorted=Object.entries(srcCounts).sort((a,b)=>b[1]-a[1]);
+  if(sorted.length>0){document.getElementById('leadTopSrc').textContent=sorted[0][0].replace(/_/g,' ');document.getElementById('leadTopSrcPct').textContent=sorted[0][1]+' leads ('+Math.round(sorted[0][1]/allLeads.length*100)+'%)';}
+  // Source chart
+  var labels=sorted.map(s=>s[0].replace(/_/g,' '));
+  var vals=sorted.map(s=>s[1]);
+  var colors=['#10b981','#3b82f6','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6'];
+  if(window._leadChart)window._leadChart.destroy();
+  window._leadChart=new Chart(document.getElementById('leadSrcChart'),{type:'doughnut',data:{labels:labels,datasets:[{data:vals,backgroundColor:colors.slice(0,labels.length),borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{color:'#94a3b8',font:{size:10},boxWidth:12}}}}});
+  // UTM campaign table
+  var campCounts={};
+  allLeads.forEach(l=>{if(l.utm_campaign){var k=l.utm_campaign;if(!campCounts[k])campCounts[k]={campaign:k,source:l.utm_source||'',medium:l.utm_medium||'',count:0};campCounts[k].count++;}});
+  var campArr=Object.values(campCounts).sort((a,b)=>b.count-a.count);
+  var ct=document.getElementById('utmCampaignTable');
+  ct.innerHTML='<tr><th>Campaign</th><th>Source</th><th>Medium</th><th>Leads</th></tr>';
+  if(campArr.length===0){ct.innerHTML+='<tr><td colspan="4" style="text-align:center;color:var(--text3);padding:12px">No UTM campaigns tracked yet</td></tr>';}
+  campArr.forEach(c=>{ct.innerHTML+='<tr><td>'+c.campaign+'</td><td>'+c.source+'</td><td>'+c.medium+'</td><td><strong>'+c.count+'</strong></td></tr>';});
+  // Leads table
+  filterLeads();
+}
+function filterLeads(){
+  var search=(document.getElementById('leadSearch').value||'').toLowerCase();
+  var filter=document.getElementById('leadFilter').value;
+  var filtered=allLeads.filter(l=>{
+    if(filter&&(l.lead_source||'')!==filter)return false;
+    if(search){var hay=((l.firstName||'')+' '+(l.lastName||'')+' '+(l.email||'')+' '+(l.lead_source||'')+' '+(l.utm_campaign||'')).toLowerCase();if(!hay.includes(search))return false;}
+    return true;
+  });
+  var tb=document.getElementById('leadsTable');
+  tb.innerHTML='<tr><th>Date</th><th>Name</th><th>Email</th><th>Website</th><th>Source</th><th>UTM Campaign</th><th>UTM Medium</th></tr>';
+  if(filtered.length===0){tb.innerHTML+='<tr><td colspan="7" style="text-align:center;color:var(--text3);padding:12px">No leads found</td></tr>';return;}
+  filtered.slice(0,100).forEach(l=>{
+    var srcBadge='bg';if((l.lead_source||'').includes('reddit'))srcBadge='br';else if((l.lead_source||'').includes('google'))srcBadge='bb';else if((l.lead_source||'').includes('facebook'))srcBadge='by';
+    var dt=l.timestamp?new Date(l.timestamp).toLocaleDateString():'--';
+    tb.innerHTML+='<tr><td>'+dt+'</td><td>'+(l.firstName||'')+' '+(l.lastName||'')+'</td><td>'+(l.email||'')+'</td><td style="max-width:150px;overflow:hidden;text-overflow:ellipsis">'+(l.website||'')+'</td><td><span class="badge-s '+srcBadge+'">'+(l.lead_source||'direct').replace(/_/g,' ')+'</span></td><td>'+(l.utm_campaign||'--')+'</td><td>'+(l.utm_medium||'--')+'</td></tr>';
+  });
+}
 </script>
 </body>
 </html>
